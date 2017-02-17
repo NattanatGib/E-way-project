@@ -2,8 +2,7 @@ package Eway.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Scanner;
+
 
 public class Booking {
     private String time;//เวลาที่ให้ไปรับ
@@ -106,6 +105,8 @@ public class Booking {
             return false;
         }
     }
+    
+    
 }
 
 
