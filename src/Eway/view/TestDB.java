@@ -1,4 +1,4 @@
-package E.way;
+package Eway.view;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
