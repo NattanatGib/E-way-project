@@ -88,16 +88,16 @@ public class Booking {
     
     public boolean regisBook() {
         //แก้ sql ให้ตรงกับ db เรา 
-        String sqlInsert = "insert into BOOKING(BOOKING_ID, BOOKING_DATE, BOOKING_ROUND, ROUTE_ID)"
-                + " values (?, ?, ?, ?)";
+        String sqlInsert = "insert into BOOKING(BOOKING_DATE, BOOKING_ROUND, ROUTE_ID)"
+                + " values (?, ?, ?)";
         try {
             Connection con = ConnectionBuilder.getConnection();
             PreparedStatement stm = null;
             stm = con.prepareStatement(sqlInsert);
-            stm.setInt(1, this.bookingId);
-            stm.setString(2, this.date);
-            stm.setString(3, this.time);
-            stm.setInt(4, this.routeId);
+           
+            stm.setString(1, this.date);
+            stm.setString(2, this.time);
+            stm.setInt(3, this.routeId);
             stm.execute();
             return true;
         } catch (SQLException ex) {
