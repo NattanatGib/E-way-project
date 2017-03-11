@@ -8,43 +8,32 @@ public class Booking {
     private String time;//เวลาที่ให้ไปรับ
     private String date;//วันที่ที่ใช้รถ
     private String recievePlace;//สถานที่รับ
-    private String sendPlace;//สถานที่ส่ง
+    //private String sendPlace;//สถานที่ส่ง
     private int bookingId;
     private int routeId;
     public Booking(){
         
     }
 
-    public Booking(String time, String date, String recievePlace, String sendPlace) {
+    public Booking(String time, String date, String recievePlace, int routeId) {
+        this.time = time;
+        this.date = date;
+        this.recievePlace = recievePlace;
+        this.routeId = routeId;
+    }
+
+    /*public Booking(String time, String date, String recievePlace, String sendPlace) {
         this.date = date;
         this.time = time;
         this.recievePlace = recievePlace;
         this.sendPlace = sendPlace;
-        
+        ///////// ส่วนที่ผมทำ///////////////////////
         if(regisBook()){
             System.out.println("Success");
         }else
             System.out.println("Failed");
-        /*try{
-            con = E.way.ConnectionBuilder.getConnection();
-            
-            
-            
-            
-            String sql = "SELECT COUNT (*) FROM SAJA.BOOKING";
-            PreparedStatement pstm = con.prepareStatement(sql);
-            
-            //String sql = "INSERT INTO SAMPLE.BOOKING (BOOKING_ID, BOOKING_DATE, BOOKING_ROUND, ROUTE_ID)"+ "VALUES (" +  +",'2017-02-12',"+ "'2017-02-12 23:57:03.914'", NULL);
-           // s =con.createStatement();
-           // s.execute(sql);
-            System.out.println("Booking success");
-        
-        }catch(Exception e){
-            System.out.print("Error");
-            
-        }*/
-        
-    }
+        ////////////////////////////////////////
+    }*/
 
     public String getTime() {
         return time;
@@ -70,24 +59,15 @@ public class Booking {
         this.recievePlace = recievePlace;
     }
 
-    public String getSendPlace() {
-        return sendPlace;
-    }
-
-    public void setSendPlace(String sendPlace) {
-        this.sendPlace = sendPlace;
-    }
-
     @Override
     public String toString() {
         return "Time : "+ time + "\n" +
                "Daye : "+ date + "\n" +
-               "Place : "+ recievePlace + "\n" +
-               "Location : " + sendPlace ;
+               "Place : "+ recievePlace + "\n" ;
+               //"Location : " + sendPlace ;
     }
     
     public boolean regisBook() {
-        //แก้ sql ให้ตรงกับ db เรา 
         String sqlInsert = "insert into BOOKING(BOOKING_DATE, BOOKING_ROUND, ROUTE_ID)"
                 + " values (?, ?, ?)";
         try {
