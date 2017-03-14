@@ -20,6 +20,11 @@ public class Booking {
         this.date = date;
         this.recievePlace = recievePlace;
         this.routeId = routeId;
+        if(regisBook())
+            System.out.println("Success");
+        else
+            System.out.println("Failed");
+        
     }
 
     /*public Booking(String time, String date, String recievePlace, String sendPlace) {
