@@ -5,33 +5,56 @@
  */
 package Eway.model;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author ASUS
  */
 public class Profile {
     private String StuName;
-    private String StuId;
     private String Falculty;
     private String BranchOf;
+    private String EMAIL;
+    private String Password;
+    private String Tel;
     
     public Profile(){
         
     }
+    public static void getProfile(ResultSet rs,Profile p)throws SQLException{
+        p.setStuName(rs.getString("StudentName"));
+        p.setFalculty(rs.getString("Falculty"));
+        p.setBranchOf(rs.getString("BranchOf"));
+        p.setEMAIL(rs.getString("EMAIL"));
+        p.setPassword(rs.getString("password"));
+        p.setTel(rs.getString("tel"));
+        }
+    public static Profile findById(long id){
+Profile p = null;
+try {
+String cmd = "select * from person where userid = ?"; 
+Connection conn = ConnectionBuilder.getConnection();
+PreparedStatement pstm = conn.prepareStatement(cmd);
+pstm.setLong(1, id);
+ResultSet rs = pstm.executeQuery();
+if(rs.next()){
+p = new Profile();
+getProfile(rs, p);
+}
+} catch (Exception e) {
+System.out.println("Error ja");
+}
 
-    public Profile(String StuName, String StuId, String Falculty, String BranchOf) {
-        this.StuName = StuName;
-        this.StuId = StuId;
-        this.Falculty = Falculty;
-        this.BranchOf = BranchOf;
-    }
+return p;
+}
+ 
 
     public String getStuName() {
         return StuName;
-    }
-
-    public String getStuId() {
-        return StuId;
     }
 
     public String getFalculty() {
@@ -42,12 +65,21 @@ public class Profile {
         return BranchOf;
     }
 
-    public void setStuName(String StuName) {
-        this.StuName = StuName;
+    public String getEMAIL() {
+        return EMAIL;
     }
 
-    public void setStuId(String StuId) {
-        this.StuId = StuId;
+    public String getPassword() {
+        return Password;
+    }
+
+    public String getTel() {
+        return Tel;
+    }
+    
+
+    public void setStuName(String StuName) {
+        this.StuName = StuName;
     }
 
     public void setFalculty(String Falculty) {
@@ -58,9 +90,26 @@ public class Profile {
         this.BranchOf = BranchOf;
     }
 
+    public void setEMAIl(String EMAIL) {
+        this.EMAIL = EMAIL;
+    }
+
+    public void setPassword(String password) {
+        this.Password = password;
+    }
+
+    public void setEMAIL(String EMAIL) {
+        this.EMAIL = EMAIL;
+    }
+
+    public void setTel(String tel) {
+        this.Tel = tel;
+    }
+    
+
     @Override
     public String toString() {
-        return "StudentName: " + StuName +"\n"+ "StudentId: " + StuId +"\n"+ "Falcult: " + Falculty +"\n"+ "BranchOf :" + BranchOf ;
+        return "StudentName: " + StuName +"Falcult: " + Falculty +"\n"+ "BranchOf :" + BranchOf +"\n"+"EMAIL :"+ EMAIL+"\n"+"password :"+Password+"\n"+"tel :"+Tel ;
     }
     
 }
