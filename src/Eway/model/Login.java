@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author Rei
  */
-public class Login {
+public class Login { 
    public static void login(String stdId,String pass){
       
             String sql="SELECT * FROM STUDENT WHERE STUDENTID=? AND PASSWORD=?";

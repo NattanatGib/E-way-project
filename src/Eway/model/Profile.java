@@ -32,25 +32,25 @@ public class Profile {
         p.setEMAIL(rs.getString("EMAIL"));
         p.setPassword(rs.getString("password"));
         p.setTel(rs.getString("tel"));
-        }
+    }
     public static Profile findById(long id){
-Profile p = null;
-try {
-String cmd = "select * from person where userid = ?"; 
-Connection conn = ConnectionBuilder.getConnection();
-PreparedStatement pstm = conn.prepareStatement(cmd);
-pstm.setLong(1, id);
-ResultSet rs = pstm.executeQuery();
-if(rs.next()){
-p = new Profile();
-getProfile(rs, p);
-}
-} catch (Exception e) {
-System.out.println("Error ja");
-}
+        Profile p = null;
+        try {
+            String cmd = "select * from person where userid = ?"; 
+            Connection conn = ConnectionBuilder.getConnection();
+            PreparedStatement pstm = conn.prepareStatement(cmd);
+            pstm.setLong(1, id);
+            ResultSet rs = pstm.executeQuery();
+        if(rs.next()){
+            p = new Profile();
+            getProfile(rs, p);
+        }
+        } catch (Exception e) {
+            System.out.println("Error ja");
+        }
 
-return p;
-}
+        return p;
+    }
  
 
     public String getStuName() {
