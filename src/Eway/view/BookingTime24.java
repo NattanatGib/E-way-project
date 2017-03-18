@@ -5,6 +5,10 @@
  */
 package Eway.view;
 
+import Eway.model.Booking;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author hp
@@ -34,10 +38,10 @@ public class BookingTime24 extends javax.swing.JFrame {
         sendPlace = new javax.swing.JLabel();
         phnNumber = new javax.swing.JLabel();
         showTime = new javax.swing.JLabel();
-        txt_pickupPlace = new javax.swing.JTextField();
-        txt_sendPlace = new javax.swing.JTextField();
+        recievePlace = new javax.swing.JTextField();
         txt_phoneNumber = new javax.swing.JTextField();
         booking = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,17 +72,10 @@ public class BookingTime24 extends javax.swing.JFrame {
         showTime.setForeground(new java.awt.Color(255, 255, 255));
         showTime.setText(" 24.00");
 
-        txt_pickupPlace.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        txt_pickupPlace.addActionListener(new java.awt.event.ActionListener() {
+        recievePlace.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        recievePlace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_pickupPlaceActionPerformed(evt);
-            }
-        });
-
-        txt_sendPlace.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        txt_sendPlace.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_sendPlaceActionPerformed(evt);
+                recievePlaceActionPerformed(evt);
             }
         });
 
@@ -92,6 +89,18 @@ public class BookingTime24 extends javax.swing.JFrame {
         booking.setBackground(new java.awt.Color(255, 204, 204));
         booking.setFont(new java.awt.Font("4815_KwangMD_Catthai", 1, 16)); // NOI18N
         booking.setText("Booking");
+        booking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bookingActionPerformed(evt);
+            }
+        });
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,10 +123,9 @@ public class BookingTime24 extends javax.swing.JFrame {
                                 .addComponent(showTime, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(booking)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txt_sendPlace)
-                                    .addComponent(txt_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(txt_pickupPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txt_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(recievePlace, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 104, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -131,12 +139,12 @@ public class BookingTime24 extends javax.swing.JFrame {
                     .addComponent(showTime, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txt_pickupPlace)
+                    .addComponent(recievePlace)
                     .addComponent(pickupPlace, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sendPlace)
-                    .addComponent(txt_sendPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(phnNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,17 +168,26 @@ public class BookingTime24 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_pickupPlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pickupPlaceActionPerformed
+    private void recievePlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recievePlaceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_pickupPlaceActionPerformed
-
-    private void txt_sendPlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_sendPlaceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_sendPlaceActionPerformed
+    }//GEN-LAST:event_recievePlaceActionPerformed
 
     private void txt_phoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_phoneNumberActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_phoneNumberActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingActionPerformed
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date dt = new Date();
+        String date= format.format(dt);
+        String time=date;
+        time+="24:00:00";
+        Booking b=new Booking(time,date,recievePlace.getText(),1);
+    }//GEN-LAST:event_bookingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -210,14 +227,14 @@ public class BookingTime24 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton booking;
     private javax.swing.JLabel bookingDetl;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel phnNumber;
     private javax.swing.JLabel pickupPlace;
+    private javax.swing.JTextField recievePlace;
     private javax.swing.JLabel sendPlace;
     private javax.swing.JLabel showTime;
     private javax.swing.JLabel time;
     private javax.swing.JTextField txt_phoneNumber;
-    private javax.swing.JTextField txt_pickupPlace;
-    private javax.swing.JTextField txt_sendPlace;
     // End of variables declaration//GEN-END:variables
 }

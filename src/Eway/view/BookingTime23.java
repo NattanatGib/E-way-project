@@ -5,6 +5,10 @@
  */
 package Eway.view;
 
+import Eway.model.Booking;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author hp
@@ -36,7 +40,7 @@ public class BookingTime23 extends javax.swing.JFrame {
         sendPlace = new javax.swing.JLabel();
         phnNumber = new javax.swing.JLabel();
         showTime = new javax.swing.JLabel();
-        txt_pickupPlace = new javax.swing.JTextField();
+        recievePlace = new javax.swing.JTextField();
         txt_phoneNumber = new javax.swing.JTextField();
         booking = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -77,10 +81,10 @@ public class BookingTime23 extends javax.swing.JFrame {
         showTime.setForeground(new java.awt.Color(255, 255, 255));
         showTime.setText(" 23.00");
 
-        txt_pickupPlace.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
-        txt_pickupPlace.addActionListener(new java.awt.event.ActionListener() {
+        recievePlace.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
+        recievePlace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_pickupPlaceActionPerformed(evt);
+                recievePlaceActionPerformed(evt);
             }
         });
 
@@ -113,7 +117,7 @@ public class BookingTime23 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(bookingDetl)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,13 +130,17 @@ public class BookingTime23 extends javax.swing.JFrame {
                                 .addGap(62, 62, 62)
                                 .addComponent(showTime, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(booking, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txt_phoneNumber, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txt_pickupPlace, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addGap(0, 63, Short.MAX_VALUE))
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(recievePlace, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(booking))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,29 +154,29 @@ public class BookingTime23 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pickupPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_pickupPlace))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(recievePlace))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(sendPlace)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(phnNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phnNumber)
                     .addComponent(txt_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(35, 35, 35)
                 .addComponent(booking)
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
         );
 
         pack();
@@ -178,16 +186,21 @@ public class BookingTime23 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_phoneNumberActionPerformed
 
-    private void txt_pickupPlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_pickupPlaceActionPerformed
+    private void recievePlaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recievePlaceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txt_pickupPlaceActionPerformed
+    }//GEN-LAST:event_recievePlaceActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingActionPerformed
-        
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date dt = new Date();
+        String date= format.format(dt);
+        String time=date;
+        time+="23:00:00";
+        Booking b=new Booking(time,date,recievePlace.getText(),1);
     }//GEN-LAST:event_bookingActionPerformed
 
     /**
@@ -234,10 +247,10 @@ public class BookingTime23 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel phnNumber;
     private javax.swing.JLabel pickupPlace;
+    private javax.swing.JTextField recievePlace;
     private javax.swing.JLabel sendPlace;
     private javax.swing.JLabel showTime;
     private javax.swing.JLabel time;
     private javax.swing.JTextField txt_phoneNumber;
-    private javax.swing.JTextField txt_pickupPlace;
     // End of variables declaration//GEN-END:variables
 }
