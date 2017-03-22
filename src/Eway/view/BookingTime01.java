@@ -180,8 +180,9 @@ public class BookingTime01 extends javax.swing.JFrame {
         Date dt = new Date();
         String date= format.format(dt);
         String time=date;
-        time+="01:00:00";
-        Booking b=new Booking(time,date,recievePlace.getText(),1);
+        time+=" 01:00:00";    
+        Booking b=new Booking(time,date,recievePlace.getText(),(jComboBox2.getSelectedIndex()+1));
+        
     }//GEN-LAST:event_bookingActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed

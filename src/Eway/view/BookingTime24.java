@@ -181,12 +181,12 @@ public class BookingTime24 extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bookingActionPerformed
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+       SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date dt = new Date();
         String date= format.format(dt);
         String time=date;
-        time+="24:00:00";
-        Booking b=new Booking(time,date,recievePlace.getText(),1);
+        time+=" 24:00:00";    
+        Booking b=new Booking(time,date,recievePlace.getText(),(jComboBox2.getSelectedIndex()+1));
     }//GEN-LAST:event_bookingActionPerformed
 
     /**

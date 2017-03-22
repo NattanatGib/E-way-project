@@ -14,7 +14,7 @@ import java.sql.SQLException;
  *
  * @author ASUS
  */
-public class Profile {
+public class Person {
     private String StuName;
     private String Falculty;
     private String BranchOf;
@@ -22,10 +22,10 @@ public class Profile {
     private String Password;
     private String Tel;
     
-    public Profile(){
+    public Person(){
         
     }
-    public static void getProfile(ResultSet rs,Profile p)throws SQLException{
+    public static void getProfile(ResultSet rs,Person p)throws SQLException{
         p.setStuName(rs.getString("StudentName"));
         p.setFalculty(rs.getString("Falculty"));
         p.setBranchOf(rs.getString("BranchOf"));
@@ -33,16 +33,16 @@ public class Profile {
         p.setPassword(rs.getString("password"));
         p.setTel(rs.getString("tel"));
     }
-    public static Profile findById(long id){
-        Profile p = null;
+    public static Person findById(long id){
+        Person p = null;
         try {
-            String cmd = "select * from person where userid = ?"; 
+            String cmd = "select * from Person where Person_ID  = ?"; 
             Connection conn = ConnectionBuilder.getConnection();
             PreparedStatement pstm = conn.prepareStatement(cmd);
             pstm.setLong(1, id);
             ResultSet rs = pstm.executeQuery();
         if(rs.next()){
-            p = new Profile();
+            p = new Person();
             getProfile(rs, p);
         }
         } catch (Exception e) {

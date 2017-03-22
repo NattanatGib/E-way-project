@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public class Booking {
     private String time;//เวลาที่ให้ไปรับ
     private String date;//วันที่ที่ใช้รถ
+    private Person student;
     private String recievePlace;//สถานที่รับ
     //private String sendPlace;//สถานที่ส่ง
     private int bookingId;
@@ -15,8 +16,9 @@ public class Booking {
         
     }
 
-    public Booking(String time, String date, String recievePlace, int routeId) {
+    public Booking(String time, String date,Person Student, String recievePlace, int routeId) {
         this.time = time;
+        this.student=Student;
         this.date = date;
         this.recievePlace = recievePlace;
         this.routeId = routeId;

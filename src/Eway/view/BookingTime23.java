@@ -104,7 +104,8 @@ public class BookingTime23 extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์" }));
+        String[] r=new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์" };
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(r));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -199,8 +200,8 @@ public class BookingTime23 extends javax.swing.JFrame {
         Date dt = new Date();
         String date= format.format(dt);
         String time=date;
-        time+="23:00:00";
-        Booking b=new Booking(time,date,recievePlace.getText(),1);
+        time+=" 23:00:00";    
+        Booking b=new Booking(time,date,recievePlace.getText(),(jComboBox1.getSelectedIndex()+1));
     }//GEN-LAST:event_bookingActionPerformed
 
     /**
