@@ -113,23 +113,17 @@ public class Person {
         return "StudentName: " + StuName +"Falcult: " + Falculty +"\n"+ "BranchOf :" + BranchOf +"\n"+"EMAIL :"+ EMAIL+"\n"+"password :"+Password+"\n"+"tel :"+Tel ;
     }
     
-    public static Person login(String stdId,String pass){
+    public static Person login(String stdId,String pass){//เปลี่ยนใน login return เป็น person 
             Person one=new Person();
             String sql="SELECT * FROM Person WHERE Person_ID=? AND Person_PASSWORD=?";
             Connection con=ConnectionBuilder.getConnection();
             try{
-                System.out.println("1");
                 PreparedStatement ps=con.prepareStatement(sql);
-                System.out.println("2");
                 ps.setString(1,stdId);
-                System.out.println("3");
                 ps.setString(2,pass);
-                System.out.println("4");
                 ResultSet rs=ps.executeQuery();
-                System.out.println("5");
                if(rs.next()){
                     String type =rs.getString(5);   
-                    System.out.println("getString");
                     JOptionPane.showMessageDialog(null,"Welcome " + rs.getString(2));
                     if(type.equalsIgnoreCase("Admin")){
                         JOptionPane.showMessageDialog(null,"You're Admin");
