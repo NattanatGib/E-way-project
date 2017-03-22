@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -25,7 +26,7 @@ public class Person {
     public Person(){
         
     }
-    public static void getProfile(ResultSet rs,Person p)throws SQLException{
+    public static void getPerson(ResultSet rs,Person p)throws SQLException{
         p.setStuName(rs.getString("StudentName"));
         p.setFalculty(rs.getString("Falculty"));
         p.setBranchOf(rs.getString("BranchOf"));
@@ -43,7 +44,7 @@ public class Person {
             ResultSet rs = pstm.executeQuery();
         if(rs.next()){
             p = new Person();
-            getProfile(rs, p);
+            getPerson(rs, p);
         }
         } catch (Exception e) {
             System.out.println("Error ja");
@@ -111,5 +112,35 @@ public class Person {
     public String toString() {
         return "StudentName: " + StuName +"Falcult: " + Falculty +"\n"+ "BranchOf :" + BranchOf +"\n"+"EMAIL :"+ EMAIL+"\n"+"password :"+Password+"\n"+"tel :"+Tel ;
     }
+    
+    public static Person login(String stdId,String pass){
+            Person one=new Person();
+            String sql="SELECT * FROM Person WHERE Person_ID=? AND Person_PASSWORD=?";
+            Connection con=ConnectionBuilder.getConnection();
+            try{
+                PreparedStatement ps=con.prepareStatement(sql);
+                ps.setString(1,stdId);
+                ps.setString(2,pass);
+                ResultSet rs=ps.executeQuery();
+                
+               if(rs.next()){
+                    String type =rs.getString(5);   
+                    JOptionPane.showMessageDialog(null,"Welcome " + rs.getString("NAME"));
+                    if(type.equalsIgnoreCase("Admin")){
+                        JOptionPane.showMessageDialog(null,"You're Admin");
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Booking Section");
+                    }
+                }else
+                    JOptionPane.showMessageDialog(null,"Wrong Id/Password");
+                
+                Person.getPerson(rs,one);
+                con.close();
+           
+            }catch(SQLException ex){
+                System.out.println("Error");
+            }
+            return one;
+   }
     
 }
