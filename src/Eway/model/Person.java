@@ -118,14 +118,19 @@ public class Person {
             String sql="SELECT * FROM Person WHERE Person_ID=? AND Person_PASSWORD=?";
             Connection con=ConnectionBuilder.getConnection();
             try{
+                System.out.println("1");
                 PreparedStatement ps=con.prepareStatement(sql);
+                System.out.println("2");
                 ps.setString(1,stdId);
+                System.out.println("3");
                 ps.setString(2,pass);
+                System.out.println("4");
                 ResultSet rs=ps.executeQuery();
-                
+                System.out.println("5");
                if(rs.next()){
                     String type =rs.getString(5);   
-                    JOptionPane.showMessageDialog(null,"Welcome " + rs.getString("NAME"));
+                    System.out.println("getString");
+                    JOptionPane.showMessageDialog(null,"Welcome " + rs.getString(2));
                     if(type.equalsIgnoreCase("Admin")){
                         JOptionPane.showMessageDialog(null,"You're Admin");
                     }else{
@@ -134,7 +139,8 @@ public class Person {
                 }else
                     JOptionPane.showMessageDialog(null,"Wrong Id/Password");
                 
-                Person.getPerson(rs,one);
+                
+               Person.getPerson(rs,one);
                 con.close();
            
             }catch(SQLException ex){

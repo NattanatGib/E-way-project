@@ -99,7 +99,7 @@ public class Login6 extends javax.swing.JFrame {
     }//GEN-LAST:event_PasswordLineActionPerformed
 
     private void LoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginButtonActionPerformed
-        Person.login(IdName.getText(),PasswordLine.getText());
+        Person p=Person.login(IdName.getText(),PasswordLine.getText());
     }//GEN-LAST:event_LoginButtonActionPerformed
 
     /**
