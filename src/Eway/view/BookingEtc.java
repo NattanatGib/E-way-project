@@ -144,7 +144,9 @@ public class BookingEtc extends JFrame implements ActionListener {
                 String showHr = showTime.substring(0,2);//ตัดชั่วโมง
                 String showMin = showTime.substring(3,5);//ตัดนาที
                 time += " "+showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
-                Booking b = new Booking(time, date, pickUp.getText(), 1111);
+                int routeId=send.getSelectedIndex()+1;//เก็บidสถานที่ตามลำดับของช่องcombobox
+                //เก็บข้อมูลลงdb Booking
+                Booking b = new Booking(time, date, pickUp.getText(), routeId);
                 //ปิดหน้าต่างเมื่อกดปุ่มBooking
                 setVisible(false);
                 //frame.setVisible(false);
@@ -152,15 +154,15 @@ public class BookingEtc extends JFrame implements ActionListener {
         });
         booking.add(btn_booking);
 
-        //button Cancle
-        JButton btn_cancle = new JButton();
-        btn_cancle.setText("Cancle");
-        btn_cancle.setFont(new java.awt.Font("4815_KwangMD_Catthai", 1, 18));
-        getContentPane().add(btn_cancle);
-        btn_cancle.setBounds(260, 300, 100, 30);
-        booking.add(btn_cancle);
+        //button Cancel
+        JButton btn_cancel = new JButton();
+        btn_cancel.setText("Cancel");
+        btn_cancel.setFont(new java.awt.Font("4815_KwangMD_Catthai", 1, 18));
+        getContentPane().add(btn_cancel);
+        btn_cancel.setBounds(260, 300, 100, 30);
+        booking.add(btn_cancel);
         //funtion for button
-        btn_cancle.addActionListener(new java.awt.event.ActionListener() {
+        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //ปิดหน้าต่างเมื่อกดปุ่มCancle
                 setVisible(false);

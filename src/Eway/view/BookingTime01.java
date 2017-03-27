@@ -180,7 +180,7 @@ public class BookingTime01 extends javax.swing.JFrame {
         Date dt = new Date();
         String date= format.format(dt);
         String time=date;
-        time+="01:00:00";
+        time+=" 01:00:00";
         Booking b=new Booking(time,date,recievePlace.getText(),1);
     }//GEN-LAST:event_bookingActionPerformed
 

@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Eway.view;
 
 import Eway.model.Booking;
+import Eway.model.Route;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -13,10 +9,6 @@ import java.util.Date;
 import javax.swing.*;
 import javax.swing.UIManager.*;
 
-/**
- *
- * @author hp
- */
 public class Booking23 extends JFrame implements ActionListener {
 
     private JFrame frame;
@@ -142,7 +134,23 @@ public class Booking23 extends JFrame implements ActionListener {
                 String date = format.format(dt);
                 String time = date;
                 time += " 23:00:00";
-                Booking b = new Booking(time, date, pickUp.getText(), 1);
+                int routeId = send.getSelectedIndex() + 1;//เก็บidสถานที่ตามลำดับของช่องcombobox
+                //เก็บข้อมูลลงdb BOOKING
+                Booking b = new Booking(time, date, pickUp.getText(), routeId);
+
+                String des[]={"หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", 
+                              "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"};
+                String destination="";
+                for(int i=0;i<des.length-1;i++){
+                    if(i==routeId){
+                        destination=des[i-1];
+                    }
+                }
+                String description="---";//กำหนดค่าให้descriptionไปก่อน
+                String source=pickUp.getText();
+                //เก็บข้อมูลลงdb ROUTE
+                Route r = new Route(routeId,destination,description,source);
+                
                 //ปิดหน้าต่างเมื่อกดปุ่มBooking
                 setVisible(false);
                 //frame.setVisible(false);
@@ -150,15 +158,15 @@ public class Booking23 extends JFrame implements ActionListener {
         });
         booking.add(btn_booking);
 
-        //button Cancle
-        JButton btn_cancle = new JButton();
-        btn_cancle.setText("Cancle");
-        btn_cancle.setFont(new java.awt.Font("4815_KwangMD_Catthai", 1, 18));
-        getContentPane().add(btn_cancle);
-        btn_cancle.setBounds(260, 300, 100, 30);
-        booking.add(btn_cancle);
+        //button Cancel
+        JButton btn_cancel = new JButton();
+        btn_cancel.setText("Cancel");
+        btn_cancel.setFont(new java.awt.Font("4815_KwangMD_Catthai", 1, 18));
+        getContentPane().add(btn_cancel);
+        btn_cancel.setBounds(260, 300, 100, 30);
+        booking.add(btn_cancel);
         //funtion for button
-        btn_cancle.addActionListener(new java.awt.event.ActionListener() {
+        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 //ปิดหน้าต่างเมื่อกดปุ่มCancle
                 setVisible(false);

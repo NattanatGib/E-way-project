@@ -57,7 +57,7 @@ public class BookingTime23 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 0, 51));
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 400));
 
-        bookingDetl.setFont(new java.awt.Font("4815_KwangMD_Catthai", 1, 28)); // NOI18N
+        bookingDetl.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
         bookingDetl.setForeground(new java.awt.Color(255, 204, 204));
         bookingDetl.setText("  - - Booking Detail - - ");
 
@@ -77,9 +77,9 @@ public class BookingTime23 extends javax.swing.JFrame {
         phnNumber.setForeground(new java.awt.Color(255, 255, 255));
         phnNumber.setText("Phone Number");
 
-        showTime.setFont(new java.awt.Font("4815_KwangMD_Catthai", 1, 20)); // NOI18N
+        showTime.setFont(new java.awt.Font("OCR A Extended", 1, 20)); // NOI18N
         showTime.setForeground(new java.awt.Color(255, 255, 255));
-        showTime.setText(" 23.00");
+        showTime.setText(" 23.00การ");
 
         recievePlace.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 16)); // NOI18N
         recievePlace.addActionListener(new java.awt.event.ActionListener() {
@@ -165,14 +165,14 @@ public class BookingTime23 extends javax.swing.JFrame {
                     .addComponent(txt_phoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35)
                 .addComponent(booking)
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +199,7 @@ public class BookingTime23 extends javax.swing.JFrame {
         Date dt = new Date();
         String date= format.format(dt);
         String time=date;
-        time+="23:00:00";
+        time+=" 23:00:00";
         Booking b=new Booking(time,date,recievePlace.getText(),1);
     }//GEN-LAST:event_bookingActionPerformed
 
