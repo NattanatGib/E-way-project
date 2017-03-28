@@ -79,13 +79,16 @@ public class Booking23 extends JFrame implements ActionListener {
         txt_pickUp.setBounds(90, 140, 150, 30);
         booking.add(txt_pickUp);
 
-        //fill Pickup Place
-        JTextField pickUp = new JTextField();
-        pickUp.setFont(new java.awt.Font("Th sarabun NEW", 1, 24));
+        //combo box Pickup Place
+        JComboBox pickUp = new JComboBox<>(new String[]{"SIT", "ตึกอธิการ",
+            "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC",
+            "FIBO", "หน้าตึกphysic", "หน้าตึกอธิการ", "LNG", "หน้าตึกวิศวะเคมี",
+            "CB3", "CB4", "CB5(GMI)", "ตึกอธิการ", "Learning Space"});
+        pickUp.setFont(new java.awt.Font("Th sarabun NEW", 1, 22));
         getContentPane().add(pickUp);
         pickUp.setBounds(250, 140, 160, 30);
         booking.add(pickUp);
-
+        
         //text Send Place
         JLabel txt_send = new JLabel();
         txt_send.setText("Send Place");
@@ -97,7 +100,8 @@ public class Booking23 extends JFrame implements ActionListener {
 
         //combo box send place
         JComboBox send = new JComboBox<>(new String[]{"หอพัก myplace", "หอพัก myplace2",
-            "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"});
+            "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์", "Residence",
+            "หอพักรัชสิทธิ์", "TN modern place", "Library houze", "สวนธนปาร์ค"});
         send.setFont(new java.awt.Font("Th sarabun NEW", 1, 22));
         getContentPane().add(send);
         send.setBounds(250, 190, 160, 30);
@@ -134,22 +138,22 @@ public class Booking23 extends JFrame implements ActionListener {
                 String date = format.format(dt);
                 String time = date;
                 time += " 23:00:00";
-                int routeId = send.getSelectedIndex() + 1;//เก็บidสถานที่ตามลำดับของช่องcombobox
+                String des =(String) send.getSelectedItem();//เก็บidสถานที่ตามลำดับของช่องcombobox
                 //เก็บข้อมูลลงdb BOOKING
-                Booking b = new Booking(time, date, pickUp.getText(), routeId);
-
-                String des[]={"หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", 
-                              "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"};
-                String destination="";
+       //         Booking b = new Booking(time, date, pickUp.getText(), des);
+//String destination = (String)send.getSelectedItem() ;   ดึงค่าจากcombobox
+                //String des[]={"หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", 
+                  //            "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"};
+                /*String destination="";
                 for(int i=0;i<des.length-1;i++){
                     if(i==routeId){
                         destination=des[i-1];
                     }
-                }
+                }*/
                 String description="---";//กำหนดค่าให้descriptionไปก่อน
-                String source=pickUp.getText();
+        //        String source=pickUp.getText();
                 //เก็บข้อมูลลงdb ROUTE
-                Route r = new Route(routeId,destination,description,source);
+       //         Route r = new Route(routeId,destination,description,source);
                 
                 //ปิดหน้าต่างเมื่อกดปุ่มBooking
                 setVisible(false);

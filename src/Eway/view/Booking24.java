@@ -144,7 +144,7 @@ public class Booking24 extends JFrame implements ActionListener {
                 time += " 24:00:00";
                 int routeId=send.getSelectedIndex()+1;//เก็บidสถานที่ตามลำดับของช่องcombobox
                 //เก็บข้อมูลลงdb Booking
-                Booking b = new Booking(time, date, pickUp.getText(), routeId);
+           //     Booking b = new Booking(time, date, pickUp.getText(), routeId);
                 //ปิดหน้าต่างเมื่อกดปุ่มBooking
                 setVisible(false);
                 //frame.setVisible(false);

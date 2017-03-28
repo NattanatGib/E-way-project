@@ -146,7 +146,7 @@ public class BookingEtc extends JFrame implements ActionListener {
                 time += " "+showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
                 int routeId=send.getSelectedIndex()+1;//เก็บidสถานที่ตามลำดับของช่องcombobox
                 //เก็บข้อมูลลงdb Booking
-                Booking b = new Booking(time, date, pickUp.getText(), routeId);
+          //      Booking b = new Booking(time, date, pickUp.getText(), routeId);
                 //ปิดหน้าต่างเมื่อกดปุ่มBooking
                 setVisible(false);
                 //frame.setVisible(false);
