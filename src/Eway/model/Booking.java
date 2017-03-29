@@ -11,6 +11,7 @@ public class Booking {
     private Person student;
     private int recieveId;//สถานที่รับ
     private int sendId;//สถานที่ส่ง
+    private static int id=1;
     public Booking(){
         
     }
@@ -57,37 +58,57 @@ public class Booking {
         this.date = date;
     }
 
-    public String getRecievePlace() {
-        return recievePlace;
+    public Person getStudent() {
+        return student;
     }
 
-    public void setRecievePlace(String recievePlace) {
-        this.recievePlace = recievePlace;
+    public int getRecieveId() {
+        return recieveId;
     }
 
+    public int getSendId() {
+        return sendId;
+    }
+
+    public void setStudent(Person student) {
+        this.student = student;
+    }
+
+    public void setRecieveId(int recieveId) {
+        this.recieveId = recieveId;
+    }
+
+    public void setSendId(int sendId) {
+        this.sendId = sendId;
+    }
+    
     @Override
     public String toString() {
         return "Time : "+ time + "\n" +
                "Daye : "+ date + "\n" +
-               "Place : "+ recievePlace + "\n" ;
+               "RecieveID : "+ recieveId + "\n" +
+               "SendId: "+sendId+"\n";
                //"Location : " + sendPlace ;
     }
     
     public boolean regisBook() {
-        String sqlInsert = "insert into BOOKING(BOOKING_DATE, BOOKING_ROUND, ROUTE_ID)"
-                + " values (?, ?, ?)";
+        String sqlInsert = "insert into BOOKING(BOOKING_ID,BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION)"
+                + " values (?, ?, ?,?,?)";
         try {
             Connection con = ConnectionBuilder.getConnection();
-            PreparedStatement stm = null;
-            stm = con.prepareStatement(sqlInsert);
-           
-            stm.setString(1, this.date);
-            stm.setString(2, this.time);
-            stm.setInt(3, this.routeId);
-            stm.execute();
+            PreparedStatement stm = con.prepareStatement(sqlInsert);
+            stm.setInt(1, id++);
+            stm.setString(2,this.date );
+            stm.setString(3, this.time);
+            stm.setInt(4, recieveId);
+            stm.setInt(5, this.sendId);
+            stm.executeUpdate();
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);
+            return false;
+        }catch(Exception e){
+            System.out.println(e);
             return false;
         }
     }
