@@ -112,7 +112,17 @@ public class Booking {
             return false;
         }
     }
-    
+    public void deleteBooking(int a){
+        String sql = "Delete form Booking where Bookingid = ?";
+
+        try{
+            Connection con = ConnectionBuilder.getConnection();
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1,a);
+        }catch(SQLException se){
+            System.out.println(se);
+        }
+    }
     
 }
 
