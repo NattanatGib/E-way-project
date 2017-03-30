@@ -124,6 +124,21 @@ public class Booking {
         }
     }
     
+    public void findBookingById(int p){
+        String sql="select * from booking where person_ID=?";
+        try{
+            Connection con=ConnectionBuilder.getConnection();
+            PreparedStatement pre = con.prepareStatement(sql);
+            
+            pre.setInt(1,p);
+            pre.execute();
+            con.close();
+        } catch(SQLException e){
+            
+            System.out.println(e);
+        }
+     }
+    
 }
 
 
