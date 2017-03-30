@@ -92,8 +92,8 @@ public class Booking {
     }
     
     public boolean regisBook() {
-        String sqlInsert = "insert into BOOKING(BOOKING_ID,BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION)"
-                + " values (?, ?, ?,?,?)";
+        String sqlInsert = "insert into BOOKING(BOOKING_ID,BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id)"
+                + " values (?, ?, ?,?,?,?)";
         try {
             Connection con = ConnectionBuilder.getConnection();
             PreparedStatement stm = con.prepareStatement(sqlInsert);
@@ -102,6 +102,7 @@ public class Booking {
             stm.setString(3, this.time);
             stm.setInt(4, recieveId);
             stm.setInt(5, this.sendId);
+            stm.setInt(6,student.getPersonId());
             stm.executeUpdate();
             return true;
         } catch (SQLException ex) {
