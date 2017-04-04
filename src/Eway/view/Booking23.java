@@ -1,6 +1,7 @@
 package Eway.view;
 
 import Eway.model.Booking;
+import Eway.model.Person;
 import Eway.model.Route;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -138,9 +139,10 @@ public class Booking23 extends JFrame implements ActionListener {
                 String date = format.format(dt);
                 String time = date;
                 time += " 23:00:00";
+               
                 String des =(String) send.getSelectedItem();//เก็บidสถานที่ตามลำดับของช่องcombobox
                 //เก็บข้อมูลลงdb BOOKING
-       //         Booking b = new Booking(time, date, pickUp.getText(), des);
+             //   Booking b = new Booking(time, date, , des);
 //String destination = (String)send.getSelectedItem() ;   ดึงค่าจากcombobox
                 //String des[]={"หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", 
                   //            "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"};
