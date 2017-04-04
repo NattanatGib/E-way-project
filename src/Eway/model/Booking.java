@@ -16,7 +16,7 @@ public class Booking {
     public Booking(){
         
     }
-
+    //test push
     public Booking(String time, String date,Person p, int recievePlace,int  sendPlace) {
         this.time = time;
         this.date = date;
@@ -71,6 +71,7 @@ public class Booking {
 
     public int getSendId() {
         return sendId;
+
     }
 
     public void setStudent(Person student) {
@@ -80,6 +81,13 @@ public class Booking {
     public void setRecieveId(int recieveId) {
         this.recieveId = recieveId;
     }
+
+
+    
+
+  
+
+ 
 
     public void setSendId(int sendId) {
         this.sendId = sendId;
@@ -137,6 +145,8 @@ public class Booking {
             System.out.println(e);
         }
      }
+    
+    
     
 }
 
