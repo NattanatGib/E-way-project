@@ -8,17 +8,21 @@ import java.sql.SQLException;
 public class Booking {
     private String time;//เวลาที่ให้ไปรับ
     private String date;//วันที่ที่ใช้รถ
-    private String recievePlace;//สถานที่รับ
-    private String sendPlace;//สถานที่ส่ง
-    private int id;
+    private Person student;
+    private int recieveId;//สถานที่รับ
+    private int sendId;//สถานที่ส่ง
+    private static int id=1;
+
     public Booking(){
         
     }
 
-    public Booking(String time, String date, String recievePlace,String sendPlace) {
+    public Booking(String time, String date,Person p, int recievePlace,int  sendPlace) {
         this.time = time;
         this.date = date;
-        this.recievePlace = recievePlace;
+        this.sendId=sendPlace;
+        this.student=p;
+        this.recieveId = recievePlace;
        
         if(regisBook())
             System.out.println("Success");
@@ -57,37 +61,60 @@ public class Booking {
         this.date = date;
     }
 
-    public String getRecievePlace() {
-        return recievePlace;
+    public Person getStudent() {
+        return student;
     }
 
-    public void setRecievePlace(String recievePlace) {
-        this.recievePlace = recievePlace;
+    public int getRecieveId() {
+        return recieveId;
     }
 
+    public int getSendId() {
+        return sendId;
+    }
+
+    public void setStudent(Person student) {
+        this.student = student;
+    }
+
+    public void setRecieveId(int recieveId) {
+        this.recieveId = recieveId;
+    }
+
+    public void setSendId(int sendId) {
+        this.sendId = sendId;
+    }
+    
     @Override
     public String toString() {
         return "Time : "+ time + "\n" +
                "Daye : "+ date + "\n" +
-               "Place : "+ recievePlace + "\n" ;
+               "RecieveID : "+ recieveId + "\n" +
+               "SendId: "+sendId+"\n";
                //"Location : " + sendPlace ;
     }
     
     public boolean regisBook() {
-        String sqlInsert = "insert into BOOKING(BOOKING_DATE, BOOKING_ROUND, ROUTE_ID)"
-                + " values (?, ?, ?)";
+        String sqlInsert = "insert into BOOKING(BOOKING_ID,BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id)"
+                + " values (?, ?, ?,?,?,?)";
         try {
             Connection con = ConnectionBuilder.getConnection();
-            PreparedStatement stm = null;
-            stm = con.prepareStatement(sqlInsert);
-           
-            stm.setString(1, this.date);
-            stm.setString(2, this.time);
-            //stm.setInt(3, this.routeId);
-            stm.execute();
+
+            PreparedStatement stm = con.prepareStatement(sqlInsert);
+            stm.setInt(1, id++);
+            stm.setString(2,this.date );
+            stm.setString(3, this.time);
+            stm.setInt(4, recieveId);
+            stm.setInt(5, this.sendId);
+            stm.setInt(6,student.getPersonId());
+            stm.executeUpdate();
+
             return true;
         } catch (SQLException ex) {
             System.out.println(ex);
+            return false;
+        }catch(Exception e){
+            System.out.println(e);
             return false;
         }
     }
@@ -95,6 +122,21 @@ public class Booking {
    // public void 
    // public String queryRoute()
     
+    
+    public void findBookingById(int p){
+        String sql="select * from booking where person_ID=?";
+        try{
+            Connection con=ConnectionBuilder.getConnection();
+            PreparedStatement pre = con.prepareStatement(sql);
+            
+            pre.setInt(1,p);
+            pre.execute();
+            con.close();
+        } catch(SQLException e){
+            
+            System.out.println(e);
+        }
+     }
     
 }
 
