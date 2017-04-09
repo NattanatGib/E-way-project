@@ -6,6 +6,7 @@
 package Eway.GUI;
 
 import Eway.model.Person;
+import java.awt.Color;
 
 /**
  *
@@ -18,6 +19,7 @@ public class LoginGui extends javax.swing.JFrame {
      */
     public LoginGui() {
         initComponents();
+        btn_exit.setBackground(new Color(255,255,255,0));
     }
 
     /**
@@ -53,8 +55,10 @@ public class LoginGui extends javax.swing.JFrame {
         tree1 = new javax.swing.JLabel();
         tree6 = new javax.swing.JLabel();
         tree2 = new javax.swing.JLabel();
+        btn_exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Safe Night Ride Care");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 166, 158));
@@ -163,6 +167,14 @@ public class LoginGui extends javax.swing.JFrame {
         tree2.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant2.png")); // NOI18N
         wallpaperRight.add(tree2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, -1, -1));
 
+        btn_exit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\exit.png")); // NOI18N
+        btn_exit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_exitActionPerformed(evt);
+            }
+        });
+        wallpaperRight.add(btn_exit, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, 30, -1));
+
         getContentPane().add(wallpaperRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 440, 500));
 
         pack();
@@ -179,6 +191,10 @@ public class LoginGui extends javax.swing.JFrame {
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_passwordActionPerformed
+
+    private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btn_exitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +232,7 @@ public class LoginGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_exit;
     private javax.swing.JButton btn_login;
     private javax.swing.JLabel eway;
     private javax.swing.JPanel jPanel1;

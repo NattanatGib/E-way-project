@@ -103,18 +103,18 @@ public class Booking {
     }
     
     public boolean regisBook() {
-        String sqlInsert = "insert into BOOKING(BOOKING_ID,BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id)"
-                + " values (?, ?, ?,?,?,?)";
+        String sqlInsert = "insert into BOOKING(BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id)"
+                + " values (?, ?,?,?,?)";
         try {
             Connection con = ConnectionBuilder.getConnection();
 
             PreparedStatement stm = con.prepareStatement(sqlInsert);
-            stm.setInt(1, id++);
-            stm.setString(2,this.date );
-            stm.setString(3, this.time);
-            stm.setInt(4, recieveId);
-            stm.setInt(5, this.sendId);
-            stm.setInt(6,student.getPersonId());
+            //stm.setInt(1, id++);
+            stm.setString(1,this.date );
+            stm.setString(2, this.time);
+            stm.setInt(3, recieveId);
+            stm.setInt(4, this.sendId);
+            stm.setInt(5,student.getPersonId());
             stm.executeUpdate();
 
             return true;

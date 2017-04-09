@@ -8,6 +8,8 @@ package Eway.GUI;
 import Eway.model.Booking;
 import Eway.model.Person;
 import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -16,14 +18,41 @@ import java.util.Date;
  * @author hp
  */
 public class BookingHome extends javax.swing.JFrame {
+        GridBagLayout layout = new GridBagLayout();
+        Panel_RoundTable p1;
+        Panel_BookingList p2;
+        Panel_EditProfile p3;
 
     /**
      * Creates new form BookingHome
      */
     public BookingHome() {
         initComponents();
-     //   jPanel3.setBackground(new Color(0,51,51,200));
-     
+        btn_roundTable.setBackground(new Color(255,255,255,0));
+        btn_bookingList.setBackground(new Color(255,255,255,0));
+        btn_editProfile.setBackground(new Color(255,255,255,0));
+        btn_logout.setBackground(new Color(255,255,255,0));
+        
+        p1 = new Panel_RoundTable();
+        p2 = new Panel_BookingList();
+        p3 = new Panel_EditProfile();
+        DynamicPanel.setLayout(layout);
+        GridBagConstraints c = new GridBagConstraints();
+        c.gridx = 0;
+        c.gridy = 0;
+        DynamicPanel.add(p1,c);
+        c.gridx = 0;
+        c.gridy = 0;
+        DynamicPanel.add(p2,c);
+        c.gridx = 0;
+        c.gridy = 0;
+        DynamicPanel.add(p3,c);
+        p1.setVisible(true);
+        p2.setVisible(false);
+        p3.setVisible(false);
+        
+        
+        
     }
 
     /**
@@ -35,255 +64,224 @@ public class BookingHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        btn_booking = new javax.swing.JButton();
-        btn_cancel = new javax.swing.JButton();
-        cbbox_send = new javax.swing.JComboBox<>();
-        logoEtc = new javax.swing.JLabel();
-        cbbox_pickup = new javax.swing.JComboBox<>();
-        txt_etctime = new javax.swing.JTextField();
-        logoPichup = new javax.swing.JLabel();
-        cbbox_time = new javax.swing.JComboBox<>();
-        logoPhone = new javax.swing.JLabel();
-        txt_phone = new javax.swing.JTextField();
-        logoTime = new javax.swing.JLabel();
-        logoSend = new javax.swing.JLabel();
-        time = new javax.swing.JLabel();
-        pickupPlace = new javax.swing.JLabel();
-        sendPlace = new javax.swing.JLabel();
-        phoneNum = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        safeNight = new javax.swing.JLabel();
-        booking = new javax.swing.JLabel();
+        panel_wallpp = new javax.swing.JPanel();
+        panel_top = new javax.swing.JPanel();
+        eway = new javax.swing.JLabel();
+        showName = new javax.swing.JLabel();
+        logoUser = new javax.swing.JLabel();
+        btn_logout = new javax.swing.JButton();
+        panel_btn = new javax.swing.JPanel();
+        btn_roundTable = new javax.swing.JButton();
+        btn_bookingList = new javax.swing.JButton();
+        btn_editProfile = new javax.swing.JButton();
         logoBus = new javax.swing.JLabel();
-        welcome = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        DynamicPanel = new javax.swing.JPanel();
+        bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panel_wallpp.setBackground(new java.awt.Color(0, 58, 72));
+        panel_wallpp.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btn_booking.setBackground(new java.awt.Color(255, 102, 102));
-        btn_booking.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        btn_booking.setForeground(new java.awt.Color(255, 255, 255));
-        btn_booking.setText("BOOKING");
-        btn_booking.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_bookingActionPerformed(evt);
+        panel_top.setBackground(new java.awt.Color(103, 197, 233));
+        panel_top.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        eway.setFont(new java.awt.Font("FreesiaUPC", 1, 28)); // NOI18N
+        eway.setForeground(new java.awt.Color(255, 255, 255));
+        eway.setText("E-WAYS");
+        panel_top.add(eway, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 20));
+
+        showName.setBackground(new java.awt.Color(204, 204, 204));
+        showName.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
+        showName.setForeground(new java.awt.Color(153, 153, 153));
+        showName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        showName.setText("name surname");
+        panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 190, 20));
+
+        logoUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\user (1).png")); // NOI18N
+        panel_top.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+
+        btn_logout.setBackground(new java.awt.Color(255, 255, 255));
+        btn_logout.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
+        btn_logout.setForeground(new java.awt.Color(153, 153, 153));
+        btn_logout.setText("logout");
+        btn_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_logoutMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_logoutMouseExited(evt);
             }
         });
-        jPanel2.add(btn_booking, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 399, 110, 30));
-
-        btn_cancel.setBackground(new java.awt.Color(255, 102, 102));
-        btn_cancel.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        btn_cancel.setForeground(new java.awt.Color(240, 240, 240));
-        btn_cancel.setText("CANCEL");
-        btn_cancel.addActionListener(new java.awt.event.ActionListener() {
+        btn_logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelActionPerformed(evt);
+                btn_logoutActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_cancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 110, 30));
+        panel_top.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, 20));
 
-        cbbox_send.setBackground(new java.awt.Color(255, 204, 204));
-        cbbox_send.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
-        cbbox_send.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์", "Residence", "หอพักรัชสิทธิ์", "TN modern place", "Library houze", "สวนธนปาร์ค" }));
-        cbbox_send.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbox_sendActionPerformed(evt);
+        panel_wallpp.add(panel_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 750, 42));
+
+        panel_btn.setBackground(new java.awt.Color(103, 197, 233));
+        panel_btn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
+        btn_roundTable.setForeground(new java.awt.Color(255, 255, 255));
+        btn_roundTable.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\table-grid24x24.png")); // NOI18N
+        btn_roundTable.setText(" Round Table");
+        btn_roundTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_roundTableMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_roundTableMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_roundTableMouseExited(evt);
             }
         });
-        jPanel2.add(cbbox_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 170, 30));
-
-        logoEtc.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\three-dots-punctuation-sign.png")); // NOI18N
-        jPanel2.add(logoEtc, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, -1, -1));
-
-        cbbox_pickup.setBackground(new java.awt.Color(255, 204, 204));
-        cbbox_pickup.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
-        cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysic", "หน้าตึกอธิการ", "LNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "ตึกอธิการ", "Learning Space" }));
-        jPanel2.add(cbbox_pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 170, 30));
-
-        txt_etctime.setBackground(new java.awt.Color(255, 204, 204));
-        txt_etctime.setFont(new java.awt.Font("Tw Cen MT", 0, 22)); // NOI18N
-        txt_etctime.addActionListener(new java.awt.event.ActionListener() {
+        btn_roundTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_etctimeActionPerformed(evt);
+                btn_roundTableActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_etctime, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, 130, 30));
+        panel_btn.add(btn_roundTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        logoPichup.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\busstop_pointer.png")); // NOI18N
-        jPanel2.add(logoPichup, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
-
-        cbbox_time.setBackground(new java.awt.Color(255, 204, 204));
-        cbbox_time.setFont(new java.awt.Font("Tw Cen MT", 0, 22)); // NOI18N
-        cbbox_time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "23.00 pm.", "24.00 pm.", "01.00 am.", "Etc." }));
-        cbbox_time.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbox_timeActionPerformed(evt);
+        btn_bookingList.setBackground(new java.awt.Color(255, 255, 255));
+        btn_bookingList.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
+        btn_bookingList.setForeground(new java.awt.Color(255, 255, 255));
+        btn_bookingList.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\notebook24x24.png")); // NOI18N
+        btn_bookingList.setText(" Booking List");
+        btn_bookingList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_bookingListMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_bookingListMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_bookingListMouseExited(evt);
             }
         });
-        jPanel2.add(cbbox_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 170, 30));
-
-        logoPhone.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\telephone.png")); // NOI18N
-        jPanel2.add(logoPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, -1, -1));
-
-        txt_phone.setBackground(new java.awt.Color(255, 204, 204));
-        txt_phone.setFont(new java.awt.Font("Tw Cen MT", 0, 22)); // NOI18N
-        txt_phone.addActionListener(new java.awt.event.ActionListener() {
+        btn_bookingList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_phoneActionPerformed(evt);
+                btn_bookingListActionPerformed(evt);
             }
         });
-        jPanel2.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 170, 30));
+        panel_btn.add(btn_bookingList, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\clock.png")); // NOI18N
-        jPanel2.add(logoTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        btn_editProfile.setBackground(new java.awt.Color(255, 255, 255));
+        btn_editProfile.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
+        btn_editProfile.setForeground(new java.awt.Color(255, 255, 255));
+        btn_editProfile.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\editprofile24x24.png")); // NOI18N
+        btn_editProfile.setText(" Edit Profile");
+        btn_editProfile.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_editProfileMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_editProfileMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_editProfileMouseExited(evt);
+            }
+        });
+        btn_editProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editProfileActionPerformed(evt);
+            }
+        });
+        panel_btn.add(btn_editProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        logoSend.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\sent-mail.png")); // NOI18N
-        jPanel2.add(logoSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        logoBus.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\bus128px.png")); // NOI18N
+        panel_btn.add(logoBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 130, 130));
 
-        time.setFont(new java.awt.Font("Tw Cen MT", 0, 30)); // NOI18N
-        time.setForeground(new java.awt.Color(240, 240, 240));
-        time.setText("Time");
-        jPanel2.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 140, 50));
+        panel_wallpp.add(panel_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 177, 441));
+        panel_wallpp.add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 48, 567, 440));
 
-        pickupPlace.setFont(new java.awt.Font("Tw Cen MT", 0, 30)); // NOI18N
-        pickupPlace.setForeground(new java.awt.Color(240, 240, 240));
-        pickupPlace.setText("Pickup Place");
-        jPanel2.add(pickupPlace, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 200, 50));
+        bg.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\night-city-road-hd-desktop-wallpaper770-500.jpg")); // NOI18N
+        panel_wallpp.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        sendPlace.setFont(new java.awt.Font("Tw Cen MT", 0, 30)); // NOI18N
-        sendPlace.setForeground(new java.awt.Color(240, 240, 240));
-        sendPlace.setText("Send Place");
-        jPanel2.add(sendPlace, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 210, 50));
-
-        phoneNum.setFont(new java.awt.Font("Tw Cen MT", 0, 30)); // NOI18N
-        phoneNum.setForeground(new java.awt.Color(240, 240, 240));
-        phoneNum.setText("Phone Number");
-        jPanel2.add(phoneNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 230, 50));
-
-        jPanel3.setBackground(new java.awt.Color(0, 51, 51));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        safeNight.setFont(new java.awt.Font("Trajan Pro", 0, 36)); // NOI18N
-        safeNight.setForeground(new java.awt.Color(204, 204, 204));
-        safeNight.setText("safe night ride care");
-        jPanel3.add(safeNight, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 430, 50));
-
-        booking.setFont(new java.awt.Font("OCR A Std", 0, 24)); // NOI18N
-        booking.setForeground(new java.awt.Color(109, 109, 109));
-        booking.setText("Round Table");
-        jPanel3.add(booking, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 190, 50));
-
-        logoBus.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\icon.png")); // NOI18N
-        jPanel3.add(logoBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
-
-        welcome.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        welcome.setForeground(new java.awt.Color(240, 240, 240));
-        welcome.setText("Welcome");
-        welcome.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
-        jPanel3.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 60, 20));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 80, 20));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\table-grid.png")); // NOI18N
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 92, 40, 40));
-
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 140));
-
-        jLabel1.setFont(new java.awt.Font("Tw Cen MT", 0, 22)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\night-city-road-wallpaper.png")); // NOI18N
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, -1, -1));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 480));
+        getContentPane().add(panel_wallpp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbbox_timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_timeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbox_timeActionPerformed
+    private void btn_roundTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_roundTableActionPerformed
+        p1.setVisible(true);
+        p2.setVisible(false);
+        p3.setVisible(false);
+    }//GEN-LAST:event_btn_roundTableActionPerformed
 
-    private void cbbox_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_sendActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbox_sendActionPerformed
+    private void btn_bookingListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingListActionPerformed
+        p1.setVisible(false);
+        p2.setVisible(true);
+        p3.setVisible(false);
+    }//GEN-LAST:event_btn_bookingListActionPerformed
 
-    private void txt_etctimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_etctimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_etctimeActionPerformed
+    private void btn_roundTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_roundTableMouseEntered
+        btn_roundTable.setForeground(new java.awt.Color(0, 58, 72));
+        btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 28)); 
+    }//GEN-LAST:event_btn_roundTableMouseEntered
 
-    private void txt_phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_phoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_phoneActionPerformed
+    private void btn_roundTableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_roundTableMouseExited
+        btn_roundTable.setForeground(new java.awt.Color(255, 255, 255));    
+        btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 26));
+    }//GEN-LAST:event_btn_roundTableMouseExited
 
-    private void btn_cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelActionPerformed
-        setVisible(false);
-    }//GEN-LAST:event_btn_cancelActionPerformed
+    private void btn_roundTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_roundTableMouseClicked
+        btn_roundTable.setForeground(new java.awt.Color(255, 255, 51));
+    }//GEN-LAST:event_btn_roundTableMouseClicked
+
+    private void btn_bookingListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_bookingListMouseEntered
+        btn_bookingList.setForeground(new java.awt.Color(0, 58, 72));    
+        btn_bookingList.setFont(new java.awt.Font("FreesiaUPC", 1, 28)); 
+    }//GEN-LAST:event_btn_bookingListMouseEntered
+
+    private void btn_bookingListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_bookingListMouseExited
+        btn_bookingList.setForeground(new java.awt.Color(255, 255, 255));
+        btn_bookingList.setFont(new java.awt.Font("FreesiaUPC", 1, 26));
+    }//GEN-LAST:event_btn_bookingListMouseExited
+
+    private void btn_bookingListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_bookingListMouseClicked
+        btn_bookingList.setForeground(new java.awt.Color(255, 255, 51));
+    }//GEN-LAST:event_btn_bookingListMouseClicked
+
+    private void btn_editProfileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editProfileMouseEntered
+        btn_editProfile.setForeground(new java.awt.Color(0, 58, 72));    
+        btn_editProfile.setFont(new java.awt.Font("FreesiaUPC", 1, 28)); 
+    }//GEN-LAST:event_btn_editProfileMouseEntered
+
+    private void btn_editProfileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editProfileMouseExited
+        btn_editProfile.setForeground(new java.awt.Color(255, 255, 255));
+        btn_editProfile.setFont(new java.awt.Font("FreesiaUPC", 1, 26));
+    }//GEN-LAST:event_btn_editProfileMouseExited
+
+    private void btn_editProfileMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editProfileMouseClicked
+        btn_editProfile.setForeground(new java.awt.Color(255, 255, 51));
+    }//GEN-LAST:event_btn_editProfileMouseClicked
+
+    private void btn_logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMouseEntered
+        btn_logout.setForeground(new java.awt.Color(0, 58, 72));
+    }//GEN-LAST:event_btn_logoutMouseEntered
+
+    private void btn_logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMouseExited
+        btn_logout.setForeground(new java.awt.Color(153, 153, 153));
+    }//GEN-LAST:event_btn_logoutMouseExited
+
+    private void btn_editProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editProfileActionPerformed
+        p1.setVisible(false);
+        p2.setVisible(false);
+        p3.setVisible(true);
+    }//GEN-LAST:event_btn_editProfileActionPerformed
+
+    private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
+        //System.exit(0);
+        LoginGui lgn = new LoginGui();
+        lgn.setVisible(true);
+    }//GEN-LAST:event_btn_logoutActionPerformed
     
-    private void btn_bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingActionPerformed
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date dt = new Date();
-        String date = format.format(dt);
-        String time = date;
-        //--------------------------------Time----------------------------//
-        int cbboxTime = cbbox_time.getSelectedIndex()+1;
-        if(cbboxTime==1){//กรณีเลือกเวลา23.00
-            time += " 23:00:00";
-        }
-        else if(cbboxTime==2){//กรณีเลือกเวลา23.00
-            time += " 24:00:00";
-        }
-        else if(cbboxTime==3){//กรณีเลือกเวลา23.00
-            time += " 01:00:00";
-        }
-        else{//กรณีเลือกเวลา23.00
-            String showTime = txt_etctime.getText();
-            String showHr = showTime.substring(0,2);//ตัดชั่วโมง
-            String showMin = showTime.substring(3,5);//ตัดนาที
-            time += " "+showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
-        }
-        //----------------------------------------------------------------//
-        Person std = new Person();
-        int receiveId = cbbox_pickup.getSelectedIndex()+1;
-        int sendId = cbbox_send.getSelectedIndex()+1;
-        //เก็บข้อมูลลงdb BOOKING
-        Booking b = new Booking(time, date, std, receiveId, sendId);
-        //ปิดหน้าต่างเมื่อกดปุ่มBooking
-        setVisible(false);
-        
-        
-        
-        
-      /*  String des =(String) send.getSelectedItem();//เก็บidสถานที่ตามลำดับของช่องcombobox
-                
-//String destination = (String)send.getSelectedItem() ;   ดึงค่าจากcombobox
-                //String des[]={"หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", 
-                  //            "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"};
-                /*String destination="";
-                for(int i=0;i<des.length-1;i++){
-                    if(i==routeId){
-                        destination=des[i-1];
-                    }
-                }*/
-                String description="---";//กำหนดค่าให้descriptionไปก่อน
-        //        String source=pickUp.getText();
-                //เก็บข้อมูลลงdb ROUTE
-       //         Route r = new Route(routeId,destination,description,source);
-                
-                //ปิดหน้าต่างเมื่อกดปุ่มBooking
-                setVisible(false);
-                //frame.setVisible(false);
-            
-        
-    }//GEN-LAST:event_btn_bookingActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -320,30 +318,18 @@ public class BookingHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel booking;
-    private javax.swing.JButton btn_booking;
-    private javax.swing.JButton btn_cancel;
-    private javax.swing.JComboBox<String> cbbox_pickup;
-    private javax.swing.JComboBox<String> cbbox_send;
-    private javax.swing.JComboBox<String> cbbox_time;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel DynamicPanel;
+    private javax.swing.JLabel bg;
+    private javax.swing.JButton btn_bookingList;
+    private javax.swing.JButton btn_editProfile;
+    private javax.swing.JButton btn_logout;
+    private javax.swing.JButton btn_roundTable;
+    private javax.swing.JLabel eway;
     private javax.swing.JLabel logoBus;
-    private javax.swing.JLabel logoEtc;
-    private javax.swing.JLabel logoPhone;
-    private javax.swing.JLabel logoPichup;
-    private javax.swing.JLabel logoSend;
-    private javax.swing.JLabel logoTime;
-    private javax.swing.JLabel phoneNum;
-    private javax.swing.JLabel pickupPlace;
-    private javax.swing.JLabel safeNight;
-    private javax.swing.JLabel sendPlace;
-    private javax.swing.JLabel time;
-    private javax.swing.JTextField txt_etctime;
-    private javax.swing.JTextField txt_phone;
-    private javax.swing.JLabel welcome;
+    private javax.swing.JLabel logoUser;
+    private javax.swing.JPanel panel_btn;
+    private javax.swing.JPanel panel_top;
+    private javax.swing.JPanel panel_wallpp;
+    private javax.swing.JLabel showName;
     // End of variables declaration//GEN-END:variables
 }
