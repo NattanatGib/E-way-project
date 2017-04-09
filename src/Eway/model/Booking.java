@@ -2,6 +2,7 @@
 package Eway.model;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -9,8 +10,10 @@ public class Booking {
     private String time;//เวลาที่ให้ไปรับ
     private String date;//วันที่ที่ใช้รถ
     private Person student;
+    //-------------- แก้ใหม่--------------------------
     private int recieveId;//สถานที่รับ
     private int sendId;//สถานที่ส่ง
+    //----------------------------------------------
     private static int id=1;
 
     public Booking(){
@@ -104,7 +107,11 @@ public class Booking {
     
     public boolean regisBook() {
         String sqlInsert = "insert into BOOKING(BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id)"
+<<<<<<< Updated upstream
                 + " values (?, ?,?,?,?)";
+=======
+                + " values (?,?,?,?,?)";
+>>>>>>> Stashed changes
         try {
             Connection con = ConnectionBuilder.getConnection();
 
@@ -114,7 +121,11 @@ public class Booking {
             stm.setString(2, this.time);
             stm.setInt(3, recieveId);
             stm.setInt(4, this.sendId);
+<<<<<<< Updated upstream
             stm.setInt(5,student.getPersonId());
+=======
+            stm.setInt(5,1);
+>>>>>>> Stashed changes
             stm.executeUpdate();
 
             return true;
@@ -131,19 +142,20 @@ public class Booking {
    // public String queryRoute()
     
     
-    public void findBookingById(int p){
-        String sql="select * from booking where person_ID=?";
+    public ResultSet findBookingById(int p){//Method ที่เอาไว้ดึงข้อมูลการจองทั้งหมดที่user จองไว้
+        String sql="select * from booking where person_ID=?";//คำสั่ง SQL
+        ResultSet table=null;//สร้างตัวแปรไว้เก็บค่า
         try{
             Connection con=ConnectionBuilder.getConnection();
             PreparedStatement pre = con.prepareStatement(sql);
-            
-            pre.setInt(1,p);
-            pre.execute();
+            pre.setInt(1,p); //เซ้ตค่า Id ของ USER
+            table=pre.executeQuery();
             con.close();
         } catch(SQLException e){
-            
+            System.out.println("Not success to show your");
             System.out.println(e);
         }
+        return table;
      }
     
     
