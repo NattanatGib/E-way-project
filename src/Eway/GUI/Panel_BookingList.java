@@ -95,7 +95,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 130, 21));
 
         jLabel2.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel2.setText("Make sure that you Will save a change ...");
+        jLabel2.setText("Make sure that you want to change ...");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 215, 21));
 
         jButton1.setText("Cancel");

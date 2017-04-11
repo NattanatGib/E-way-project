@@ -281,8 +281,66 @@ public class BookingHome extends javax.swing.JFrame {
         //System.exit(0);
         LoginGui lgn = new LoginGui();
         lgn.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btn_logoutActionPerformed
     
+    private void btn_bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingActionPerformed
+       /* SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date dt = new Date();
+        String date = format.format(dt);
+        String time = date;
+        //--------------------------------Time----------------------------//
+        int cbboxTime = cbbox_time.getSelectedIndex()+1;
+        if(cbboxTime==1){//กรณีเลือกเวลา23.00
+            time += " 23:00:00";
+        }
+        else if(cbboxTime==2){//กรณีเลือกเวลา23.00
+            time += " 24:00:00";
+        }
+        else if(cbboxTime==3){//กรณีเลือกเวลา23.00
+            time += " 01:00:00";
+        }
+        else{//กรณีเลือกเวลา23.00
+            String showTime = txt_etctime.getText();
+            String showHr = showTime.substring(0,2);//ตัดชั่วโมง
+            String showMin = showTime.substring(3,5);//ตัดนาที
+            time += " "+showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+        }
+        //----------------------------------------------------------------//
+        Person std = new Person();
+        int receiveId = cbbox_pickup.getSelectedIndex()+1;
+        int sendId = cbbox_send.getSelectedIndex()+11;
+        //เก็บข้อมูลลงdb BOOKING
+        Booking b = new Booking(time, date, std, receiveId, sendId);
+        //ปิดหน้าต่างเมื่อกดปุ่มBooking
+        setVisible(false);
+        */
+        
+        
+        
+      /*  String des =(String) send.getSelectedItem();//เก็บidสถานที่ตามลำดับของช่องcombobox
+                
+//String destination = (String)send.getSelectedItem() ;   ดึงค่าจากcombobox
+                //String des[]={"หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", 
+                  //            "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"};
+                /*String destination="";
+                for(int i=0;i<des.length-1;i++){
+                    if(i==routeId){
+                        destination=des[i-1];
+                    }
+                }*/
+                String description="---";//กำหนดค่าให้descriptionไปก่อน
+        //        String source=pickUp.getText();
+                //เก็บข้อมูลลงdb ROUTE
+       //         Route r = new Route(routeId,destination,description,source);
+                
+                //ปิดหน้าต่างเมื่อกดปุ่มBooking
+                setVisible(false);
+                //frame.setVisible(false);
+            
+        
+    }//GEN-LAST:event_btn_bookingActionPerformed
+
     /**
      * @param args the command line arguments
      */
