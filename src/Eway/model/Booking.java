@@ -1,10 +1,6 @@
 
 package Eway.model;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
+import java.sql.*;
 
 public class Booking {
     private String time;//เวลาที่ให้ไปรับ
@@ -143,7 +139,32 @@ public class Booking {
         return table;
      }
     
-    
+    public  ResultSet getAllBooking(){
+        String sql="select * from booking";
+        ResultSet re=null;
+        try{
+            Connection  con=ConnectionBuilder.getConnection();
+            Statement st=con.createStatement();
+            re= st.executeQuery(sql);
+            
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        return re;
+    }
+     public void cancleBooking(int id){
+        String sql="delete from Booking where Booking_ID=?";
+        try{
+           Connection con=ConnectionBuilder.getConnection();
+           PreparedStatement pre=con.prepareStatement(sql);
+           pre.setInt(1,id);
+           
+           con.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        
+    }
     
 }
 
