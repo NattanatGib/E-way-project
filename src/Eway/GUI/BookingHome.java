@@ -23,6 +23,7 @@ public class BookingHome extends javax.swing.JFrame {
         Panel_BookingList p2;
         Panel_EditProfile p3;
 
+        
     /**
      * Creates new form BookingHome
      */
@@ -51,7 +52,7 @@ public class BookingHome extends javax.swing.JFrame {
         p2.setVisible(false);
         p3.setVisible(false);
         
-        
+        this.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
         
     }
 

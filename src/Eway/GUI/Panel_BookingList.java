@@ -5,6 +5,8 @@
  */
 package Eway.GUI;
 
+import java.awt.Color;
+
 /**
  *
  * @author hp
@@ -16,6 +18,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
      */
     public Panel_BookingList() {
         initComponents();
+        
+        pn_editDetail.setVisible(false);
     }
 
     /**
@@ -27,6 +31,22 @@ public class Panel_BookingList extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialog_save = new javax.swing.JDialog();
+        jPanel1 = new javax.swing.JPanel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        dialog_clear = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         panel_top = new javax.swing.JPanel();
         bookingList = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
@@ -39,11 +59,99 @@ public class Panel_BookingList extends javax.swing.JPanel {
         lb_pickup = new javax.swing.JLabel();
         pn_send = new javax.swing.JPanel();
         lb_send = new javax.swing.JLabel();
-        showNo = new javax.swing.JTextField();
-        showTime = new javax.swing.JTextField();
-        showPickuo = new javax.swing.JTextField();
-        showSend = new javax.swing.JTextField();
+        pn_edit = new javax.swing.JPanel();
+        lb_edit = new javax.swing.JLabel();
+        showNo = new javax.swing.JLabel();
+        showTime = new javax.swing.JLabel();
+        showPickup = new javax.swing.JLabel();
+        showNo3 = new javax.swing.JLabel();
+        logoEdit = new javax.swing.JLabel();
+        pn_editDetail = new javax.swing.JPanel();
+        logoTime = new javax.swing.JLabel();
+        time = new javax.swing.JLabel();
+        logoPickup = new javax.swing.JLabel();
+        pickupPlace = new javax.swing.JLabel();
+        logoSend = new javax.swing.JLabel();
+        sendPlace = new javax.swing.JLabel();
+        logoPhone = new javax.swing.JLabel();
+        phoneNum = new javax.swing.JLabel();
+        cbbox_pickup = new javax.swing.JComboBox<>();
+        cbbox_send = new javax.swing.JComboBox<>();
+        txt_phone = new javax.swing.JTextField();
+        lb_edit1 = new javax.swing.JLabel();
+        txt_time = new javax.swing.JTextField();
+        btn_save = new javax.swing.JButton();
         btn_clear = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 319, 20));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setText("Confirmation");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 130, 21));
+
+        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setText("Make sure that you Will save a change ...");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 215, 21));
+
+        jButton1.setText("Cancel");
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
+
+        jButton2.setText("OK");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 60, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\question.png")); // NOI18N
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+
+        javax.swing.GroupLayout dialog_saveLayout = new javax.swing.GroupLayout(dialog_save.getContentPane());
+        dialog_save.getContentPane().setLayout(dialog_saveLayout);
+        dialog_saveLayout.setHorizontalGroup(
+            dialog_saveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialog_saveLayout.setVerticalGroup(
+            dialog_saveLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+        );
+
+        jPanel2.setBackground(new java.awt.Color(247, 247, 247));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator3.setForeground(new java.awt.Color(153, 153, 153));
+        jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 319, 20));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel4.setText("Confirmation");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 130, 21));
+
+        jLabel5.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel5.setText("Make sure that you Will delete data ...");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 215, 21));
+
+        jButton3.setText("Cancel");
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
+
+        jButton4.setText("OK");
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 60, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\question.png")); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+
+        javax.swing.GroupLayout dialog_clearLayout = new javax.swing.GroupLayout(dialog_clear.getContentPane());
+        dialog_clear.getContentPane().setLayout(dialog_clearLayout);
+        dialog_clearLayout.setHorizontalGroup(
+            dialog_clearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialog_clearLayout.setVerticalGroup(
+            dialog_clearLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+        );
 
         setMinimumSize(new java.awt.Dimension(567, 441));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -85,7 +193,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 .addComponent(lb_no, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        panel_center.add(pn_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 60, 30));
+        panel_center.add(pn_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 60, 30));
 
         pn_time.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -100,7 +208,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
             .addGroup(pn_timeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lb_time)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         pn_timeLayout.setVerticalGroup(
             pn_timeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,7 +217,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 .addComponent(lb_time, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        panel_center.add(pn_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 110, 30));
+        panel_center.add(pn_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 90, 30));
 
         pn_pickup.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -123,8 +231,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
             pn_pickupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_pickupLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lb_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(lb_pickup)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn_pickupLayout.setVerticalGroup(
             pn_pickupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,7 +241,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 .addComponent(lb_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        panel_center.add(pn_pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 150, 30));
+        panel_center.add(pn_pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 130, 30));
 
         pn_send.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -147,8 +255,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
             pn_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_sendLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lb_send, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addComponent(lb_send)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
         pn_sendLayout.setVerticalGroup(
             pn_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,30 +265,135 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 .addComponent(lb_send, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        panel_center.add(pn_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 150, 30));
+        panel_center.add(pn_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 130, 30));
 
-        showNo.setEditable(false);
+        pn_edit.setBackground(new java.awt.Color(204, 204, 204));
+
+        lb_edit.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
+        lb_edit.setForeground(new java.awt.Color(255, 255, 255));
+        lb_edit.setText("Edit");
+
+        javax.swing.GroupLayout pn_editLayout = new javax.swing.GroupLayout(pn_edit);
+        pn_edit.setLayout(pn_editLayout);
+        pn_editLayout.setHorizontalGroup(
+            pn_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_editLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lb_edit)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        pn_editLayout.setVerticalGroup(
+            pn_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_editLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lb_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        panel_center.add(pn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 60, 30));
+
         showNo.setBackground(new java.awt.Color(204, 204, 204));
-        showNo.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        panel_center.add(showNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 60, 110));
+        showNo.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        panel_center.add(showNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 60, 60));
 
-        showTime.setEditable(false);
         showTime.setBackground(new java.awt.Color(204, 204, 204));
-        showTime.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        panel_center.add(showTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 110, 110));
+        showTime.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showTime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        panel_center.add(showTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 90, 60));
 
-        showPickuo.setEditable(false);
-        showPickuo.setBackground(new java.awt.Color(204, 204, 204));
-        showPickuo.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        panel_center.add(showPickuo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 150, 110));
+        showPickup.setBackground(new java.awt.Color(204, 204, 204));
+        showPickup.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showPickup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        panel_center.add(showPickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 130, 60));
 
-        showSend.setEditable(false);
-        showSend.setBackground(new java.awt.Color(204, 204, 204));
-        showSend.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        panel_center.add(showSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 150, 110));
+        showNo3.setBackground(new java.awt.Color(204, 204, 204));
+        showNo3.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showNo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        panel_center.add(showNo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 130, 60));
 
-        btn_clear.setBackground(new java.awt.Color(103, 197, 233));
-        btn_clear.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
+        logoEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\edit.png")); // NOI18N
+        logoEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoEditMouseClicked(evt);
+            }
+        });
+        panel_center.add(logoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, -1));
+
+        pn_editDetail.setBackground(new java.awt.Color(0, 153, 153));
+
+        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\clock.png")); // NOI18N
+
+        time.setBackground(new java.awt.Color(255, 255, 255));
+        time.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
+        time.setForeground(new java.awt.Color(240, 240, 240));
+        time.setText("Time");
+
+        logoPickup.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\busstop_pointer.png")); // NOI18N
+
+        pickupPlace.setBackground(new java.awt.Color(255, 255, 255));
+        pickupPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
+        pickupPlace.setForeground(new java.awt.Color(240, 240, 240));
+        pickupPlace.setText("Pickup Place");
+
+        logoSend.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\sent-mail.png")); // NOI18N
+
+        sendPlace.setBackground(new java.awt.Color(255, 255, 255));
+        sendPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
+        sendPlace.setForeground(new java.awt.Color(240, 240, 240));
+        sendPlace.setText("Send Place");
+
+        logoPhone.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\telephone.png")); // NOI18N
+
+        phoneNum.setBackground(new java.awt.Color(255, 255, 255));
+        phoneNum.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
+        phoneNum.setForeground(new java.awt.Color(240, 240, 240));
+        phoneNum.setText("Phone Number");
+
+        cbbox_pickup.setBackground(new java.awt.Color(103, 197, 233));
+        cbbox_pickup.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
+        cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysic", "หน้าตึกอธิการ", "LNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "ตึกอธิการ", "Learning Space" }));
+
+        cbbox_send.setBackground(new java.awt.Color(103, 197, 233));
+        cbbox_send.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
+        cbbox_send.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์", "Residence", "หอพักรัชสิทธิ์", "TN modern place", "Library houze", "สวนธนปาร์ค" }));
+        cbbox_send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbox_sendActionPerformed(evt);
+            }
+        });
+
+        txt_phone.setBackground(new java.awt.Color(240, 240, 240));
+        txt_phone.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
+        txt_phone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_phoneActionPerformed(evt);
+            }
+        });
+
+        lb_edit1.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
+        lb_edit1.setForeground(new java.awt.Color(255, 255, 255));
+        lb_edit1.setText("Edit");
+
+        txt_time.setBackground(new java.awt.Color(240, 240, 240));
+        txt_time.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
+        txt_time.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_timeActionPerformed(evt);
+            }
+        });
+
+        btn_save.setBackground(new java.awt.Color(0, 58, 72));
+        btn_save.setFont(new java.awt.Font("TH Sarabun New", 1, 20)); // NOI18N
+        btn_save.setForeground(new java.awt.Color(255, 255, 255));
+        btn_save.setText("SAVE");
+        btn_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_saveActionPerformed(evt);
+            }
+        });
+
+        btn_clear.setBackground(new java.awt.Color(0, 58, 72));
+        btn_clear.setFont(new java.awt.Font("TH Sarabun New", 1, 20)); // NOI18N
         btn_clear.setForeground(new java.awt.Color(255, 255, 255));
         btn_clear.setText("CLEAR");
         btn_clear.addActionListener(new java.awt.event.ActionListener() {
@@ -188,33 +401,172 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 btn_clearActionPerformed(evt);
             }
         });
-        panel_center.add(btn_clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 110, 40));
+
+        javax.swing.GroupLayout pn_editDetailLayout = new javax.swing.GroupLayout(pn_editDetail);
+        pn_editDetail.setLayout(pn_editDetailLayout);
+        pn_editDetailLayout.setHorizontalGroup(
+            pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_editDetailLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lb_edit1)
+                    .addGroup(pn_editDetailLayout.createSequentialGroup()
+                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pn_editDetailLayout.createSequentialGroup()
+                                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(logoTime)
+                                    .addComponent(logoSend))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sendPlace)
+                                    .addComponent(time)))
+                            .addGroup(pn_editDetailLayout.createSequentialGroup()
+                                .addComponent(logoPickup)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pickupPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(26, 26, 26)
+                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cbbox_send, 0, 1, Short.MAX_VALUE)
+                            .addComponent(cbbox_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_time)))
+                    .addGroup(pn_editDetailLayout.createSequentialGroup()
+                        .addComponent(logoPhone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(phoneNum)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(17, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_editDetailLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
+        );
+        pn_editDetailLayout.setVerticalGroup(
+            pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_editDetailLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pn_editDetailLayout.createSequentialGroup()
+                        .addComponent(lb_edit1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(logoTime))
+                        .addGap(11, 11, 11)
+                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(logoPickup)
+                            .addComponent(pickupPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(sendPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cbbox_send, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(logoSend)))
+                    .addGroup(pn_editDetailLayout.createSequentialGroup()
+                        .addComponent(txt_time, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbbox_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)))
+                .addGap(11, 11, 11)
+                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(phoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(logoPhone))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_clear, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        panel_center.add(pn_editDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 320, 220));
 
         add(panel_center, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 570, 380));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
-    
+        dialog_clear.setVisible(true);
+        dialog_clear.pack();
+        dialog_clear.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
     }//GEN-LAST:event_btn_clearActionPerformed
+
+    private void cbbox_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_sendActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbox_sendActionPerformed
+
+    private void txt_phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_phoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_phoneActionPerformed
+
+    private void txt_timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_timeActionPerformed
+
+    private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
+        dialog_save.setVisible(true);
+        dialog_save.pack();
+        dialog_save.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
+    }//GEN-LAST:event_btn_saveActionPerformed
+
+    private void logoEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoEditMouseClicked
+        pn_editDetail.setVisible(true);
+    }//GEN-LAST:event_logoEditMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bookingList;
     private javax.swing.JButton btn_clear;
+    private javax.swing.JButton btn_save;
+    private javax.swing.JComboBox<String> cbbox_pickup;
+    private javax.swing.JComboBox<String> cbbox_send;
+    private javax.swing.JDialog dialog_clear;
+    private javax.swing.JDialog dialog_save;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JLabel lb_edit;
+    private javax.swing.JLabel lb_edit1;
     private javax.swing.JLabel lb_no;
     private javax.swing.JLabel lb_pickup;
     private javax.swing.JLabel lb_send;
     private javax.swing.JLabel lb_time;
+    private javax.swing.JLabel logoEdit;
+    private javax.swing.JLabel logoPhone;
+    private javax.swing.JLabel logoPickup;
+    private javax.swing.JLabel logoSend;
+    private javax.swing.JLabel logoTime;
     private javax.swing.JPanel panel_center;
     private javax.swing.JPanel panel_top;
+    private javax.swing.JLabel phoneNum;
+    private javax.swing.JLabel pickupPlace;
+    private javax.swing.JPanel pn_edit;
+    private javax.swing.JPanel pn_editDetail;
     private javax.swing.JPanel pn_no;
     private javax.swing.JPanel pn_pickup;
     private javax.swing.JPanel pn_send;
     private javax.swing.JPanel pn_time;
-    private javax.swing.JTextField showNo;
-    private javax.swing.JTextField showPickuo;
-    private javax.swing.JTextField showSend;
-    private javax.swing.JTextField showTime;
+    private javax.swing.JLabel sendPlace;
+    private javax.swing.JLabel showNo;
+    private javax.swing.JLabel showNo3;
+    private javax.swing.JLabel showPickup;
+    private javax.swing.JLabel showTime;
+    private javax.swing.JLabel time;
+    private javax.swing.JTextField txt_phone;
+    private javax.swing.JTextField txt_time;
     // End of variables declaration//GEN-END:variables
 }

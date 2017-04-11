@@ -52,11 +52,11 @@ public class Admin extends javax.swing.JFrame {
         lb_send = new javax.swing.JLabel();
         pn_phone = new javax.swing.JPanel();
         lb_phone = new javax.swing.JLabel();
-        show_no = new javax.swing.JTextField();
-        show_time = new javax.swing.JTextField();
-        show_pickup = new javax.swing.JTextField();
-        show_send = new javax.swing.JTextField();
-        show_phone = new javax.swing.JTextField();
+        showNo = new javax.swing.JLabel();
+        showTime = new javax.swing.JLabel();
+        showPickup = new javax.swing.JLabel();
+        showSend = new javax.swing.JLabel();
+        showPhone = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -245,30 +245,30 @@ public class Admin extends javax.swing.JFrame {
 
         jPanel2.add(pn_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 150, 170, 30));
 
-        show_no.setEditable(false);
-        show_no.setBackground(new java.awt.Color(255, 204, 0));
-        show_no.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        jPanel2.add(show_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 60, 110));
+        showNo.setBackground(new java.awt.Color(204, 204, 204));
+        showNo.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        jPanel2.add(showNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 60, 110));
 
-        show_time.setEditable(false);
-        show_time.setBackground(new java.awt.Color(255, 204, 0));
-        show_time.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        jPanel2.add(show_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 110, 110));
+        showTime.setBackground(new java.awt.Color(204, 204, 204));
+        showTime.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showTime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        jPanel2.add(showTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, 110, 110));
 
-        show_pickup.setEditable(false);
-        show_pickup.setBackground(new java.awt.Color(255, 204, 0));
-        show_pickup.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        jPanel2.add(show_pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 150, 110));
+        showPickup.setBackground(new java.awt.Color(204, 204, 204));
+        showPickup.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showPickup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        jPanel2.add(showPickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 150, 110));
 
-        show_send.setEditable(false);
-        show_send.setBackground(new java.awt.Color(255, 204, 0));
-        show_send.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        jPanel2.add(show_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 150, 110));
+        showSend.setBackground(new java.awt.Color(204, 204, 204));
+        showSend.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showSend.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        jPanel2.add(showSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 150, 110));
 
-        show_phone.setEditable(false);
-        show_phone.setBackground(new java.awt.Color(255, 204, 0));
-        show_phone.setFont(new java.awt.Font("TH Sarabun New", 0, 24)); // NOI18N
-        jPanel2.add(show_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 170, 110));
+        showPhone.setBackground(new java.awt.Color(204, 204, 204));
+        showPhone.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
+        showPhone.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 204, 0)));
+        jPanel2.add(showPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 170, 110));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 750, 440));
 
@@ -346,11 +346,11 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel pn_send;
     private javax.swing.JPanel pn_time;
     private javax.swing.JLabel showName;
-    private javax.swing.JTextField show_no;
-    private javax.swing.JTextField show_phone;
-    private javax.swing.JTextField show_pickup;
-    private javax.swing.JTextField show_send;
-    private javax.swing.JTextField show_time;
+    private javax.swing.JLabel showNo;
+    private javax.swing.JLabel showPhone;
+    private javax.swing.JLabel showPickup;
+    private javax.swing.JLabel showSend;
+    private javax.swing.JLabel showTime;
     private javax.swing.JLabel sortBy;
     private javax.swing.JTextField tf_date;
     private javax.swing.JTextField tf_search;
