@@ -195,9 +195,9 @@ public class Panel_RoundTable extends java.awt.Panel {
             time += " "+showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
         }
         //----------------------------------------------------------------//
-        Person std = new Person();
+        Person std = Person.findById(123l);
         int receiveId = cbbox_pickup.getSelectedIndex()+1;
-        int sendId = cbbox_send.getSelectedIndex()+18;
+        int sendId = cbbox_send.getSelectedIndex()+11;
         //เก็บข้อมูลลงdb BOOKING
         Booking b = new Booking(time, date, std, receiveId, sendId);
         //ปิดหน้าต่างเมื่อกดปุ่มBooking

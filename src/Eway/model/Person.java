@@ -44,7 +44,7 @@ public class Person {
             String cmd = "select * from Person where Person_ID  = ?"; 
             Connection conn = ConnectionBuilder.getConnection();
             PreparedStatement pstm = conn.prepareStatement(cmd);
-            pstm.setLong(1, id);
+            pstm.setInt(1,(int) id);
             ResultSet rs = pstm.executeQuery();
         if(rs.next()){
             p = new Person();

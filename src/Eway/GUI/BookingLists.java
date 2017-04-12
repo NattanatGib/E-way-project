@@ -12,6 +12,10 @@ import java.awt.Color;
  * @author hp
  */
 import Eway.model.Person;
+import Eway.model.ConnectionBuilder;
+import Eway.model.Booking;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 public class BookingLists extends javax.swing.JFrame {
     private Person user;
     /**
@@ -30,7 +34,6 @@ public class BookingLists extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         jDialog1 = new javax.swing.JDialog();
         sajaPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("sajaPU").createEntityManager();
@@ -109,17 +112,26 @@ public class BookingLists extends javax.swing.JFrame {
         );
 
         jButton1.setText("Clear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         Table.setAutoCreateRowSorter(true);
         Table.setBackground(new java.awt.Color(255, 153, 153));
         Table.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         Table.setForeground(new java.awt.Color(232, 232, 232));
+        Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
         Table.setGridColor(new java.awt.Color(255, 204, 255));
         Table.setSelectionBackground(new java.awt.Color(255, 102, 102));
-
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, bookingList, Table);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();
         jScrollPane1.setViewportView(Table);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -149,10 +161,22 @@ public class BookingLists extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 480));
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        this.user=Person.findById(123l);
+        ResultSet table=Booking.findBookingById(user.getPersonId());
+        
+            try{
+                if(table.last())
+                    Booking.cancelBooking(table.getInt(1));
+                System.out.println("Success" + table.getInt("Booking_ID")+table.getInt("Person_Id"));
+            }catch(SQLException e){
+                System.out.println(e);
+            }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,6 +228,5 @@ public class BookingLists extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel logoBus;
     private javax.persistence.EntityManager sajaPUEntityManager;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

@@ -123,15 +123,15 @@ public class Booking {
    // public String queryRoute()
     
     
-    public ResultSet findBookingById(int p){//Method ที่เอาไว้ดึงข้อมูลการจองทั้งหมดที่user จองไว้
+    public static ResultSet findBookingById(int p){//Method ที่เอาไว้ดึงข้อมูลการจองทั้งหมดที่user จองไว้
         String sql="select * from booking where person_ID=?";//คำสั่ง SQL
         ResultSet table=null;//สร้างตัวแปรไว้เก็บค่า
         try{
             Connection con=ConnectionBuilder.getConnection();
-            PreparedStatement pre = con.prepareStatement(sql);
+            PreparedStatement pre = con.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
             pre.setInt(1,p); //เซ้ตค่า Id ของ USER
             table=pre.executeQuery();
-            con.close();
+      
         } catch(SQLException e){
             System.out.println("Not success to show your");
             System.out.println(e);
@@ -152,7 +152,7 @@ public class Booking {
         }
         return re;
     }
-     public void cancleBooking(int id){
+     public static void cancelBooking(int id){
         String sql="delete from Booking where Booking_ID=?";
         try{
            Connection con=ConnectionBuilder.getConnection();
