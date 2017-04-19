@@ -15,6 +15,7 @@ import java.util.Date;
  *
  * @author hp
  */
+
 public class Panel_RoundTable extends java.awt.Panel {
 
     /**
@@ -202,25 +203,6 @@ public class Panel_RoundTable extends java.awt.Panel {
         Booking b = new Booking(time, date, std, receiveId, sendId);
         //ปิดหน้าต่างเมื่อกดปุ่มBooking
         setVisible(false);
-        /*Panel_BookingList bkList = new Panel_BookingList();
-        bkList.setVisible(true);*/
-
-        /*  String des =(String) send.getSelectedItem();//เก็บidสถานที่ตามลำดับของช่องcombobox
-
-        //String destination = (String)send.getSelectedItem() ;   ดึงค่าจากcombobox
-        //String des[]={"หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน",
-            //            "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"};
-        /*String destination="";
-        for(int i=0;i<des.length-1;i++){
-            if(i==routeId){
-                destination=des[i-1];
-            }
-        }*/
-        String description="---";//กำหนดค่าให้descriptionไปก่อน
-        //        String source=pickUp.getText();
-        //เก็บข้อมูลลงdb ROUTE
-        //         Route r = new Route(routeId,destination,description,source);
-
         //ปิดหน้าต่างเมื่อกดปุ่มBooking
         setVisible(false);
         //frame.setVisible(false);

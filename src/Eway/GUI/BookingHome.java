@@ -22,7 +22,7 @@ public class BookingHome extends javax.swing.JFrame {
         Panel_RoundTable p1;
         Panel_BookingList p2;
         Panel_EditProfile p3;
-
+      
         
     /**
      * Creates new form BookingHome
@@ -80,6 +80,11 @@ public class BookingHome extends javax.swing.JFrame {
         bg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panel_wallpp.setBackground(new java.awt.Color(0, 58, 72));
@@ -99,8 +104,6 @@ public class BookingHome extends javax.swing.JFrame {
         showName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         showName.setText("name surname");
         panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 190, 20));
-
-        logoUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\user (1).png")); // NOI18N
         panel_top.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         btn_logout.setBackground(new java.awt.Color(255, 255, 255));
@@ -129,7 +132,6 @@ public class BookingHome extends javax.swing.JFrame {
 
         btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_roundTable.setForeground(new java.awt.Color(255, 255, 255));
-        btn_roundTable.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\table-grid24x24.png")); // NOI18N
         btn_roundTable.setText(" Round Table");
         btn_roundTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -152,7 +154,6 @@ public class BookingHome extends javax.swing.JFrame {
         btn_bookingList.setBackground(new java.awt.Color(255, 255, 255));
         btn_bookingList.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_bookingList.setForeground(new java.awt.Color(255, 255, 255));
-        btn_bookingList.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\notebook24x24.png")); // NOI18N
         btn_bookingList.setText(" Booking List");
         btn_bookingList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -175,7 +176,6 @@ public class BookingHome extends javax.swing.JFrame {
         btn_editProfile.setBackground(new java.awt.Color(255, 255, 255));
         btn_editProfile.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_editProfile.setForeground(new java.awt.Color(255, 255, 255));
-        btn_editProfile.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\editprofile24x24.png")); // NOI18N
         btn_editProfile.setText(" Edit Profile");
         btn_editProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -194,14 +194,10 @@ public class BookingHome extends javax.swing.JFrame {
             }
         });
         panel_btn.add(btn_editProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
-
-        logoBus.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\bus128px.png")); // NOI18N
-        panel_btn.add(logoBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 130, 130));
+        panel_btn.add(logoBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 130, 130));
 
         panel_wallpp.add(panel_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 177, 441));
         panel_wallpp.add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 48, 567, 440));
-
-        bg.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\night-city-road-hd-desktop-wallpaper770-500.jpg")); // NOI18N
         panel_wallpp.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(panel_wallpp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 500));
@@ -281,66 +277,12 @@ public class BookingHome extends javax.swing.JFrame {
         //System.exit(0);
         LoginGui lgn = new LoginGui();
         lgn.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_btn_logoutActionPerformed
-    
-    private void btn_bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingActionPerformed
-       /* SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date dt = new Date();
-        String date = format.format(dt);
-        String time = date;
-        //--------------------------------Time----------------------------//
-        int cbboxTime = cbbox_time.getSelectedIndex()+1;
-        if(cbboxTime==1){//กรณีเลือกเวลา23.00
-            time += " 23:00:00";
-        }
-        else if(cbboxTime==2){//กรณีเลือกเวลา23.00
-            time += " 24:00:00";
-        }
-        else if(cbboxTime==3){//กรณีเลือกเวลา23.00
-            time += " 01:00:00";
-        }
-        else{//กรณีเลือกเวลา23.00
-            String showTime = txt_etctime.getText();
-            String showHr = showTime.substring(0,2);//ตัดชั่วโมง
-            String showMin = showTime.substring(3,5);//ตัดนาที
-            time += " "+showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
-        }
-        //----------------------------------------------------------------//
-        Person std = new Person();
-        int receiveId = cbbox_pickup.getSelectedIndex()+1;
-        int sendId = cbbox_send.getSelectedIndex()+11;
-        //เก็บข้อมูลลงdb BOOKING
-        Booking b = new Booking(time, date, std, receiveId, sendId);
-        //ปิดหน้าต่างเมื่อกดปุ่มBooking
-        setVisible(false);
-        */
-        
-        
-        
-      /*  String des =(String) send.getSelectedItem();//เก็บidสถานที่ตามลำดับของช่องcombobox
-                
-//String destination = (String)send.getSelectedItem() ;   ดึงค่าจากcombobox
-                //String des[]={"หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", 
-                  //            "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์"};
-                /*String destination="";
-                for(int i=0;i<des.length-1;i++){
-                    if(i==routeId){
-                        destination=des[i-1];
-                    }
-                }*/
-                String description="---";//กำหนดค่าให้descriptionไปก่อน
-        //        String source=pickUp.getText();
-                //เก็บข้อมูลลงdb ROUTE
-       //         Route r = new Route(routeId,destination,description,source);
-                
-                //ปิดหน้าต่างเมื่อกดปุ่มBooking
-                setVisible(false);
-                //frame.setVisible(false);
-            
-        
-    }//GEN-LAST:event_btn_bookingActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       
+    }//GEN-LAST:event_formWindowOpened
+    
     /**
      * @param args the command line arguments
      */

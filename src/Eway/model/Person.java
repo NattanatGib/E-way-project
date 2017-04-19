@@ -150,7 +150,7 @@ public class Person {
                 con.close();
            
             }catch(SQLException ex){
-                System.out.println("Error");
+                System.out.println(ex);
             }
             return one;
    }

@@ -8,6 +8,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowOpened" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowOpened"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -94,11 +97,6 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="logoUser">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\icon\user (1).png"/>
-                </Property>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="640" y="10" width="-1" height="-1"/>
@@ -155,9 +153,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\icon\table-grid24x24.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value=" Round Table"/>
               </Properties>
               <Events>
@@ -182,9 +177,6 @@
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\icon\notebook24x24.png"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value=" Booking List"/>
               </Properties>
@@ -211,9 +203,6 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\icon\editprofile24x24.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value=" Edit Profile"/>
               </Properties>
               <Events>
@@ -229,14 +218,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JLabel" name="logoBus">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\icon\bus128px.png"/>
-                </Property>
-              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                  <AbsoluteConstraints x="20" y="260" width="130" height="130"/>
+                  <AbsoluteConstraints x="30" y="210" width="130" height="130"/>
                 </Constraint>
               </Constraints>
             </Component>
@@ -252,11 +236,6 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
         </Container>
         <Component class="javax.swing.JLabel" name="bg">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\icon\night-city-road-hd-desktop-wallpaper770-500.jpg"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>

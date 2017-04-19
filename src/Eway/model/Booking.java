@@ -139,7 +139,7 @@ public class Booking {
         return table;
      }
     
-    public  ResultSet getAllBooking(){
+    public  ResultSet getAllBooking(){//เรียกการจองทุกอันขึ้นมา
         String sql="select * from booking";
         ResultSet re=null;
         try{
@@ -152,12 +152,13 @@ public class Booking {
         }
         return re;
     }
-     public static void cancelBooking(int id){
+     public static void cancelBooking(int id){//ยกเลิกการจอง
         String sql="delete from Booking where Booking_ID=?";
         try{
            Connection con=ConnectionBuilder.getConnection();
            PreparedStatement pre=con.prepareStatement(sql);
            pre.setInt(1,id);
+           pre.execute();
            
            con.close();
         }catch(SQLException e){

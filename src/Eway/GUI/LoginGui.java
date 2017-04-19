@@ -13,7 +13,10 @@ import java.awt.Color;
  * @author hp
  */
 public class LoginGui extends javax.swing.JFrame {
-
+    public 
+    Admin adHome; 
+    BookingHome home;
+    private Person person;
     /**
      * Creates new form LoginGui
      */
@@ -22,6 +25,10 @@ public class LoginGui extends javax.swing.JFrame {
         btn_exit.setBackground(new Color(255,255,255,0));
     }
 
+    public Person getPerson() {
+        return person;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -185,7 +192,14 @@ public class LoginGui extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_usernameActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        Person p=Person.login(txt_username.getText(),txt_password.getText());
+        
+        while(person == null){
+            this.person=Person.login(txt_username.getText(),txt_password.getText());
+            if(person == null){
+                txt_password.setText("");
+            }
+        }
+        
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void txt_passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_passwordActionPerformed

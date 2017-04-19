@@ -122,14 +122,6 @@ public class BookingLists extends javax.swing.JFrame {
         Table.setBackground(new java.awt.Color(255, 153, 153));
         Table.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         Table.setForeground(new java.awt.Color(232, 232, 232));
-        Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
         Table.setGridColor(new java.awt.Color(255, 204, 255));
         Table.setSelectionBackground(new java.awt.Color(255, 102, 102));
         jScrollPane1.setViewportView(Table);
@@ -170,9 +162,12 @@ public class BookingLists extends javax.swing.JFrame {
         ResultSet table=Booking.findBookingById(user.getPersonId());
         
             try{
-                if(table.last())
-                    Booking.cancelBooking(table.getInt(1));
-                System.out.println("Success" + table.getInt("Booking_ID")+table.getInt("Person_Id"));
+                if(table.last()){
+                    Booking.cancelBooking(table.getInt("Booking_ID"));
+                    System.out.println("Success" + table.getInt("Booking_ID")+table.getInt("Person_Id"));
+                }else{
+                    System.out.println("Pang");
+                }    
             }catch(SQLException e){
                 System.out.println(e);
             }
