@@ -99,6 +99,11 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         panel_center.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 110, 40));
 
         txt_name.setBackground(new java.awt.Color(204, 204, 204));
+        txt_name.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nameActionPerformed(evt);
+            }
+        });
         panel_center.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 330, 30));
 
         txt_faculty.setBackground(new java.awt.Color(204, 204, 204));
@@ -116,6 +121,10 @@ public class Panel_EditProfile extends javax.swing.JPanel {
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
 
     }//GEN-LAST:event_btn_saveActionPerformed
+
+    private void txt_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

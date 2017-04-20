@@ -144,7 +144,7 @@ public class Panel_RoundTable extends java.awt.Panel {
         });
         panel_center.add(txt_etctime, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 170, 30));
 
-        logoPickup.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\busstop_pointer.png")); // NOI18N
+        logoPickup.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\busstop_pointer.png")); // NOI18N
         panel_center.add(logoPickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
 
         cbbox_time.setBackground(new java.awt.Color(103, 197, 233));
@@ -157,7 +157,7 @@ public class Panel_RoundTable extends java.awt.Panel {
         });
         panel_center.add(cbbox_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 170, 30));
 
-        logoPhone.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\telephone.png")); // NOI18N
+        logoPhone.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\telephone.png")); // NOI18N
         panel_center.add(logoPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         txt_phone.setBackground(new java.awt.Color(204, 204, 204));
@@ -169,10 +169,10 @@ public class Panel_RoundTable extends java.awt.Panel {
         });
         panel_center.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 170, 30));
 
-        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\clock1.png")); // NOI18N
+        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\clock1.png")); // NOI18N
         panel_center.add(logoTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
-        logoSend.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\sent-mail.png")); // NOI18N
+        logoSend.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\sent-mail.png")); // NOI18N
         panel_center.add(logoSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
         time.setBackground(new java.awt.Color(255, 255, 255));
@@ -229,7 +229,7 @@ public class Panel_RoundTable extends java.awt.Panel {
         //----------------------------------------------------------------//
         Person std = this.person;
         int receiveId = cbbox_pickup.getSelectedIndex()+1;
-        int sendId = cbbox_send.getSelectedIndex()+11;
+        int sendId = cbbox_send.getSelectedIndex()+18;
         //เก็บข้อมูลลงdb BOOKING
         Booking b = new Booking(time, date, std, receiveId, sendId);
         

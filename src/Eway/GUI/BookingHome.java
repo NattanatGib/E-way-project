@@ -31,7 +31,7 @@ public class BookingHome extends javax.swing.JFrame {
         Panel_BookingList p2;
         Panel_EditProfile p3;
 
-          
+       String name = person.getStuName();   
         
     /**
      * Creates new form BookingHome
@@ -117,10 +117,10 @@ public class BookingHome extends javax.swing.JFrame {
         showName.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
         showName.setForeground(new java.awt.Color(153, 153, 153));
         showName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        showName.setText("show name and surname");
+        showName.setText(name);
         panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 190, 20));
 
-        logoUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\user (1).png")); // NOI18N
+        logoUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\user (1).png")); // NOI18N
         panel_top.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         btn_logout.setBackground(new java.awt.Color(255, 255, 255));
@@ -149,7 +149,7 @@ public class BookingHome extends javax.swing.JFrame {
 
         btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_roundTable.setForeground(new java.awt.Color(255, 255, 255));
-        btn_roundTable.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\table-grid24x24.png")); // NOI18N
+        btn_roundTable.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\table-grid24x24.png")); // NOI18N
         btn_roundTable.setText(" Round Table");
         btn_roundTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -172,7 +172,7 @@ public class BookingHome extends javax.swing.JFrame {
         btn_bookingList.setBackground(new java.awt.Color(255, 255, 255));
         btn_bookingList.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_bookingList.setForeground(new java.awt.Color(255, 255, 255));
-        btn_bookingList.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\notebook24x24.png")); // NOI18N
+        btn_bookingList.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\notebook24x24.png")); // NOI18N
         btn_bookingList.setText(" Booking List");
         btn_bookingList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -195,7 +195,7 @@ public class BookingHome extends javax.swing.JFrame {
         btn_editProfile.setBackground(new java.awt.Color(255, 255, 255));
         btn_editProfile.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_editProfile.setForeground(new java.awt.Color(255, 255, 255));
-        btn_editProfile.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\editprofile24x24.png")); // NOI18N
+        btn_editProfile.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\editprofile24x24.png")); // NOI18N
         btn_editProfile.setText(" Edit Profile");
         btn_editProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -215,13 +215,13 @@ public class BookingHome extends javax.swing.JFrame {
         });
         panel_btn.add(btn_editProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        logoBus.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\bus128px.png")); // NOI18N
+        logoBus.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\bus128px.png")); // NOI18N
         panel_btn.add(logoBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 130, 130));
 
         panel_wallpp.add(panel_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 177, 441));
         panel_wallpp.add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 48, 567, 440));
 
-        bg.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\night-city-road-wallpaper.png")); // NOI18N
+        bg.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\night-city-road-wallpaper.png")); // NOI18N
         panel_wallpp.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
         getContentPane().add(panel_wallpp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 500));
