@@ -75,6 +75,8 @@ public class Admin extends javax.swing.JFrame {
         showName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         showName.setText("name surname");
         panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 190, 20));
+
+        logoUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\user (1).png")); // NOI18N
         panel_top.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         btn_logout.setBackground(new java.awt.Color(255, 255, 255));
@@ -108,6 +110,8 @@ public class Admin extends javax.swing.JFrame {
 
         tf_search.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 58, 72)));
         jPanel2.add(tf_search, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 620, 30));
+
+        logoSearch.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\loupe.png")); // NOI18N
         jPanel2.add(logoSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
 
         sortBy.setFont(new java.awt.Font("FreesiaUPC", 1, 24)); // NOI18N
@@ -146,7 +150,7 @@ public class Admin extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, -1, -1));
 
-        jButton3.setText("jButton3");
+        jButton3.setText("All");
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 750, 440));
@@ -167,6 +171,7 @@ public class Admin extends javax.swing.JFrame {
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
         //System.exit(0);
         LoginGui lgn = new LoginGui();
+        setVisible(false);
         lgn.setVisible(true);
     }//GEN-LAST:event_btn_logoutActionPerformed
 

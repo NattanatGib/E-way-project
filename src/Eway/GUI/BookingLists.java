@@ -21,6 +21,11 @@ public class BookingLists extends javax.swing.JFrame {
     /**
      * Creates new form BookingDetail23
      */
+    
+    public void setUser(Person user) {
+        this.user = user;
+    }
+
     public BookingLists() {
         initComponents();
         //jPanel3.setBackground(new Color(240,240,240,150));

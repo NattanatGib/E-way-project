@@ -13,9 +13,10 @@ import java.awt.Color;
  * @author hp
  */
 public class LoginGui extends javax.swing.JFrame {
-    public 
-    Admin adHome; 
-    BookingHome home;
+    
+    
+    private Admin adHome; 
+    private BookingHome home;
     private Person person;
     /**
      * Creates new form LoginGui
@@ -23,6 +24,8 @@ public class LoginGui extends javax.swing.JFrame {
     public LoginGui() {
         initComponents();
         btn_exit.setBackground(new Color(255,255,255,0));
+        
+        this.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
     }
 
     public Person getPerson() {
@@ -54,14 +57,14 @@ public class LoginGui extends javax.swing.JFrame {
         txt_password = new javax.swing.JPasswordField();
         btn_login = new javax.swing.JButton();
         username = new javax.swing.JLabel();
-        tree4 = new javax.swing.JLabel();
-        tree5 = new javax.swing.JLabel();
         logoPassword = new javax.swing.JLabel();
         logoUsername = new javax.swing.JLabel();
-        tree3 = new javax.swing.JLabel();
         tree1 = new javax.swing.JLabel();
-        tree6 = new javax.swing.JLabel();
         tree2 = new javax.swing.JLabel();
+        tree3 = new javax.swing.JLabel();
+        tree4 = new javax.swing.JLabel();
+        tree5 = new javax.swing.JLabel();
+        tree6 = new javax.swing.JLabel();
         btn_exit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,29 +153,29 @@ public class LoginGui extends javax.swing.JFrame {
         username.setText("Username");
         wallpaperRight.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        tree4.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant2.png")); // NOI18N
-        wallpaperRight.add(tree4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
-
-        tree5.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant.png")); // NOI18N
-        wallpaperRight.add(tree5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, -1));
-
         logoPassword.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\lock.png")); // NOI18N
         wallpaperRight.add(logoPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
         logoUsername.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\user (1).png")); // NOI18N
         wallpaperRight.add(logoUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
 
-        tree3.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant.png")); // NOI18N
-        wallpaperRight.add(tree3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, -1, -1));
-
         tree1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant.png")); // NOI18N
         wallpaperRight.add(tree1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
 
-        tree6.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant2.png")); // NOI18N
-        wallpaperRight.add(tree6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
-
         tree2.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant2.png")); // NOI18N
         wallpaperRight.add(tree2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, -1, -1));
+
+        tree3.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant.png")); // NOI18N
+        wallpaperRight.add(tree3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, -1, -1));
+
+        tree4.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant2.png")); // NOI18N
+        wallpaperRight.add(tree4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
+
+        tree5.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant.png")); // NOI18N
+        wallpaperRight.add(tree5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, -1));
+
+        tree6.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\growing-plant2.png")); // NOI18N
+        wallpaperRight.add(tree6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
 
         btn_exit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\exit.png")); // NOI18N
         btn_exit.addActionListener(new java.awt.event.ActionListener() {
@@ -192,13 +195,15 @@ public class LoginGui extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_usernameActionPerformed
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        
-        while(person == null){
+        int i=0;
+//        while(person == null){
+        while(i<1){
             this.person=Person.login(txt_username.getText(),txt_password.getText());
-            if(person == null){
-                txt_password.setText("");
-            }
+            i++;
         }
+        this.setVisible(false);
+        this.home=new BookingHome(this.person);
+        home.setVisible(true);
         
     }//GEN-LAST:event_btn_loginActionPerformed
 

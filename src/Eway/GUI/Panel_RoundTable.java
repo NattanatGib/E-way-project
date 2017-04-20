@@ -17,10 +17,13 @@ import java.util.Date;
  */
 
 public class Panel_RoundTable extends java.awt.Panel {
-
+    Person person;
     /**
      * Creates new form BookingHomepage
      */
+    public void setPerson(Person person){
+        this.person=person;
+    }
     public Panel_RoundTable() {
         initComponents();
         //panel_top.setBackground(new Color(51,58,72));
@@ -35,6 +38,11 @@ public class Panel_RoundTable extends java.awt.Panel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialog_success = new javax.swing.JDialog();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         panel_top = new javax.swing.JPanel();
         roundTable = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
@@ -53,6 +61,28 @@ public class Panel_RoundTable extends java.awt.Panel {
         sendPlace = new javax.swing.JLabel();
         phoneNum = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+
+        dialog_success.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
+        dialog_success.getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 319, 20));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel1.setText("Success!");
+        dialog_success.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 130, 21));
+
+        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setText("You can see this booking in booking lists");
+        dialog_success.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 240, 21));
+
+        jButton2.setText("OK");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        dialog_success.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 60, -1));
 
         setMinimumSize(new java.awt.Dimension(576, 441));
         setPreferredSize(new java.awt.Dimension(576, 441));
@@ -139,7 +169,7 @@ public class Panel_RoundTable extends java.awt.Panel {
         });
         panel_center.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 170, 30));
 
-        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\clock.png")); // NOI18N
+        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\clock1.png")); // NOI18N
         panel_center.add(logoTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         logoSend.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\sent-mail.png")); // NOI18N
@@ -174,6 +204,7 @@ public class Panel_RoundTable extends java.awt.Panel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingActionPerformed
+        System.out.println(person);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date dt = new Date();
         String date = format.format(dt);
@@ -196,16 +227,16 @@ public class Panel_RoundTable extends java.awt.Panel {
             time += " "+showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
         }
         //----------------------------------------------------------------//
-        Person std = Person.findById(123l);
+        Person std = this.person;
         int receiveId = cbbox_pickup.getSelectedIndex()+1;
         int sendId = cbbox_send.getSelectedIndex()+11;
         //เก็บข้อมูลลงdb BOOKING
         Booking b = new Booking(time, date, std, receiveId, sendId);
-        //ปิดหน้าต่างเมื่อกดปุ่มBooking
-        setVisible(false);
-        //ปิดหน้าต่างเมื่อกดปุ่มBooking
-        setVisible(false);
-        //frame.setVisible(false);
+        
+        dialog_success.setVisible(true);
+        dialog_success.pack();
+        dialog_success.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
+        
 
     }//GEN-LAST:event_btn_bookingActionPerformed
 
@@ -230,13 +261,22 @@ public class Panel_RoundTable extends java.awt.Panel {
         txt_etctime.setForeground(Color.black);
     }//GEN-LAST:event_txt_etctimeFocusGained
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dialog_success.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_booking;
     private javax.swing.JComboBox<String> cbbox_pickup;
     private javax.swing.JComboBox<String> cbbox_send;
     private javax.swing.JComboBox<String> cbbox_time;
+    private javax.swing.JDialog dialog_success;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel logoPhone;
     private javax.swing.JLabel logoPickup;
     private javax.swing.JLabel logoSend;

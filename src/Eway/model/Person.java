@@ -137,11 +137,6 @@ public class Person {
                if(rs.next()){
                     String type =rs.getString(5);   
                     JOptionPane.showMessageDialog(null,"Welcome " + rs.getString(2));
-                    if(type.equalsIgnoreCase("Admin")){
-                        JOptionPane.showMessageDialog(null,"You're Admin");
-                    }else{
-                        JOptionPane.showMessageDialog(null,"Booking Section");
-                    }
                 }else
                     JOptionPane.showMessageDialog(null,"Wrong Id/Password");
                 

@@ -5,17 +5,28 @@
  */
 package Eway.GUI;
 
+import Eway.model.ConnectionBuilder;
+import Eway.model.Person;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author hp
  */
 public class Panel_BookingList extends javax.swing.JPanel {
-
+    private Person person;
     /**
      * Creates new form Panel_BookingList
      */
+    public void setPerson(Person person){
+       this.person=person;
+    }
     public Panel_BookingList() {
         initComponents();
         
@@ -49,23 +60,11 @@ public class Panel_BookingList extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         panel_top = new javax.swing.JPanel();
         bookingList = new javax.swing.JLabel();
+        logoRefresh = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        pn_no = new javax.swing.JPanel();
-        lb_no = new javax.swing.JLabel();
-        pn_time = new javax.swing.JPanel();
-        lb_time = new javax.swing.JLabel();
-        pn_pickup = new javax.swing.JPanel();
-        lb_pickup = new javax.swing.JLabel();
-        pn_send = new javax.swing.JPanel();
-        lb_send = new javax.swing.JLabel();
         pn_edit = new javax.swing.JPanel();
         lb_edit = new javax.swing.JLabel();
-        showNo = new javax.swing.JLabel();
-        showTime = new javax.swing.JLabel();
-        showPickup = new javax.swing.JLabel();
-        showNo3 = new javax.swing.JLabel();
-        logoEdit = new javax.swing.JLabel();
         pn_editDetail = new javax.swing.JPanel();
         logoTime = new javax.swing.JLabel();
         time = new javax.swing.JLabel();
@@ -82,6 +81,9 @@ public class Panel_BookingList extends javax.swing.JPanel {
         txt_time = new javax.swing.JTextField();
         btn_save = new javax.swing.JButton();
         btn_clear = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        BookingList = new javax.swing.JTable();
+        logoEdit = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(247, 247, 247));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -99,9 +101,19 @@ public class Panel_BookingList extends javax.swing.JPanel {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 215, 21));
 
         jButton1.setText("Cancel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
         jButton2.setText("OK");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 60, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\question.png")); // NOI18N
@@ -134,9 +146,19 @@ public class Panel_BookingList extends javax.swing.JPanel {
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 215, 21));
 
         jButton3.setText("Cancel");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
 
         jButton4.setText("OK");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 60, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\question.png")); // NOI18N
@@ -165,111 +187,23 @@ public class Panel_BookingList extends javax.swing.JPanel {
         bookingList.setText("Booking List");
         panel_top.add(bookingList, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 220, 50));
 
+        logoRefresh.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\refresh-page-arrow-button.png")); // NOI18N
+        logoRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoRefreshMouseClicked(evt);
+            }
+        });
+        panel_top.add(logoRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
         add(panel_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 70));
 
         panel_center.setBackground(new java.awt.Color(0, 58, 72));
         panel_center.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         panel_center.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 528, 10));
 
-        pn_no.setBackground(new java.awt.Color(204, 204, 204));
-
-        lb_no.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        lb_no.setForeground(new java.awt.Color(255, 255, 255));
-        lb_no.setText("No.");
-
-        javax.swing.GroupLayout pn_noLayout = new javax.swing.GroupLayout(pn_no);
-        pn_no.setLayout(pn_noLayout);
-        pn_noLayout.setHorizontalGroup(
-            pn_noLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_noLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_no, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pn_noLayout.setVerticalGroup(
-            pn_noLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_noLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lb_no, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        panel_center.add(pn_no, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 60, 30));
-
-        pn_time.setBackground(new java.awt.Color(204, 204, 204));
-
-        lb_time.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        lb_time.setForeground(new java.awt.Color(255, 255, 255));
-        lb_time.setText("Time");
-
-        javax.swing.GroupLayout pn_timeLayout = new javax.swing.GroupLayout(pn_time);
-        pn_time.setLayout(pn_timeLayout);
-        pn_timeLayout.setHorizontalGroup(
-            pn_timeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_timeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_time)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-        pn_timeLayout.setVerticalGroup(
-            pn_timeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_timeLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lb_time, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        panel_center.add(pn_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 90, 30));
-
-        pn_pickup.setBackground(new java.awt.Color(204, 204, 204));
-
-        lb_pickup.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        lb_pickup.setForeground(new java.awt.Color(255, 255, 255));
-        lb_pickup.setText("Pickup Place");
-
-        javax.swing.GroupLayout pn_pickupLayout = new javax.swing.GroupLayout(pn_pickup);
-        pn_pickup.setLayout(pn_pickupLayout);
-        pn_pickupLayout.setHorizontalGroup(
-            pn_pickupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_pickupLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_pickup)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        pn_pickupLayout.setVerticalGroup(
-            pn_pickupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_pickupLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lb_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        panel_center.add(pn_pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 130, 30));
-
-        pn_send.setBackground(new java.awt.Color(204, 204, 204));
-
-        lb_send.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        lb_send.setForeground(new java.awt.Color(255, 255, 255));
-        lb_send.setText("Send Place");
-
-        javax.swing.GroupLayout pn_sendLayout = new javax.swing.GroupLayout(pn_send);
-        pn_send.setLayout(pn_sendLayout);
-        pn_sendLayout.setHorizontalGroup(
-            pn_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_sendLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lb_send)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        pn_sendLayout.setVerticalGroup(
-            pn_sendLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_sendLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lb_send, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        panel_center.add(pn_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 40, 130, 30));
-
         pn_edit.setBackground(new java.awt.Color(204, 204, 204));
 
-        lb_edit.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
+        lb_edit.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
         lb_edit.setForeground(new java.awt.Color(255, 255, 255));
         lb_edit.setText("Edit");
 
@@ -277,47 +211,17 @@ public class Panel_BookingList extends javax.swing.JPanel {
         pn_edit.setLayout(pn_editLayout);
         pn_editLayout.setHorizontalGroup(
             pn_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_editLayout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_editLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lb_edit)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pn_editLayout.setVerticalGroup(
             pn_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_editLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lb_edit, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(lb_edit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
         );
 
-        panel_center.add(pn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 60, 30));
-
-        showNo.setBackground(new java.awt.Color(204, 204, 204));
-        showNo.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
-        showNo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        panel_center.add(showNo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 60, 60));
-
-        showTime.setBackground(new java.awt.Color(204, 204, 204));
-        showTime.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
-        showTime.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        panel_center.add(showTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 90, 60));
-
-        showPickup.setBackground(new java.awt.Color(204, 204, 204));
-        showPickup.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
-        showPickup.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        panel_center.add(showPickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 130, 60));
-
-        showNo3.setBackground(new java.awt.Color(204, 204, 204));
-        showNo3.setFont(new java.awt.Font("TH Sarabun New", 0, 26)); // NOI18N
-        showNo3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        panel_center.add(showNo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 130, 60));
-
-        logoEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\edit.png")); // NOI18N
-        logoEdit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoEditMouseClicked(evt);
-            }
-        });
-        panel_center.add(logoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, -1, -1));
+        panel_center.add(pn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 40, -1, 20));
 
         pn_editDetail.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -484,10 +388,46 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         panel_center.add(pn_editDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 320, 220));
 
+        BookingList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(BookingList);
+
+        panel_center.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 490, 60));
+
+        logoEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\edit.png")); // NOI18N
+        logoEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoEditMouseClicked(evt);
+            }
+        });
+        panel_center.add(logoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
+
         add(panel_center, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 570, 380));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_clearActionPerformed
+        
+        ResultSet table=Eway.model.Booking.findBookingById(person.getPersonId());
+        
+            try{
+                if(table.last()){
+                    Eway.model.Booking.cancelBooking(table.getInt("Booking_ID"));
+                    System.out.println("Success" + table.getInt("Booking_ID")+table.getInt("Person_Id"));
+                }else{
+                    System.out.println("Pang");
+                }    
+            }catch(SQLException e){
+                System.out.println(e);
+            }
         dialog_clear.setVisible(true);
         dialog_clear.pack();
         dialog_clear.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
@@ -511,12 +451,79 @@ public class Panel_BookingList extends javax.swing.JPanel {
         dialog_save.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
     }//GEN-LAST:event_btn_saveActionPerformed
 
+    private void logoRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoRefreshMouseClicked
+        callList("Select * from Booking where Person_Id=" + this.person.getPersonId());
+    }//GEN-LAST:event_logoRefreshMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        dialog_save.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dialog_save.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        dialog_clear.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dialog_clear.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void logoEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoEditMouseClicked
         pn_editDetail.setVisible(true);
     }//GEN-LAST:event_logoEditMouseClicked
 
+     public void callList(String ds){
+        //clear table
+        BookingList.setModel(new DefaultTableModel());
+        
+        //Model for Table
+        DefaultTableModel model=(DefaultTableModel)BookingList.getModel();
+        model.addColumn("NO.");
+        model.addColumn("Date");
+        model.addColumn("Time");
+        model.addColumn("Pickup Place");
+        model.addColumn("Send Place");
+       
+        
+        
+        Connection con=ConnectionBuilder.getConnection();
+        Statement st=null;
+        
+        try{
+            st=con.createStatement();
+            
+            
+            //"select * from Booking order by  Booking_Date desc"
+            String sql=ds;
+            
+            ResultSet rec=st.executeQuery(sql);
+            int row=0;
+            while((rec!=null)&&rec.next()){
+                model.addRow(new Object[0]);
+                model.setValueAt(rec.getInt("Booking_Id"),row,0);
+                model.setValueAt(rec.getString("Booking_Date"),row,1);
+                model.setValueAt(rec.getString("Booking_Round"),row,2);
+                model.setValueAt(rec.getString(4),row,3);
+                model.setValueAt(rec.getString(5),row,4);
+                row++;
+            }
+        }catch(SQLException  e){
+            System.out.println(e);
+        }
+        
+    }
 
+    public JTable getBookingList() {
+        return BookingList;
+    }
+    
+     
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable BookingList;
     private javax.swing.JLabel bookingList;
     private javax.swing.JButton btn_clear;
     private javax.swing.JButton btn_save;
@@ -536,18 +543,16 @@ public class Panel_BookingList extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel lb_edit;
     private javax.swing.JLabel lb_edit1;
-    private javax.swing.JLabel lb_no;
-    private javax.swing.JLabel lb_pickup;
-    private javax.swing.JLabel lb_send;
-    private javax.swing.JLabel lb_time;
     private javax.swing.JLabel logoEdit;
     private javax.swing.JLabel logoPhone;
     private javax.swing.JLabel logoPickup;
+    private javax.swing.JLabel logoRefresh;
     private javax.swing.JLabel logoSend;
     private javax.swing.JLabel logoTime;
     private javax.swing.JPanel panel_center;
@@ -556,15 +561,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
     private javax.swing.JLabel pickupPlace;
     private javax.swing.JPanel pn_edit;
     private javax.swing.JPanel pn_editDetail;
-    private javax.swing.JPanel pn_no;
-    private javax.swing.JPanel pn_pickup;
-    private javax.swing.JPanel pn_send;
-    private javax.swing.JPanel pn_time;
     private javax.swing.JLabel sendPlace;
-    private javax.swing.JLabel showNo;
-    private javax.swing.JLabel showNo3;
-    private javax.swing.JLabel showPickup;
-    private javax.swing.JLabel showTime;
     private javax.swing.JLabel time;
     private javax.swing.JTextField txt_phone;
     private javax.swing.JTextField txt_time;

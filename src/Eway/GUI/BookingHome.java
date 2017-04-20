@@ -6,28 +6,43 @@
 package Eway.GUI;
 
 import Eway.model.Booking;
+import Eway.model.ConnectionBuilder;
 import Eway.model.Person;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author hp
  */
 public class BookingHome extends javax.swing.JFrame {
+        Person person;
         GridBagLayout layout = new GridBagLayout();
         Panel_RoundTable p1;
         Panel_BookingList p2;
         Panel_EditProfile p3;
-      
+
+          
         
     /**
      * Creates new form BookingHome
      */
-    public BookingHome() {
+    
+    public void setPerson(Person person) {
+        this.person = person;
+        
+    }
+
+    public BookingHome(Person person) {
         initComponents();
         btn_roundTable.setBackground(new Color(255,255,255,0));
         btn_bookingList.setBackground(new Color(255,255,255,0));
@@ -53,7 +68,7 @@ public class BookingHome extends javax.swing.JFrame {
         p3.setVisible(false);
         
         this.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
-        
+        this.person=person;
     }
 
     /**
@@ -102,8 +117,10 @@ public class BookingHome extends javax.swing.JFrame {
         showName.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
         showName.setForeground(new java.awt.Color(153, 153, 153));
         showName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        showName.setText("name surname");
+        showName.setText("show name and surname");
         panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 190, 20));
+
+        logoUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\user (1).png")); // NOI18N
         panel_top.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         btn_logout.setBackground(new java.awt.Color(255, 255, 255));
@@ -132,6 +149,7 @@ public class BookingHome extends javax.swing.JFrame {
 
         btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_roundTable.setForeground(new java.awt.Color(255, 255, 255));
+        btn_roundTable.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\table-grid24x24.png")); // NOI18N
         btn_roundTable.setText(" Round Table");
         btn_roundTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -154,6 +172,7 @@ public class BookingHome extends javax.swing.JFrame {
         btn_bookingList.setBackground(new java.awt.Color(255, 255, 255));
         btn_bookingList.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_bookingList.setForeground(new java.awt.Color(255, 255, 255));
+        btn_bookingList.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\notebook24x24.png")); // NOI18N
         btn_bookingList.setText(" Booking List");
         btn_bookingList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -176,6 +195,7 @@ public class BookingHome extends javax.swing.JFrame {
         btn_editProfile.setBackground(new java.awt.Color(255, 255, 255));
         btn_editProfile.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
         btn_editProfile.setForeground(new java.awt.Color(255, 255, 255));
+        btn_editProfile.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\editprofile24x24.png")); // NOI18N
         btn_editProfile.setText(" Edit Profile");
         btn_editProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -194,11 +214,15 @@ public class BookingHome extends javax.swing.JFrame {
             }
         });
         panel_btn.add(btn_editProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+
+        logoBus.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\bus128px.png")); // NOI18N
         panel_btn.add(logoBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 130, 130));
 
         panel_wallpp.add(panel_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 177, 441));
         panel_wallpp.add(DynamicPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 48, 567, 440));
-        panel_wallpp.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        bg.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\night-city-road-wallpaper.png")); // NOI18N
+        panel_wallpp.add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 540));
 
         getContentPane().add(panel_wallpp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 500));
 
@@ -209,12 +233,15 @@ public class BookingHome extends javax.swing.JFrame {
         p1.setVisible(true);
         p2.setVisible(false);
         p3.setVisible(false);
+        p1.setPerson(person);
     }//GEN-LAST:event_btn_roundTableActionPerformed
 
     private void btn_bookingListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingListActionPerformed
+        callList("Select * from Booking  where person_ID=" + 123);
         p1.setVisible(false);
         p2.setVisible(true);
         p3.setVisible(false);
+        p2.setPerson(person);
     }//GEN-LAST:event_btn_bookingListActionPerformed
 
     private void btn_roundTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_roundTableMouseEntered
@@ -271,18 +298,59 @@ public class BookingHome extends javax.swing.JFrame {
         p1.setVisible(false);
         p2.setVisible(false);
         p3.setVisible(true);
+        p3.setPerson(this.person);
     }//GEN-LAST:event_btn_editProfileActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
-        //System.exit(0);
-        LoginGui lgn = new LoginGui();
-        lgn.setVisible(true);
+        setVisible(false);
+        LoginGui login = new LoginGui();
+        login.setVisible(true);
     }//GEN-LAST:event_btn_logoutActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-       
+        p1.setPerson(this.person);
     }//GEN-LAST:event_formWindowOpened
-    
+    public void callList(String ds){
+        //clear table
+        JTable BookingList = p2.getBookingList();
+        BookingList.setModel(new DefaultTableModel());
+        
+        //Model for Table
+        DefaultTableModel model=(DefaultTableModel)BookingList.getModel();
+        model.addColumn("NO.");
+        model.addColumn("Date");
+        model.addColumn("Time");
+        model.addColumn("Pickup Place");
+        model.addColumn("Send Place");
+       
+        
+        
+        Connection con=ConnectionBuilder.getConnection();
+        Statement st=null;
+        
+        try{
+            st=con.createStatement();
+            
+            
+            //"select * from Booking order by  Booking_Date desc"
+            String sql=ds;
+            
+            ResultSet rec=st.executeQuery(sql);
+            int row=0;
+            while((rec!=null)&&rec.next()){
+                model.addRow(new Object[0]);
+                model.setValueAt(rec.getInt("Booking_Id"),row,0);
+                model.setValueAt(rec.getString("Booking_Date"),row,1);
+                model.setValueAt(rec.getString("Booking_Round"),row,2);
+                model.setValueAt(rec.getString(4),row,3);
+                model.setValueAt(rec.getString(5),row,4);
+                row++;
+            }
+        }catch(SQLException  e){
+            System.out.println(e);
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
@@ -313,7 +381,7 @@ public class BookingHome extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BookingHome().setVisible(true);
+                new BookingHome(Person.findById(1)).setVisible(true);
             }
         });
     }

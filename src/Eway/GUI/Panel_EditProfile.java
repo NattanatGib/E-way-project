@@ -5,15 +5,20 @@
  */
 package Eway.GUI;
 
+import Eway.model.Person;
+
 /**
  *
  * @author hp
  */
 public class Panel_EditProfile extends javax.swing.JPanel {
-
+    Person person;
     /**
      * Creates new form Panel_EditProfile
      */
+    public void setPerson(Person person){
+        this.person=person;
+    }
     public Panel_EditProfile() {
         initComponents();
     }
