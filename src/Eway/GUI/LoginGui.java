@@ -14,7 +14,7 @@ import java.awt.Color;
  */
 public class LoginGui extends javax.swing.JFrame {
     private Admin adHome; 
-    private BookingHome home;
+    private BookingHome home ;
     private Person person;
     /**
      * Creates new form LoginGui
@@ -199,7 +199,12 @@ public class LoginGui extends javax.swing.JFrame {
             this.person=Person.login(txt_username.getText(),txt_password.getText());
             i++;
         }
+        if(this.person==null){
+            this.person = new Person();
+        }
+        
         this.setVisible(false);
+        home = new BookingHome(person);
         home.setVisible(true);
         
     }//GEN-LAST:event_btn_loginActionPerformed

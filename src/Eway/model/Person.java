@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
  * @author ASUS
  */
 public class Person {
+
     private int personId;
     private String StuName;
     private String Falculty;
@@ -24,39 +25,38 @@ public class Person {
     private String EMAIL;
     private String Password;
     private String Tel;
-    
-    public Person(){
-        
+
+    public Person() {
+
     }
-    public static void getPerson(ResultSet rs,Person p)throws SQLException{
-     
+
+    public static void getPerson(ResultSet rs, Person p) throws SQLException {
+
         p.setPersonId(rs.getInt("Person_Id"));
         p.setStuName(rs.getString("Person_Name"));
         p.setPassword(rs.getString("Person_Password"));
         p.setTel(rs.getString("Person_Telephone"));
-        
-        
-        
+
     }
-    public static Person findById(long id){
+
+    public static Person findById(long id) {
         Person p = null;
         try {
-            String cmd = "select * from Person where Person_ID  = ?"; 
+            String cmd = "select * from Person where Person_ID  = ?";
             Connection conn = ConnectionBuilder.getConnection();
             PreparedStatement pstm = conn.prepareStatement(cmd);
-            pstm.setInt(1,(int) id);
+            pstm.setInt(1, (int) id);
             ResultSet rs = pstm.executeQuery();
-        if(rs.next()){
-            p = new Person();
-            getPerson(rs, p);
-        }
+            if (rs.next()) {
+                p = new Person();
+                getPerson(rs, p);
+            }
         } catch (Exception e) {
             System.out.println("Error ja");
         }
 
         return p;
     }
- 
 
     public String getStuName() {
         return StuName;
@@ -89,8 +89,7 @@ public class Person {
     public int getPersonId() {
         return personId;
     }
-    
-    
+
     public void setStuName(String StuName) {
         this.StuName = StuName;
     }
@@ -118,39 +117,38 @@ public class Person {
     public void setTel(String tel) {
         this.Tel = tel;
     }
-    
 
     @Override
     public String toString() {
-        return "StudentName: " + StuName +"Falcult: " + Falculty +"\n"+ "BranchOf :" + BranchOf +"\n"+"EMAIL :"+ EMAIL+"\n"+"password :"+Password+"\n"+"tel :"+Tel ;
+        return "StudentName: " + StuName + "Falcult: " + Falculty + "\n" + "BranchOf :" + BranchOf + "\n" + "EMAIL :" + EMAIL + "\n" + "password :" + Password + "\n" + "tel :" + Tel;
     }
-    
-    public static Person login(String perId,String pass){//เปลี่ยนใน login return เป็น person 
-            Person one=new Person();
-            String sql="SELECT * FROM Person WHERE Person_ID=? AND Person_PASSWORD=?";
-            Connection con=ConnectionBuilder.getConnection();
-            try{
-                PreparedStatement ps=con.prepareStatement(sql);
-                ps.setString(1,perId);
-                ps.setString(2,pass);
-                ResultSet rs=ps.executeQuery();
-               if(rs.next()){
-                    String type =rs.getString(5);   
-                    JOptionPane.showMessageDialog(null,"Welcome " + rs.getString(2));
-                }else
-                    JOptionPane.showMessageDialog(null,"Wrong Id/Password");
-                
-                
-               Person.getPerson(rs,one);
-                con.close();
-           
-            }catch(SQLException ex){
-                System.out.println(ex);
+
+    public static Person login(String perId, String pass) {//เปลี่ยนใน login return เป็น person 
+        Person one = new Person();
+        String sql = "SELECT * FROM Person WHERE Person_ID=? AND Person_PASSWORD=?";
+        Connection con = ConnectionBuilder.getConnection();
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, perId);
+            ps.setString(2, pass);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                String type = rs.getString(5);
+                JOptionPane.showMessageDialog(null, "Welcome " + rs.getString(2));
+            } else {
+                JOptionPane.showMessageDialog(null, "Wrong Id/Password");
             }
-            return one;
-   }
-    
-   /*public void getId(){
+
+            Person.getPerson(rs, one);
+//            System.out.println(one.getStuName());
+            con.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return one;
+    }
+
+    /*public void getId(){
        Connection con=ConnectionBuilder.getConnection();
        try{
            Statement s=con.createStatement();
@@ -163,6 +161,4 @@ public class Person {
            System.out.println(e);
        }
    }*/ //เก็บไว้เผื่อใช้ในภายหลังนะครับ
-
 }
-

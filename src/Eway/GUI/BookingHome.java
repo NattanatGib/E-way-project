@@ -25,30 +25,29 @@ import javax.swing.table.DefaultTableModel;
  * @author hp
  */
 public class BookingHome extends javax.swing.JFrame {
-        Person person;
-        GridBagLayout layout = new GridBagLayout();
-        Panel_RoundTable p1;
-        Panel_BookingList p2;
-        Panel_EditProfile p3;
 
-       String name = person.getStuName();   
-        
+    Person person;
+    GridBagLayout layout = new GridBagLayout();
+    Panel_RoundTable p1;
+    Panel_BookingList p2;
+    Panel_EditProfile p3;
+    String name = "";
+
     /**
      * Creates new form BookingHome
      */
-    
     public void setPerson(Person person) {
         this.person = person;
-        
+
     }
 
     public BookingHome(Person person) {
         initComponents();
-        btn_roundTable.setBackground(new Color(255,255,255,0));
-        btn_bookingList.setBackground(new Color(255,255,255,0));
-        btn_editProfile.setBackground(new Color(255,255,255,0));
-        btn_logout.setBackground(new Color(255,255,255,0));
-        
+        btn_roundTable.setBackground(new Color(255, 255, 255, 0));
+        btn_bookingList.setBackground(new Color(255, 255, 255, 0));
+        btn_editProfile.setBackground(new Color(255, 255, 255, 0));
+        btn_logout.setBackground(new Color(255, 255, 255, 0));
+
         p1 = new Panel_RoundTable();
         p2 = new Panel_BookingList();
         p3 = new Panel_EditProfile();
@@ -56,19 +55,21 @@ public class BookingHome extends javax.swing.JFrame {
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 0;
         c.gridy = 0;
-        DynamicPanel.add(p1,c);
+        DynamicPanel.add(p1, c);
         c.gridx = 0;
         c.gridy = 0;
-        DynamicPanel.add(p2,c);
+        DynamicPanel.add(p2, c);
         c.gridx = 0;
         c.gridy = 0;
-        DynamicPanel.add(p3,c);
+        DynamicPanel.add(p3, c);
         p1.setVisible(true);
         p2.setVisible(false);
         p3.setVisible(false);
-        
+
         this.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
-        this.person=person;
+        this.person = person;
+        this.name = this.person.getStuName();
+        showName.setText(name);
     }
 
     /**
@@ -246,11 +247,11 @@ public class BookingHome extends javax.swing.JFrame {
 
     private void btn_roundTableMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_roundTableMouseEntered
         btn_roundTable.setForeground(new java.awt.Color(0, 58, 72));
-        btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 28)); 
+        btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 28));
     }//GEN-LAST:event_btn_roundTableMouseEntered
 
     private void btn_roundTableMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_roundTableMouseExited
-        btn_roundTable.setForeground(new java.awt.Color(255, 255, 255));    
+        btn_roundTable.setForeground(new java.awt.Color(255, 255, 255));
         btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 26));
     }//GEN-LAST:event_btn_roundTableMouseExited
 
@@ -259,8 +260,8 @@ public class BookingHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_roundTableMouseClicked
 
     private void btn_bookingListMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_bookingListMouseEntered
-        btn_bookingList.setForeground(new java.awt.Color(0, 58, 72));    
-        btn_bookingList.setFont(new java.awt.Font("FreesiaUPC", 1, 28)); 
+        btn_bookingList.setForeground(new java.awt.Color(0, 58, 72));
+        btn_bookingList.setFont(new java.awt.Font("FreesiaUPC", 1, 28));
     }//GEN-LAST:event_btn_bookingListMouseEntered
 
     private void btn_bookingListMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_bookingListMouseExited
@@ -273,8 +274,8 @@ public class BookingHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_bookingListMouseClicked
 
     private void btn_editProfileMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editProfileMouseEntered
-        btn_editProfile.setForeground(new java.awt.Color(0, 58, 72));    
-        btn_editProfile.setFont(new java.awt.Font("FreesiaUPC", 1, 28)); 
+        btn_editProfile.setForeground(new java.awt.Color(0, 58, 72));
+        btn_editProfile.setFont(new java.awt.Font("FreesiaUPC", 1, 28));
     }//GEN-LAST:event_btn_editProfileMouseEntered
 
     private void btn_editProfileMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_editProfileMouseExited
@@ -310,47 +311,45 @@ public class BookingHome extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         p1.setPerson(this.person);
     }//GEN-LAST:event_formWindowOpened
-    public void callList(String ds){
+    public void callList(String ds) {
         //clear table
         JTable BookingList = p2.getBookingList();
         BookingList.setModel(new DefaultTableModel());
-        
+
         //Model for Table
-        DefaultTableModel model=(DefaultTableModel)BookingList.getModel();
+        DefaultTableModel model = (DefaultTableModel) BookingList.getModel();
         model.addColumn("NO.");
         model.addColumn("Date");
         model.addColumn("Time");
         model.addColumn("Pickup Place");
         model.addColumn("Send Place");
-       
-        
-        
-        Connection con=ConnectionBuilder.getConnection();
-        Statement st=null;
-        
-        try{
-            st=con.createStatement();
-            
-            
+
+        Connection con = ConnectionBuilder.getConnection();
+        Statement st = null;
+
+        try {
+            st = con.createStatement();
+
             //"select * from Booking order by  Booking_Date desc"
-            String sql=ds;
-            
-            ResultSet rec=st.executeQuery(sql);
-            int row=0;
-            while((rec!=null)&&rec.next()){
+            String sql = ds;
+
+            ResultSet rec = st.executeQuery(sql);
+            int row = 0;
+            while ((rec != null) && rec.next()) {
                 model.addRow(new Object[0]);
-                model.setValueAt(rec.getInt("Booking_Id"),row,0);
-                model.setValueAt(rec.getString("Booking_Date"),row,1);
-                model.setValueAt(rec.getString("Booking_Round"),row,2);
-                model.setValueAt(rec.getString(4),row,3);
-                model.setValueAt(rec.getString(5),row,4);
+                model.setValueAt(rec.getInt("Booking_Id"), row, 0);
+                model.setValueAt(rec.getString("Booking_Date"), row, 1);
+                model.setValueAt(rec.getString("Booking_Round"), row, 2);
+                model.setValueAt(rec.getString(4), row, 3);
+                model.setValueAt(rec.getString(5), row, 4);
                 row++;
             }
-        }catch(SQLException  e){
+        } catch (SQLException e) {
             System.out.println(e);
         }
-        
+
     }
+
     /**
      * @param args the command line arguments
      */
