@@ -21,6 +21,7 @@ public class Panel_EditProfile extends javax.swing.JPanel {
     }
     public Panel_EditProfile() {
         initComponents();
+        
     }
 
     /**
@@ -37,7 +38,7 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         panel_center = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         name = new javax.swing.JLabel();
-        falculty = new javax.swing.JLabel();
+        faculty = new javax.swing.JLabel();
         branchOf = new javax.swing.JLabel();
         email = new javax.swing.JLabel();
         btn_save = new javax.swing.JButton();
@@ -69,11 +70,11 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         name.setText("Name : ");
         panel_center.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 140, 50));
 
-        falculty.setBackground(new java.awt.Color(255, 255, 255));
-        falculty.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        falculty.setForeground(new java.awt.Color(240, 240, 240));
-        falculty.setText("Falculty : ");
-        panel_center.add(falculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 140, 50));
+        faculty.setBackground(new java.awt.Color(255, 255, 255));
+        faculty.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
+        faculty.setForeground(new java.awt.Color(240, 240, 240));
+        faculty.setText("Falculty : ");
+        panel_center.add(faculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 140, 50));
 
         branchOf.setBackground(new java.awt.Color(255, 255, 255));
         branchOf.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
@@ -99,6 +100,7 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         panel_center.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 110, 40));
 
         txt_name.setBackground(new java.awt.Color(204, 204, 204));
+        txt_name.setText(person.getStuName());
         txt_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nameActionPerformed(evt);
@@ -107,24 +109,42 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         panel_center.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 330, 30));
 
         txt_faculty.setBackground(new java.awt.Color(204, 204, 204));
+        txt_faculty.setText(person.getFaculty());
+        txt_faculty.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_facultyActionPerformed(evt);
+            }
+        });
         panel_center.add(txt_faculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 330, 30));
 
         txt_branchOf.setBackground(new java.awt.Color(204, 204, 204));
+        txt_branchOf.setText(person.getBranchOf());
         panel_center.add(txt_branchOf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 330, 30));
 
         txt_email.setBackground(new java.awt.Color(204, 204, 204));
+        txt_email.setText(person.getEMAIL());
         panel_center.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 330, 30));
 
         add(panel_center, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 570, 380));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
-
+        String editName = txt_name.getText();
+        String editFaculty = txt_faculty.getText();
+        String editBranchOf = txt_branchOf.getText();
+        String editEmail = txt_email.getText();
+        
+        person.editProfile(editName, editFaculty, editBranchOf, editEmail);
+        
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void txt_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nameActionPerformed
-        // TODO add your handling code here:
+     
     }//GEN-LAST:event_txt_nameActionPerformed
+
+    private void txt_facultyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_facultyActionPerformed
+     
+    }//GEN-LAST:event_txt_facultyActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -132,7 +152,7 @@ public class Panel_EditProfile extends javax.swing.JPanel {
     private javax.swing.JButton btn_save;
     private javax.swing.JLabel editProfile;
     private javax.swing.JLabel email;
-    private javax.swing.JLabel falculty;
+    private javax.swing.JLabel faculty;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel name;
     private javax.swing.JPanel panel_center;

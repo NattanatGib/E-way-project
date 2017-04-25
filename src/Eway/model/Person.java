@@ -20,7 +20,7 @@ public class Person {
 
     private int personId;
     private String StuName;
-    private String Falculty;
+    private String Faculty;
     private String BranchOf;
     private String EMAIL;
     private String Password;
@@ -62,8 +62,8 @@ public class Person {
         return StuName;
     }
 
-    public String getFalculty() {
-        return Falculty;
+    public String getFaculty() {
+        return Faculty;
     }
 
     public String getBranchOf() {
@@ -94,8 +94,8 @@ public class Person {
         this.StuName = StuName;
     }
 
-    public void setFalculty(String Falculty) {
-        this.Falculty = Falculty;
+    public void setFaculty(String Faculty) {
+        this.Faculty = Faculty;
     }
 
     public void setBranchOf(String BranchOf) {
@@ -120,7 +120,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "StudentName: " + StuName + "Falcult: " + Falculty + "\n" + "BranchOf :" + BranchOf + "\n" + "EMAIL :" + EMAIL + "\n" + "password :" + Password + "\n" + "tel :" + Tel;
+        return "StudentName: " + StuName + "Faculty: " + Faculty + "\n" + "BranchOf :" + BranchOf + "\n" + "EMAIL :" + EMAIL + "\n" + "password :" + Password + "\n" + "tel :" + Tel;
     }
 
     public static Person login(String perId, String pass) {//เปลี่ยนใน login return เป็น person 
@@ -146,6 +146,34 @@ public class Person {
             System.out.println(ex);
         }
         return one;
+    }
+    
+    public String editProfile(String editName,String editFacul,String editBranch,String editEmail){
+        this.StuName=editName;
+        this.Faculty=editFacul;
+        this.BranchOf=editBranch;
+        this.EMAIL=editEmail;
+        
+        String sqlInsert = "insert into PERSON(,PERSON_NAME,PERSON_FACULTY,PERSON_BRANCHOF,PERSON_EMAIL)"
+                + " values (?,?,?,?)";
+        try {
+            Connection con = ConnectionBuilder.getConnection();
+
+            PreparedStatement stm = con.prepareStatement(sqlInsert);
+            stm.setString(1, this.StuName);
+            stm.setString(2, this.Faculty);
+            stm.setString(3, this.BranchOf);
+            stm.setString(4, this.EMAIL);
+            stm.executeUpdate();
+
+            return "Edit profile already";
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            return "can not Edit profile";
+        }catch(Exception e){
+            System.out.println(e);
+            return "can not Edit profile";
+        }
     }
 
     /*public void getId(){
