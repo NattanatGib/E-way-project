@@ -10,6 +10,7 @@ import Eway.model.Person;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -125,7 +126,12 @@ public class Panel_RoundTable extends java.awt.Panel {
 
         cbbox_pickup.setBackground(new java.awt.Color(103, 197, 233));
         cbbox_pickup.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
-        cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysic", "หน้าตึกอธิการ", "LNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "ตึกอธิการ", "Learning Space" }));
+        cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysicLNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "Learning Space" }));
+        cbbox_pickup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbox_pickupActionPerformed(evt);
+            }
+        });
         panel_center.add(cbbox_pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 170, 30));
 
         txt_etctime.setBackground(new java.awt.Color(204, 204, 204));
@@ -229,15 +235,24 @@ public class Panel_RoundTable extends java.awt.Panel {
         //----------------------------------------------------------------//
         Person std = this.person;
         int receiveId = cbbox_pickup.getSelectedIndex()+1;
-        int sendId = cbbox_send.getSelectedIndex()+18;
+        int sendId = cbbox_send.getSelectedIndex()+16;
         //เก็บข้อมูลลงdb BOOKING
         Booking b = new Booking(time, date, std, receiveId, sendId);
         
-        dialog_success.setVisible(true);
-        dialog_success.pack();
-        dialog_success.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
+            
         
-
+        //------check that user enter all information--------
+        if((txt_phone.getText()).length()!=10){
+            JOptionPane.showMessageDialog(null,"Please check your phone number again");
+        }
+        else if(cbbox_time.getSelectedIndex()==3){
+            if((txt_etctime.getText()).equals("")){
+                JOptionPane.showMessageDialog(null,"Please enter time booking");
+            }
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Success! You can see your booking in Booking List");
+        }
     }//GEN-LAST:event_btn_bookingActionPerformed
 
     private void cbbox_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_sendActionPerformed
@@ -260,6 +275,10 @@ public class Panel_RoundTable extends java.awt.Panel {
         txt_etctime.setText("");
         txt_etctime.setForeground(Color.black);
     }//GEN-LAST:event_txt_etctimeFocusGained
+
+    private void cbbox_pickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_pickupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbox_pickupActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dialog_success.setVisible(false);

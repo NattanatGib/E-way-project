@@ -29,16 +29,18 @@ public class Person {
     public Person() {
 
     }
-
+    
     public static void getPerson(ResultSet rs, Person p) throws SQLException {
-
+        p.setFaculty(rs.getString("Faculty"));
+        p.setEMAIL(rs.getString("Email"));
+        p.setBranchOf(rs.getString("BranchOf"));
         p.setPersonId(rs.getInt("Person_Id"));
         p.setStuName(rs.getString("Person_Name"));
         p.setPassword(rs.getString("Person_Password"));
         p.setTel(rs.getString("Person_Telephone"));
 
     }
-
+    
     public static Person findById(long id) {
         Person p = null;
         try {

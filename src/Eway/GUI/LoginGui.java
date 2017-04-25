@@ -5,8 +5,14 @@
  */
 package Eway.GUI;
 
+import Eway.model.ConnectionBuilder;
 import Eway.model.Person;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -199,13 +205,43 @@ public class LoginGui extends javax.swing.JFrame {
             this.person=Person.login(txt_username.getText(),txt_password.getText());
             i++;
         }
-        if(this.person==null){
-            this.person = new Person();
+        String sql = "SELECT * FROM PERSON WHERE Person_ID =?";
+        String temp;
+        
+        try{
+            Connection con=ConnectionBuilder.getConnection();
+            PreparedStatement fx=con.prepareStatement(sql);
+            fx.setString(1,""+person.getPersonId());
+            ResultSet rs=fx.executeQuery();
+            if (rs.next()) {
+                temp = rs.getString(5);
+                this.setVisible(false);
+                if(temp.equalsIgnoreCase("student")){
+                    home = new BookingHome(person);
+                    home.setVisible(true);
+                    System.out.println(person);
+                }
+                else if(temp.equalsIgnoreCase("admin")){
+                    adHome = new Admin();
+                    adHome.setVisible(true);
+                    System.out.println(person);
+                }
+            }
+            
+        }catch(SQLException se){
+            System.out.println(se);
         }
         
-        this.setVisible(false);
-        home = new BookingHome(person);
-        home.setVisible(true);
+        
+        //------check that user enter all information--------
+        if((txt_username.getText()).equals("")){
+            JOptionPane.showMessageDialog(null,"Please enter your username");
+        }
+        else if((txt_password.getText()).equals("")){
+            JOptionPane.showMessageDialog(null,"Please enter your password");
+        }
+        
+        
         
     }//GEN-LAST:event_btn_loginActionPerformed
 

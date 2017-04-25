@@ -6,6 +6,7 @@
 package Eway.GUI;
 
 import Eway.model.Person;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,10 +19,19 @@ public class Panel_EditProfile extends javax.swing.JPanel {
      */
     public void setPerson(Person person){
         this.person=person;
-    }
-    public Panel_EditProfile() {
-        initComponents();
+        txt_name.setText(person.getStuName());
+        txt_email.setText(person.getEMAIL());
+        txt_faculty.setText(person.getBranchOf());
+        txt_branchOf.setText(person.getBranchOf());
         
+    }
+    public Panel_EditProfile(Person person) {
+        initComponents();
+        this.person=person;
+        txt_branchOf.setText(person.getBranchOf());
+        txt_name.setText(person.getStuName());
+        txt_faculty.setText(person.getFaculty());
+        txt_email.setText(person.getEMAIL());
     }
 
     /**
@@ -100,7 +110,7 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         panel_center.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 110, 40));
 
         txt_name.setBackground(new java.awt.Color(204, 204, 204));
-        txt_name.setText(person.getStuName());
+        txt_name.setText("");
         txt_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nameActionPerformed(evt);
@@ -109,7 +119,7 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         panel_center.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 330, 30));
 
         txt_faculty.setBackground(new java.awt.Color(204, 204, 204));
-        txt_faculty.setText(person.getFaculty());
+        txt_faculty.setText("");
         txt_faculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_facultyActionPerformed(evt);
@@ -118,11 +128,11 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         panel_center.add(txt_faculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 330, 30));
 
         txt_branchOf.setBackground(new java.awt.Color(204, 204, 204));
-        txt_branchOf.setText(person.getBranchOf());
+        txt_branchOf.setText("");
         panel_center.add(txt_branchOf, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 330, 30));
 
         txt_email.setBackground(new java.awt.Color(204, 204, 204));
-        txt_email.setText(person.getEMAIL());
+        txt_email.setText("");
         panel_center.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 330, 30));
 
         add(panel_center, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 570, 380));
@@ -135,7 +145,7 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         String editEmail = txt_email.getText();
         
         person.editProfile(editName, editFaculty, editBranchOf, editEmail);
-        
+        JOptionPane.showMessageDialog(null,"update success");
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void txt_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nameActionPerformed

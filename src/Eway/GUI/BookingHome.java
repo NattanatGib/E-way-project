@@ -50,7 +50,7 @@ public class BookingHome extends javax.swing.JFrame {
 
         p1 = new Panel_RoundTable();
         p2 = new Panel_BookingList();
-        p3 = new Panel_EditProfile();
+        p3 = new Panel_EditProfile(person);
         DynamicPanel.setLayout(layout);
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 0;
