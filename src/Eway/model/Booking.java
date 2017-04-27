@@ -6,6 +6,7 @@ public class Booking {
     private String time;//เวลาที่ให้ไปรับ
     private String date;//วันที่ที่ใช้รถ
     private Person student;
+    private String tel;
     //-------------- แก้ใหม่--------------------------
     private int recieveId;//สถานที่รับ
     private int sendId;//สถานที่ส่ง
@@ -16,13 +17,14 @@ public class Booking {
         
     }
     //test push
-    public Booking(String time, String date,Person p, int recievePlace,int  sendPlace) {
+    public Booking(String time, String date,Person p, int recievePlace,int  sendPlace,String tel) {
         this.time = time;
         this.date = date;
         this.sendId=sendPlace;
         this.student=p;
         this.recieveId = recievePlace;
-       
+        this.tel=tel;
+        
         if(regisBook())
             System.out.println("Success");
         else
@@ -95,8 +97,8 @@ public class Booking {
     }
     
     public boolean regisBook() {
-        String sqlInsert = "insert into BOOKING(BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id)"
-                + " values (?,?,?,?,?)";
+        String sqlInsert = "insert into BOOKING(BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id,Telephone)"
+                + " values (?,?,?,?,?,?)";
         try {
             Connection con = ConnectionBuilder.getConnection();
 
@@ -107,6 +109,7 @@ public class Booking {
             stm.setInt(3, recieveId);
             stm.setInt(4, this.sendId);
             stm.setInt(5,student.getPersonId());
+            stm.setString(6, this.tel);
             stm.executeUpdate();
 
             return true;
@@ -152,7 +155,7 @@ public class Booking {
         }
         return re;
     }
-     public static void cancelBooking(int id){//ยกเลิกการจอง
+    public static void cancelBooking(int id){//ยกเลิกการจอง
         String sql="delete from Booking where Booking_ID=?";
         try{
            Connection con=ConnectionBuilder.getConnection();

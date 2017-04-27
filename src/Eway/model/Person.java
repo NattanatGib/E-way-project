@@ -19,12 +19,12 @@ import javax.swing.JOptionPane;
 public class Person {
 
     private int personId;
-    private String StuName;
-    private String Faculty;
-    private String BranchOf;
-    private String EMAIL;
-    private String Password;
-    private String Tel;
+    private String stuName;
+    private String faculty;
+    private String branchOf;
+    private String eMail;
+    private String password;
+    private String tel;
 
     public Person() {
 
@@ -61,27 +61,27 @@ public class Person {
     }
 
     public String getStuName() {
-        return StuName;
+        return stuName;
     }
 
     public String getFaculty() {
-        return Faculty;
+        return faculty;
     }
 
     public String getBranchOf() {
-        return BranchOf;
+        return branchOf;
     }
 
     public String getEMAIL() {
-        return EMAIL;
+        return eMail;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public String getTel() {
-        return Tel;
+        return tel;
     }
 
     public void setPersonId(int personId) {
@@ -93,36 +93,33 @@ public class Person {
     }
 
     public void setStuName(String StuName) {
-        this.StuName = StuName;
+        this.stuName = StuName;
     }
 
     public void setFaculty(String Faculty) {
-        this.Faculty = Faculty;
+        this.faculty = Faculty;
     }
 
     public void setBranchOf(String BranchOf) {
-        this.BranchOf = BranchOf;
+        this.branchOf = BranchOf;
     }
 
-    public void setEMAIl(String EMAIL) {
-        this.EMAIL = EMAIL;
-    }
 
     public void setPassword(String password) {
-        this.Password = password;
+        this.password = password;
     }
 
     public void setEMAIL(String EMAIL) {
-        this.EMAIL = EMAIL;
+        this.eMail = EMAIL;
     }
 
     public void setTel(String tel) {
-        this.Tel = tel;
+        this.tel = tel;
     }
 
     @Override
     public String toString() {
-        return "StudentName: " + StuName + "Faculty: " + Faculty + "\n" + "BranchOf :" + BranchOf + "\n" + "EMAIL :" + EMAIL + "\n" + "password :" + Password + "\n" + "tel :" + Tel;
+        return "StudentName: " + stuName + "Faculty: " + faculty + "\n" + "BranchOf :" + branchOf + "\n" + "EMAIL :" + eMail + "\n" + "password :" + password + "\n" + "tel :" + tel;
     }
 
     public static Person login(String perId, String pass) {//เปลี่ยนใน login return เป็น person 
@@ -150,22 +147,27 @@ public class Person {
         return one;
     }
     
-    public String editProfile(String editName,String editFacul,String editBranch,String editEmail){
-        this.StuName=editName;
-        this.Faculty=editFacul;
-        this.BranchOf=editBranch;
-        this.EMAIL=editEmail;
+    public String editProfile(String editName,String editPass,String editFacul,String editBranch,String editPhone,String editEmail,Person p){
+        this.stuName=editName;
+        this.password=editPass;
+        this.faculty=editFacul;
+        this.branchOf=editBranch;
+        this.tel=editPhone;
+        this.eMail=editEmail;
         
-        String sqlInsert = "insert into PERSON(,PERSON_NAME,PERSON_FACULTY,PERSON_BRANCHOF,PERSON_EMAIL)"
-                + " values (?,?,?,?)";
+        String sqlInsert = "update PERSON set PERSON_NAME=?,FACULTY=?,BRANCHOF=?,EMAIL=?,PERSON_PASSWORD=?,PERSON_TELEPHONE=? where PERSON_ID=?";
+        //String sqlInsert = "insert into PERSON(PERSON_NAME,FACULTY,BRANCHOF,EMAIL) values (?,?,?,?)";
         try {
             Connection con = ConnectionBuilder.getConnection();
 
             PreparedStatement stm = con.prepareStatement(sqlInsert);
-            stm.setString(1, this.StuName);
-            stm.setString(2, this.Faculty);
-            stm.setString(3, this.BranchOf);
-            stm.setString(4, this.EMAIL);
+            stm.setString(1, this.stuName);
+            stm.setString(2, this.faculty);
+            stm.setString(3, this.branchOf);
+            stm.setString(4, this.eMail);
+            stm.setString(5, this.password);
+            stm.setString(6, this.tel);
+            stm.setInt(7,p.getPersonId());
             stm.executeUpdate();
 
             return "Edit profile already";
@@ -177,7 +179,8 @@ public class Person {
             return "can not Edit profile";
         }
     }
-
+    
+    
     /*public void getId(){
        Connection con=ConnectionBuilder.getConnection();
        try{
@@ -191,4 +194,8 @@ public class Person {
            System.out.println(e);
        }
    }*/ //เก็บไว้เผื่อใช้ในภายหลังนะครับ
+
+    public String geteMail() {
+        return eMail;
+    }
 }

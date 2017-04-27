@@ -39,11 +39,6 @@ public class Panel_RoundTable extends java.awt.Panel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        dialog_success = new javax.swing.JDialog();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         panel_top = new javax.swing.JPanel();
         roundTable = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
@@ -62,28 +57,6 @@ public class Panel_RoundTable extends java.awt.Panel {
         sendPlace = new javax.swing.JLabel();
         phoneNum = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-
-        dialog_success.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jSeparator2.setForeground(new java.awt.Color(153, 153, 153));
-        dialog_success.getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 319, 20));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel1.setText("Success!");
-        dialog_success.getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 130, 21));
-
-        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel2.setText("You can see this booking in booking lists");
-        dialog_success.getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 65, 240, 21));
-
-        jButton2.setText("OK");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        dialog_success.getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 60, -1));
 
         setMinimumSize(new java.awt.Dimension(576, 441));
         setPreferredSize(new java.awt.Dimension(576, 441));
@@ -237,22 +210,40 @@ public class Panel_RoundTable extends java.awt.Panel {
         int receiveId = cbbox_pickup.getSelectedIndex()+1;
         int sendId = cbbox_send.getSelectedIndex()+16;
         //เก็บข้อมูลลงdb BOOKING
-        Booking b = new Booking(time, date, std, receiveId, sendId);
+        
         
             
         
         //------check that user enter all information--------
-        if((txt_phone.getText()).length()!=10){
-            JOptionPane.showMessageDialog(null,"Please check your phone number again");
-        }
-        else if(cbbox_time.getSelectedIndex()==3){
-            if((txt_etctime.getText()).equals("")){
-                JOptionPane.showMessageDialog(null,"Please enter time booking");
+     
+        CharSequence a= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
+        System.out.println("Length" +txt_phone.getText().length());
+        System.out.println("Tel: "+txt_phone.getText());
+        if((txt_phone.getText()).length()==10&&!txt_phone.getText().contains(a)){
+            if(cbbox_time.getSelectedIndex()==3){
+                if((txt_etctime.getText()).equals("")){
+                    JOptionPane.showMessageDialog(null,"Please enter time booking");
+                    txt_etctime.requestFocus();
+                }else
+                    new Booking(time, date, std, receiveId, sendId,std.getTel());
             }
+            else if(cbbox_time.getSelectedIndex()!=3 &&!(txt_etctime.getText()).equals("etc.")){
+                    JOptionPane.showMessageDialog(null,"Choose time again!");
+                    txt_etctime.setText("etc.");
+            }
+            else{
+                if(txt_phone.getText().equals("")){
+                    Booking book = new Booking(time, date, std, receiveId, sendId,std.getTel());
+                }else{
+                    Booking book = new Booking(time, date, std, receiveId, sendId,txt_phone.getText());
+                    JOptionPane.showMessageDialog(null,"You can see your booking in Booking List");
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(null,"Please check your phone number again");
+            txt_phone.requestFocus();
         }
-        else{
-            JOptionPane.showMessageDialog(null,"Success! You can see your booking in Booking List");
-        }
+        
     }//GEN-LAST:event_btn_bookingActionPerformed
 
     private void cbbox_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_sendActionPerformed
@@ -280,22 +271,13 @@ public class Panel_RoundTable extends java.awt.Panel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbox_pickupActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        dialog_success.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_booking;
     private javax.swing.JComboBox<String> cbbox_pickup;
     private javax.swing.JComboBox<String> cbbox_send;
     private javax.swing.JComboBox<String> cbbox_time;
-    private javax.swing.JDialog dialog_success;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel logoPhone;
     private javax.swing.JLabel logoPickup;
     private javax.swing.JLabel logoSend;
