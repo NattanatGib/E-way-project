@@ -6,10 +6,14 @@
 package Eway.GUI;
 
 import Eway.model.Booking;
+import Eway.model.ConnectionBuilder;
 import Eway.model.Person;
 import java.awt.Color;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -211,37 +215,51 @@ public class Panel_RoundTable extends java.awt.Panel {
         int sendId = cbbox_send.getSelectedIndex()+16;
         //เก็บข้อมูลลงdb BOOKING
         
-        
-            
+        ResultSet rs=null;
+        try{
+            String sql ="Select * From BOOKING Where Person_ID=? AND Booking_DATE = CURDATE()";
+            Connection con = ConnectionBuilder.getConnection();
+            PreparedStatement st=con.prepareStatement(sql);
+            st.setInt(1,person.getPersonId());
+            rs=st.executeQuery();
+        }catch(SQLException e){
+            System.out.println(e);
+        }   
         
         //------check that user enter all information--------
      
         CharSequence a= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
-        System.out.println("Length" +txt_phone.getText().length());
-        System.out.println("Tel: "+txt_phone.getText());
-        if((txt_phone.getText()).length()==10&&!txt_phone.getText().contains(a)){
-            if(cbbox_time.getSelectedIndex()==3){
-                if((txt_etctime.getText()).equals("")){
-                    JOptionPane.showMessageDialog(null,"Please enter time booking");
-                    txt_etctime.requestFocus();
-                }else
-                    new Booking(time, date, std, receiveId, sendId,std.getTel());
-            }
-            else if(cbbox_time.getSelectedIndex()!=3 &&!(txt_etctime.getText()).equals("etc.")){
-                    JOptionPane.showMessageDialog(null,"Choose time again!");
-                    txt_etctime.setText("etc.");
-            }
-            else{
-                if(txt_phone.getText().equals("")){
-                    Booking book = new Booking(time, date, std, receiveId, sendId,std.getTel());
+        try {
+            if(rs.getRow()>0){
+                if((txt_phone.getText().length()==0||(txt_phone.getText()).length()==10)&&!txt_phone.getText().contains(a)){
+                    if(cbbox_time.getSelectedIndex()==3){
+                        if((txt_etctime.getText()).equals("")){
+                            JOptionPane.showMessageDialog(this,"Please enter time booking");
+                            txt_etctime.requestFocus();
+                        }else
+                            new Booking(time, date, std, receiveId, sendId,std.getTel());
+                    }
+                    else if(cbbox_time.getSelectedIndex()!=3 &&!(txt_etctime.getText()).equals("etc.")){
+                        JOptionPane.showMessageDialog(this,"Choose time again!");
+                        txt_etctime.setText("etc.");
+                    }
+                    else{
+                        if(txt_phone.getText().equals("")){
+                            Booking book = new Booking(time, date, std, receiveId, sendId,std.getTel());
+                        }else{
+                            Booking book = new Booking(time, date, std, receiveId, sendId,txt_phone.getText());
+                            JOptionPane.showMessageDialog(this,"You can see your booking in Booking List");
+                        }
+                    }
                 }else{
-                    Booking book = new Booking(time, date, std, receiveId, sendId,txt_phone.getText());
-                    JOptionPane.showMessageDialog(null,"You can see your booking in Booking List");
+                    JOptionPane.showMessageDialog(this,"Please check your phone number again");
+                    txt_phone.requestFocus();
                 }
-            }
-        }else{
-            JOptionPane.showMessageDialog(null,"Please check your phone number again");
-            txt_phone.requestFocus();
+            }else
+                JOptionPane.showMessageDialog(this,"You've book already kub");
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);;
         }
         
     }//GEN-LAST:event_btn_bookingActionPerformed

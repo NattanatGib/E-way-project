@@ -97,7 +97,7 @@ public class Booking {
     }
     
     public boolean regisBook() {
-        String sqlInsert = "insert into BOOKING(BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id,Telephone)"
+        String sqlInsert = "insert into BOOKING(BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id,Booking_Telephone)"
                 + " values (?,?,?,?,?,?)";
         try {
             Connection con = ConnectionBuilder.getConnection();

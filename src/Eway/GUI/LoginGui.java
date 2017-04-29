@@ -214,7 +214,7 @@ public class LoginGui extends javax.swing.JFrame {
             fx.setString(1,""+person.getPersonId());
             ResultSet rs=fx.executeQuery();
             if (rs.next()) {
-                temp = rs.getString(5);
+                temp = rs.getString("Person_TYPE");
                 this.setVisible(false);
                 if(temp.equalsIgnoreCase("student")){
                     home = new BookingHome(person);

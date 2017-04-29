@@ -176,15 +176,15 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_logoutActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        callList("SELECT * FROM Booking WHERE Booking_Date  = CURRENT_DATE");
+        callList("SELECT * FROM BOOKING WHERE Booking_Date  = CURRENT_DATE");
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        callList("select * from Booking order by  Booking_Date desc ");
+        callList("select * from BOOKING order by  Booking_Date desc ");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        callList("SELECT * FROM Booking WHERE Booking_Date  = CURRENT_DATE");
+        callList("SELECT * FROM BOOKING WHERE Booking_Date  = CURRENT_DATE");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -233,7 +233,8 @@ public class Admin extends javax.swing.JFrame {
         model.addColumn("Time");
         model.addColumn("Recieve Place");
         model.addColumn("Send Location");
-        model.addColumn("Person");
+        model.addColumn("Customer");
+        model.addColumn("Telephone");
         
         
         Connection con=ConnectionBuilder.getConnection();
@@ -253,9 +254,10 @@ public class Admin extends javax.swing.JFrame {
                 model.setValueAt(rec.getInt("Booking_Id"),row,0);
                 model.setValueAt(rec.getString("Booking_Date"),row,1);
                 model.setValueAt(rec.getString("Booking_Round"),row,2);
-                model.setValueAt(rec.getString(4),row,3);
-                model.setValueAt(rec.getString(5),row,4);
-                model.setValueAt(rec.getInt(6),row,5);
+                model.setValueAt(rec.getString("ROUTE_LOCATION_RECIEVE"),row,3);
+                model.setValueAt(rec.getString("ROUTE_LOCATION_DESTINATION"),row,4);
+                model.setValueAt(rec.getInt("PERSON_ID"),row,5);
+                model.setValueAt(rec.getString("BOOKING_TELEPHONE"),row,6);
                 row++;
             }
         }catch(SQLException  e){

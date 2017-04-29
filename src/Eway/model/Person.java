@@ -31,8 +31,8 @@ public class Person {
     }
     
     public static void getPerson(ResultSet rs, Person p) throws SQLException {
-        p.setFaculty(rs.getString("Faculty"));
-        p.setEMAIL(rs.getString("Email"));
+        p.setFaculty(rs.getString("Facultyof"));
+        p.setEMAIL(rs.getString("Person_Email"));
         p.setBranchOf(rs.getString("BranchOf"));
         p.setPersonId(rs.getInt("Person_Id"));
         p.setStuName(rs.getString("Person_Name"));
@@ -124,7 +124,7 @@ public class Person {
 
     public static Person login(String perId, String pass) {//เปลี่ยนใน login return เป็น person 
         Person one = new Person();
-        String sql = "SELECT * FROM Person WHERE Person_ID=? AND Person_PASSWORD=?";
+        String sql = "SELECT * FROM PERSON WHERE Person_ID=? AND Person_PASSWORD=?";
         Connection con = ConnectionBuilder.getConnection();
         try {
             PreparedStatement ps = con.prepareStatement(sql);

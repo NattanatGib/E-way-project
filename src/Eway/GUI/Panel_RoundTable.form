@@ -200,11 +200,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="logoPickup">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\E-way-project\icon\busstop_pointer.png"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="70" y="150" width="-1" height="-1"/>
@@ -241,11 +236,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="logoPhone">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\E-way-project\icon\telephone.png"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="70" y="250" width="-1" height="-1"/>
@@ -271,11 +261,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="logoTime">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\E-way-project\icon\clock1.png"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="70" y="50" width="-1" height="-1"/>
@@ -283,11 +268,6 @@
           </Constraints>
         </Component>
         <Component class="javax.swing.JLabel" name="logoSend">
-          <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\hp\Desktop\gib\IT\&#xe1b;&#xe35;1 &#xe40;&#xe17;&#xe2d;&#xe21;2\INT105 java\Project\E-way-project\icon\sent-mail.png"/>
-            </Property>
-          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="70" y="200" width="-1" height="-1"/>
