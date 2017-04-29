@@ -238,7 +238,7 @@ public class BookingHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_roundTableActionPerformed
 
     private void btn_bookingListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingListActionPerformed
-        callList("Select * from Booking  where person_ID=" + 123);
+        callList("Select * from BOOKING where person_ID=" + this.person.getPersonId());
         p1.setVisible(false);
         p2.setVisible(true);
         p3.setVisible(false);
@@ -340,8 +340,8 @@ public class BookingHome extends javax.swing.JFrame {
                 model.setValueAt(rec.getInt("Booking_Id"), row, 0);
                 model.setValueAt(rec.getString("Booking_Date"), row, 1);
                 model.setValueAt(rec.getString("Booking_Round"), row, 2);
-                model.setValueAt(rec.getString(4), row, 3);
-                model.setValueAt(rec.getString(5), row, 4);
+                model.setValueAt(rec.getString("ROUTE_LOCATION_RECIEVE"), row, 3);
+                model.setValueAt(rec.getString("ROUTE_LOCATION_DESTINATION"), row, 4);
                 row++;
             }
         } catch (SQLException e) {

@@ -222,7 +222,7 @@ public class LoginGui extends javax.swing.JFrame {
                     System.out.println(person);
                 }
                 else if(temp.equalsIgnoreCase("admin")){
-                    adHome = new Admin();
+                    adHome = new Admin(this.person);
                     adHome.setVisible(true);
                     System.out.println(person);
                 }

@@ -217,7 +217,7 @@ public class Panel_RoundTable extends java.awt.Panel {
         
         ResultSet rs=null;
         try{
-            String sql ="Select * From BOOKING Where Person_ID=? AND Booking_DATE = CURDATE()";
+            String sql ="Select * From BOOKING Where Person_ID=? AND Booking_DATE = CURRENT_DATE()";
             Connection con = ConnectionBuilder.getConnection();
             PreparedStatement st=con.prepareStatement(sql);
             st.setInt(1,person.getPersonId());

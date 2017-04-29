@@ -462,7 +462,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
     private void logoRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoRefreshMouseClicked
         pn_editDetail.setVisible(false);
         System.out.println("Mouse is Clicked");
-        callList("Select * from Booking where Person_Id=" + this.person.getPersonId());
+        callList("Select * from BOOKING where Person_Id=" + this.person.getPersonId());
     }//GEN-LAST:event_logoRefreshMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -505,7 +505,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
     }//GEN-LAST:event_logoBinMouseClicked
 
     private void BookingListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookingListMouseClicked
-        
+        int row = BookingList.getSelectedRow();
+        System.out.println(BookingList.getValueAt(row, 1));
     }//GEN-LAST:event_BookingListMouseClicked
 
      public void callList(String ds){
