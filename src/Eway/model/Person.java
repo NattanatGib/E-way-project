@@ -131,11 +131,11 @@ public class Person {
             ps.setString(1, perId);
             ps.setString(2, pass);
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
+            if (rs.next()) {//กรณีที่กรอกusernameและpasswordถูกต้องให้show dialog Welcome
                 String type = rs.getString(5);
                 JOptionPane.showMessageDialog(null, "Welcome " + rs.getString(2));
-            } else {
-                JOptionPane.showMessageDialog(null, "Wrong Id/Password");
+            } else {//กรณีที่กรอกusernameและpasswordถูกต้องให้show dialog Wrong Id/Password
+                JOptionPane.showMessageDialog(null, "Wrong Id/Password");     
             }
 
             Person.getPerson(rs, one);

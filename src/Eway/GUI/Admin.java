@@ -45,6 +45,7 @@ public class Admin extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -101,7 +102,9 @@ public class Admin extends javax.swing.JFrame {
         admin.setForeground(new java.awt.Color(0, 58, 72));
         admin.setText("Admin");
         jPanel2.add(admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 22, 73, 34));
-        jPanel2.add(logoSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
+
+        logoSearch.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\loupe.png")); // NOI18N
+        jPanel2.add(logoSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
 
         sortBy.setFont(new java.awt.Font("FreesiaUPC", 1, 24)); // NOI18N
         sortBy.setForeground(new java.awt.Color(0, 58, 72));
@@ -142,6 +145,14 @@ public class Admin extends javax.swing.JFrame {
         jButton3.setText("All");
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
 
+        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 58, 72), 3));
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 430, 30));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 750, 440));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 500));
@@ -175,6 +186,10 @@ public class Admin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         callList("SELECT * FROM BOOKING WHERE Booking_Date  = CURRENT_DATE");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,6 +282,7 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel logoSearch;
     private javax.swing.JLabel logoUser;
     private javax.swing.JPanel panel_top;

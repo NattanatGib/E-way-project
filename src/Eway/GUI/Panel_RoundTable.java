@@ -152,7 +152,7 @@ public class Panel_RoundTable extends java.awt.Panel {
         });
         panel_center.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 170, 30));
 
-        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\clock1.png")); // NOI18N
+        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\clock.png")); // NOI18N
         panel_center.add(logoTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
 
         logoSend.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\sent-mail.png")); // NOI18N

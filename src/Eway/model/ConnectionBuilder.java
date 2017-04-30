@@ -39,7 +39,7 @@ public class ConnectionBuilder {
        String username = "eway";
        String password = "eway";
         try {
-            Class.forName("org.mariadb.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             con  =  DriverManager.getConnection(url,username,password);
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnectionBuilder.class.getName()).log(Level.SEVERE, null, ex);

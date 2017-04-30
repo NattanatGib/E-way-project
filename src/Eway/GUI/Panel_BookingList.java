@@ -187,6 +187,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
         bookingList.setText("Booking List");
         panel_top.add(bookingList, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 220, 50));
 
+        logoRefresh.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\refresh-page-arrow-button.png")); // NOI18N
         logoRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoRefreshMouseClicked(evt);
@@ -224,20 +225,28 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         pn_editDetail.setBackground(new java.awt.Color(0, 153, 153));
 
+        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\clock.png")); // NOI18N
+
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
         time.setForeground(new java.awt.Color(240, 240, 240));
         time.setText("Time");
+
+        logoPickup.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\busstop_pointer.png")); // NOI18N
 
         pickupPlace.setBackground(new java.awt.Color(255, 255, 255));
         pickupPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
         pickupPlace.setForeground(new java.awt.Color(240, 240, 240));
         pickupPlace.setText("Pickup Place");
 
+        logoSend.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\sent-mail.png")); // NOI18N
+
         sendPlace.setBackground(new java.awt.Color(255, 255, 255));
         sendPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
         sendPlace.setForeground(new java.awt.Color(240, 240, 240));
         sendPlace.setText("Send Place");
+
+        logoPhone.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\telephone.png")); // NOI18N
 
         phoneNum.setBackground(new java.awt.Color(255, 255, 255));
         phoneNum.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
@@ -364,7 +373,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                         .addComponent(phoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(logoPhone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -393,6 +402,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         panel_center.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 420, 60));
 
+        logoEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\edit.png")); // NOI18N
         logoEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoEditMouseClicked(evt);
@@ -422,6 +432,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         panel_center.add(pn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, -1, 20));
 
+        logoBin.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\rubbish-bin.png")); // NOI18N
         logoBin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoBinMouseClicked(evt);

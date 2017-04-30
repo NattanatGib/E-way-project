@@ -181,7 +181,7 @@ public class LoginGui extends javax.swing.JFrame {
         tree6.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\growing-plant2.png")); // NOI18N
         wallpaperRight.add(tree6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
 
-        btn_exit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\icon\\exit.png")); // NOI18N
+        btn_exit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\exit.png")); // NOI18N
         btn_exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_exitActionPerformed(evt);
@@ -227,17 +227,15 @@ public class LoginGui extends javax.swing.JFrame {
                     System.out.println(person);
                 }
             }
-            
         }catch(SQLException se){
             System.out.println(se);
         }
         
-        
         //------check that user enter all information--------
-        if((txt_username.getText()).equals("")){
+        if((txt_username.getText()).equals("")){//กรณีที่userไม่กรอกusernameให้show dialog Please enter your username
             JOptionPane.showMessageDialog(null,"Please enter your username");
         }
-        else if((txt_password.getText()).equals("")){
+        else if((txt_password.getText()).equals("")){//กรณีที่userไม่กรอกpassword
             JOptionPane.showMessageDialog(null,"Please enter your password");
         }
         
