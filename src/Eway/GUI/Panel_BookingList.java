@@ -9,6 +9,7 @@ import Eway.model.ConnectionBuilder;
 import Eway.model.Person;
 import java.awt.Color;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -78,9 +79,9 @@ public class Panel_BookingList extends javax.swing.JPanel {
         cbbox_send = new javax.swing.JComboBox<>();
         txt_phone = new javax.swing.JTextField();
         lb_edit1 = new javax.swing.JLabel();
-        txt_time = new javax.swing.JTextField();
         btn_save = new javax.swing.JButton();
         btn_cancel = new javax.swing.JButton();
+        timeBox = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         BookingList = new javax.swing.JTable();
         logoEdit = new javax.swing.JLabel();
@@ -268,14 +269,6 @@ public class Panel_BookingList extends javax.swing.JPanel {
         lb_edit1.setForeground(new java.awt.Color(255, 255, 255));
         lb_edit1.setText("Edit");
 
-        txt_time.setBackground(new java.awt.Color(240, 240, 240));
-        txt_time.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
-        txt_time.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_timeActionPerformed(evt);
-            }
-        });
-
         btn_save.setBackground(new java.awt.Color(0, 58, 72));
         btn_save.setFont(new java.awt.Font("TH Sarabun New", 1, 20)); // NOI18N
         btn_save.setForeground(new java.awt.Color(255, 255, 255));
@@ -295,6 +288,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 btn_cancelActionPerformed(evt);
             }
         });
+
+        timeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "23:00", "00.00", "01.00", "etc." }));
 
         javax.swing.GroupLayout pn_editDetailLayout = new javax.swing.GroupLayout(pn_editDetail);
         pn_editDetail.setLayout(pn_editDetailLayout);
@@ -322,7 +317,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                         .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cbbox_send, 0, 1, Short.MAX_VALUE)
                             .addComponent(cbbox_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_time)))
+                            .addComponent(timeBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(pn_editDetailLayout.createSequentialGroup()
                         .addComponent(logoPhone)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -341,10 +336,10 @@ public class Panel_BookingList extends javax.swing.JPanel {
             pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_editDetailLayout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(lb_edit1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(pn_editDetailLayout.createSequentialGroup()
-                        .addComponent(lb_edit1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(time, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(logoTime))
@@ -359,8 +354,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
                                 .addComponent(cbbox_send, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(logoSend)))
                     .addGroup(pn_editDetailLayout.createSequentialGroup()
-                        .addComponent(txt_time, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(timeBox)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cbbox_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37)))
                 .addGap(11, 11, 11)
@@ -369,7 +364,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                         .addComponent(phoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(logoPhone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -449,11 +444,27 @@ public class Panel_BookingList extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_phoneActionPerformed
 
-    private void txt_timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_timeActionPerformed
-
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
+        int row=BookingList.getSelectedRow();
+        CharSequence notAllowChar= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
+        String tel="";
+        if(txt_phone.getText().equals("")||txt_phone.getText().contains(notAllowChar)||txt_phone.getText().length()!=10){
+            tel=person.getTel();
+        }else
+            tel=txt_phone.getText();
+        
+        try{
+            String sql="Update BOOKING SET TIME=? ROUTE_LOCATION_RECIEVE=? ROUTE_LOCATION_DESTINATION=? Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
+            Connection con = ConnectionBuilder.getConnection();
+            PreparedStatement st=con.prepareStatement(sql);
+            st.setString(1,timeBox.getSelectedItem().toString());
+            st.setInt(2,cbbox_pickup.getSelectedIndex());
+            st.setInt(3,cbbox_send.getSelectedIndex());
+            st.setString(4,tel);
+            st.executeUpdate();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
         dialog_save.setVisible(true);
         dialog_save.pack();
         dialog_save.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
@@ -506,7 +517,24 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
     private void BookingListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookingListMouseClicked
         int row = BookingList.getSelectedRow();
-        System.out.println(BookingList.getValueAt(row, 1));
+        String time = BookingList.getValueAt(row, 0).toString();
+        switch(time){
+            case "23:00":
+                timeBox.setSelectedIndex(0);
+                break;
+            case "00:00":
+                timeBox.setSelectedIndex(1);
+                break;
+            case "01:00":
+                timeBox.setSelectedIndex(2);
+                break;
+            default:
+                timeBox.setSelectedIndex(3);
+                break;
+        }
+        cbbox_pickup.setSelectedIndex(Integer.parseInt(BookingList.getValueAt(row,3).toString()));
+        cbbox_send.setSelectedIndex(Integer.parseInt(BookingList.getValueAt(row,4).toString()));
+        txt_phone.setText(BookingList.getValueAt(row,5).toString());
     }//GEN-LAST:event_BookingListMouseClicked
 
      public void callList(String ds){
@@ -520,6 +548,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
         model.addColumn("Time");
         model.addColumn("Pickup Place");
         model.addColumn("Send Place");
+        model.addColumn("Tel.");
        
         
         
@@ -540,8 +569,9 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 model.setValueAt(rec.getInt("Booking_Id"),row,0);
                 model.setValueAt(rec.getString("Booking_Date"),row,1);
                 model.setValueAt(rec.getString("Booking_Round"),row,2);
-                model.setValueAt(rec.getString(4),row,3);
-                model.setValueAt(rec.getString(5),row,4);
+                model.setValueAt(rec.getString("ROUTE_LOCATION_RECIEVE"),row,3);
+                model.setValueAt(rec.getString("ROUTE_LOCATION_DESTINATION"),row,4);
+                model.setValueAt(rec.getString("Booking_Telephone"),row,5);
                 row++;
             }
         }catch(SQLException  e){
@@ -600,7 +630,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
     private javax.swing.JPanel pn_editDetail;
     private javax.swing.JLabel sendPlace;
     private javax.swing.JLabel time;
+    private javax.swing.JComboBox<String> timeBox;
     private javax.swing.JTextField txt_phone;
-    private javax.swing.JTextField txt_time;
     // End of variables declaration//GEN-END:variables
 }

@@ -228,10 +228,10 @@ public class Panel_RoundTable extends java.awt.Panel {
         
         //------check that user enter all information--------
      
-        CharSequence a= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
+        CharSequence notAllowChar= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
         try {
             if(rs.getRow()>0){
-                if((txt_phone.getText().length()==0||(txt_phone.getText()).length()==10)&&!txt_phone.getText().contains(a)){
+                if((txt_phone.getText().length()==0||(txt_phone.getText()).length()==10)&&!txt_phone.getText().contains(notAllowChar)){
                     if(cbbox_time.getSelectedIndex()==3){
                         if((txt_etctime.getText()).equals("")){
                             JOptionPane.showMessageDialog(this,"Please enter time booking");
