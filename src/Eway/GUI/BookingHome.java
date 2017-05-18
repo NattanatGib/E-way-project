@@ -43,6 +43,7 @@ public class BookingHome extends javax.swing.JFrame {
 
     public BookingHome(Person person) {
         initComponents();
+        //panel_btn.setBackground(new Color(255, 255, 255, 0));
         btn_roundTable.setBackground(new Color(255, 255, 255, 0));
         btn_bookingList.setBackground(new Color(255, 255, 255, 0));
         btn_editProfile.setBackground(new Color(255, 255, 255, 0));
@@ -115,18 +116,18 @@ public class BookingHome extends javax.swing.JFrame {
         panel_top.add(eway, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, 20));
 
         showName.setBackground(new java.awt.Color(204, 204, 204));
-        showName.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
-        showName.setForeground(new java.awt.Color(153, 153, 153));
+        showName.setFont(new java.awt.Font("TH Sarabun New", 1, 20)); // NOI18N
+        showName.setForeground(new java.awt.Color(255, 255, 255));
         showName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         showName.setText(name);
-        panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, 190, 20));
+        panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 190, 20));
 
         logoUser.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\user (1).png")); // NOI18N
-        panel_top.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+        panel_top.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
 
         btn_logout.setBackground(new java.awt.Color(255, 255, 255));
-        btn_logout.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
-        btn_logout.setForeground(new java.awt.Color(153, 153, 153));
+        btn_logout.setFont(new java.awt.Font("TH Sarabun New", 1, 20)); // NOI18N
+        btn_logout.setForeground(new java.awt.Color(255, 255, 255));
         btn_logout.setText("logout");
         btn_logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -141,11 +142,11 @@ public class BookingHome extends javax.swing.JFrame {
                 btn_logoutActionPerformed(evt);
             }
         });
-        panel_top.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, 20));
+        panel_top.add(btn_logout, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, -1, 20));
 
         panel_wallpp.add(panel_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 750, 42));
 
-        panel_btn.setBackground(new java.awt.Color(103, 197, 233));
+        panel_btn.setBackground(new java.awt.Color(103, 196, 233));
         panel_btn.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_roundTable.setFont(new java.awt.Font("FreesiaUPC", 1, 26)); // NOI18N
@@ -238,7 +239,7 @@ public class BookingHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_roundTableActionPerformed
 
     private void btn_bookingListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingListActionPerformed
-        callList("Select * from BOOKING where person_ID=" + this.person.getPersonId());
+        callList("Select * from BOOKING where BOOKING_DATE = CURDATE() and PERSON_ID=" + this.person.getPersonId());
         p1.setVisible(false);
         p2.setVisible(true);
         p3.setVisible(false);
@@ -292,7 +293,7 @@ public class BookingHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_logoutMouseEntered
 
     private void btn_logoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_logoutMouseExited
-        btn_logout.setForeground(new java.awt.Color(153, 153, 153));
+        btn_logout.setForeground(new java.awt.Color(255, 255, 255));
     }//GEN-LAST:event_btn_logoutMouseExited
 
     private void btn_editProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editProfileActionPerformed
@@ -323,6 +324,7 @@ public class BookingHome extends javax.swing.JFrame {
         model.addColumn("Time");
         model.addColumn("Pickup Place");
         model.addColumn("Send Place");
+        model.addColumn("Tel.");
 
         Connection con = ConnectionBuilder.getConnection();
         Statement st = null;
@@ -342,6 +344,7 @@ public class BookingHome extends javax.swing.JFrame {
                 model.setValueAt(rec.getString("Booking_Round"), row, 2);
                 model.setValueAt(rec.getString("ROUTE_LOCATION_RECIEVE"), row, 3);
                 model.setValueAt(rec.getString("ROUTE_LOCATION_DESTINATION"), row, 4);
+                model.setValueAt(rec.getString("Booking_Telephone"),row,5);
                 row++;
             }
         } catch (SQLException e) {

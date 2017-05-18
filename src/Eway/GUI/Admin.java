@@ -38,14 +38,11 @@ public class Admin extends javax.swing.JFrame {
         btn_logout = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         admin = new javax.swing.JLabel();
-        logoSearch = new javax.swing.JLabel();
         sortBy = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         BookingList = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -103,13 +100,10 @@ public class Admin extends javax.swing.JFrame {
         admin.setText("Admin");
         jPanel2.add(admin, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 22, 73, 34));
 
-        logoSearch.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\loupe.png")); // NOI18N
-        jPanel2.add(logoSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 60, -1, -1));
-
         sortBy.setFont(new java.awt.Font("FreesiaUPC", 1, 24)); // NOI18N
         sortBy.setForeground(new java.awt.Color(0, 58, 72));
         sortBy.setText("Sort by");
-        jPanel2.add(sortBy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 70, 20));
+        jPanel2.add(sortBy, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 70, 20));
 
         BookingList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -124,7 +118,7 @@ public class Admin extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(BookingList);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 750, 340));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 750, 340));
 
         jButton1.setText("Date");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +126,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
 
         jButton2.setText("Refresh");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -140,18 +134,7 @@ public class Admin extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, -1, -1));
-
-        jButton3.setText("All");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, -1, -1));
-
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 58, 72), 3));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 430, 30));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 70, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 750, 440));
 
@@ -186,10 +169,6 @@ public class Admin extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         callList("SELECT * FROM BOOKING WHERE Booking_Date  = CURRENT_DATE");
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -226,7 +205,7 @@ public class Admin extends javax.swing.JFrame {
         });
     }
     
-    public void callList(String ds){
+    public void callList(String sqlCommand){
         //clear table
         BookingList.setModel(new DefaultTableModel());
         
@@ -248,8 +227,8 @@ public class Admin extends javax.swing.JFrame {
             st=con.createStatement();
             
             
-            //"select * from Booking order by  Booking_Date desc"
-            String sql=ds;
+           
+            String sql=sqlCommand;
             
             ResultSet rec=st.executeQuery(sql);
             int row=0;
@@ -278,12 +257,9 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel eway;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JLabel logoSearch;
     private javax.swing.JLabel logoUser;
     private javax.swing.JPanel panel_top;
     private javax.swing.JLabel showName;

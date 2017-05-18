@@ -51,10 +51,10 @@ public class Person {
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 p = new Person();
-                getPerson(rs, p);
+                getPerson(rs, p);//ORM
             }
         } catch (Exception e) {
-            System.out.println("Error ja");
+            System.out.println(e);
         }
 
         return p;
@@ -139,7 +139,7 @@ public class Person {
             }
 
             Person.getPerson(rs, one);
-//            System.out.println(one.getStuName());
+
             con.close();
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -147,7 +147,7 @@ public class Person {
         return one;
     }
     
-    public String editProfile(String editName,String editPass,String editFacul,String editBranch,String editPhone,String editEmail,Person p){
+    public void editProfile(String editName,String editPass,String editFacul,String editBranch,String editPhone,String editEmail,Person p){
         this.stuName=editName;
         this.password=editPass;
         this.faculty=editFacul;
@@ -156,7 +156,7 @@ public class Person {
         this.eMail=editEmail;
         
         String sqlInsert = "update PERSON set PERSON_NAME=?,FACULTY=?,BRANCHOF=?,EMAIL=?,PERSON_PASSWORD=?,PERSON_TELEPHONE=? where PERSON_ID=?";
-        //String sqlInsert = "insert into PERSON(PERSON_NAME,FACULTY,BRANCHOF,EMAIL) values (?,?,?,?)";
+       
         try {
             Connection con = ConnectionBuilder.getConnection();
 
@@ -169,31 +169,16 @@ public class Person {
             stm.setString(6, this.tel);
             stm.setInt(7,p.getPersonId());
             stm.executeUpdate();
-
-            return "Edit profile already";
+        
         } catch (SQLException ex) {
             System.out.println(ex);
-            return "can not Edit profile";
+        
         }catch(Exception e){
             System.out.println(e);
-            return "can not Edit profile";
+      
         }
     }
     
-    
-    /*public void getId(){
-       Connection con=ConnectionBuilder.getConnection();
-       try{
-           Statement s=con.createStatement();
-           ResultSet rs=s.executeQuery("select * from person");
-           rs.last();
-           this.personId=rs.getInt(1);
-           con.close();
-           
-       }catch(SQLException e){
-           System.out.println(e);
-       }
-   }*/ //เก็บไว้เผื่อใช้ในภายหลังนะครับ
 
     public String geteMail() {
         return eMail;

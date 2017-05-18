@@ -200,7 +200,6 @@ public class LoginGui extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         int i=0;
-//        while(person == null){
         while(i<1){
             this.person=Person.login(txt_username.getText(),txt_password.getText());
             i++;
@@ -210,9 +209,9 @@ public class LoginGui extends javax.swing.JFrame {
         
         try{
             Connection con=ConnectionBuilder.getConnection();
-            PreparedStatement fx=con.prepareStatement(sql);
-            fx.setString(1,""+person.getPersonId());
-            ResultSet rs=fx.executeQuery();
+            PreparedStatement pst=con.prepareStatement(sql);
+            pst.setString(1,""+person.getPersonId());
+            ResultSet rs=pst.executeQuery();
             if (rs.next()) {
                 temp = rs.getString("Person_TYPE");
                 this.setVisible(false);

@@ -191,35 +191,41 @@ public class Panel_RoundTable extends java.awt.Panel {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date dt = new Date();
         String date = format.format(dt);
-        String time = date;
+        String time = "";
         //--------------------------------Time----------------------------//
         int cbboxTime = cbbox_time.getSelectedIndex()+1;
         if(cbboxTime==1){//กรณีเลือกเวลา23.00
-            time += " 23:00:00";
+            time = " 23:00:00";
         }
         else if(cbboxTime==2){//กรณีเลือกเวลา23.00
-            time += " 24:00:00";
+            time = " 24:00:00";
         }
         else if(cbboxTime==3){//กรณีเลือกเวลา23.00
-            time += " 01:00:00";
+            time = " 01:00:00";
         }
         else{//กรณีเลือกเวลา23.00
             String showTime = txt_etctime.getText();
-            String showHr = showTime.substring(0,2);//ตัดชั่วโมง
-            String showMin = showTime.substring(3,5);//ตัดนาที
-            time += " "+showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+            CharSequence notAllowChar= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
+            if(!showTime.contains(notAllowChar)){
+                String showHr = showTime.substring(0,2);//ตัดชั่วโมง
+                String showMin = showTime.substring(3,5);//ตัดนาที
+                time =" " +showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+            }else{
+                JOptionPane.showMessageDialog(null,"Enter Again please ");
+                txt_etctime.requestFocus();
+            }    
         }
         //----------------------------------------------------------------//
         Person std = this.person;
         int receiveId = cbbox_pickup.getSelectedIndex()+1;
-        int sendId = cbbox_send.getSelectedIndex()+16;
+        int sendId = cbbox_send.getSelectedIndex()+11;
         //เก็บข้อมูลลงdb BOOKING
         
         ResultSet rs=null;
         try{
-            String sql ="Select * From BOOKING Where Person_ID=? AND Booking_DATE = CURRENT_DATE()";
-            Connection con = ConnectionBuilder.getConnection();
-            PreparedStatement st=con.prepareStatement(sql);
+            String sql ="Select * From BOOKING Where Booking_DATE = CURDATE() AND Person_Id = ? ";
+            Connection con = ConnectionBuilder.getConnection(); 
+            PreparedStatement st=con.prepareStatement(sql); 
             st.setInt(1,person.getPersonId());
             rs=st.executeQuery();
         }catch(SQLException e){
@@ -230,7 +236,7 @@ public class Panel_RoundTable extends java.awt.Panel {
      
         CharSequence notAllowChar= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
         try {
-            if(rs.getRow()>0){
+            if(!rs.next()){
                 if((txt_phone.getText().length()==0||(txt_phone.getText()).length()==10)&&!txt_phone.getText().contains(notAllowChar)){
                     if(cbbox_time.getSelectedIndex()==3){
                         if((txt_etctime.getText()).equals("")){

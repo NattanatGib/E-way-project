@@ -4,19 +4,16 @@ import java.sql.*;
 
 public class Booking {
     private String time;//เวลาที่ให้ไปรับ
-    private String date;//วันที่ที่ใช้รถ
-    private Person student;
-    private String tel;
-    //-------------- แก้ใหม่--------------------------
+    private String date;//วันที่ที่จองรถ
+    private Person student;//คนจอง
+    private String tel;//เบอร์
     private int recieveId;//สถานที่รับ
     private int sendId;//สถานที่ส่ง
-    //----------------------------------------------
-    private static int id=1;
 
     public Booking(){
         
     }
-    //test push
+
     public Booking(String time, String date,Person p, int recievePlace,int  sendPlace,String tel) {
         this.time = time;
         this.date = date;
@@ -33,18 +30,6 @@ public class Booking {
         
     }
 
-    /*public Booking(String time, String date, String recievePlace, String sendPlace) {
-        this.date = date;
-        this.time = time;
-        this.recievePlace = recievePlace;
-        this.sendPlace = sendPlace;
-        ///////// ส่วนที่ผมทำ///////////////////////
-        if(regisBook()){
-            System.out.println("Success");
-        }else
-            System.out.println("Failed");
-        ////////////////////////////////////////
-    }*/
 
     public String getTime() {
         return time;
@@ -98,12 +83,11 @@ public class Booking {
     
     public boolean regisBook() {
         String sqlInsert = "insert into BOOKING(BOOKING_DATE,BOOKING_ROUND, ROUTE_LOCATION_RECIEVE,ROUTE_LOCATION_DESTINATION,Person_Id,Booking_Telephone)"
-                + " values (?,?,?,?,?,?)";
+                + " values (?,?,?,?,?,?)";//เตรียมPreparedStatement
         try {
             Connection con = ConnectionBuilder.getConnection();
 
             PreparedStatement stm = con.prepareStatement(sqlInsert);
-            //stm.setInt(1, id++);
             stm.setString(1,this.date );
             stm.setString(2, this.time);
             stm.setInt(3, recieveId);
@@ -121,18 +105,16 @@ public class Booking {
             return false;
         }
     }
-    
-   // public void 
-   // public String queryRoute()
-    
+
     
     public static ResultSet findBookingById(int p){//Method ที่เอาไว้ดึงข้อมูลการจองทั้งหมดที่user จองไว้
-        String sql="select * from booking where person_ID=?";//คำสั่ง SQL
+        String sql="select * from BOOKING where person_ID=?";//คำสั่ง SQL
         ResultSet table=null;//สร้างตัวแปรไว้เก็บค่า
         try{
             Connection con=ConnectionBuilder.getConnection();
             PreparedStatement pre = con.prepareStatement(sql,ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_UPDATABLE);
             pre.setInt(1,p); //เซ้ตค่า Id ของ USER
+            System.out.println("check");
             table=pre.executeQuery();
       
         } catch(SQLException e){
@@ -143,7 +125,7 @@ public class Booking {
      }
     
     public  ResultSet getAllBooking(){//เรียกการจองทุกอันขึ้นมา
-        String sql="select * from booking";
+        String sql="select * from BOOKING";
         ResultSet re=null;
         try{
             Connection  con=ConnectionBuilder.getConnection();
@@ -156,7 +138,7 @@ public class Booking {
         return re;
     }
     public static void cancelBooking(int id){//ยกเลิกการจอง
-        String sql="delete from Booking where Booking_ID=?";
+        String sql="delete from BOOKING where BOOKING_ID=?";
         try{
            Connection con=ConnectionBuilder.getConnection();
            PreparedStatement pre=con.prepareStatement(sql);
