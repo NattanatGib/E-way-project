@@ -135,6 +135,14 @@ public class Person {
                 String type = rs.getString(5);
                 JOptionPane.showMessageDialog(null, "Welcome " + rs.getString(2));
             } else {//กรณีที่กรอกusernameและpasswordถูกต้องให้show dialog Wrong Id/Password
+                //------check that user enter all information--------
+            if(perId.equals("")){//กรณีที่userไม่กรอกusernameให้show dialog Please enter your username
+                JOptionPane.showMessageDialog(null,"Please enter your username");
+            }
+            else if(pass.equals("")){//กรณีที่userไม่กรอกpassword
+                JOptionPane.showMessageDialog(null,"Please enter your password");
+            }
+            else
                 JOptionPane.showMessageDialog(null, "Wrong Id/Password");     
             }
 

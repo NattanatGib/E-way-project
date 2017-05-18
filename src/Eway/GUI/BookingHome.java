@@ -239,7 +239,9 @@ public class BookingHome extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_roundTableActionPerformed
 
     private void btn_bookingListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingListActionPerformed
+
         callList("Select * from BOOKING where BOOKING_DATE = CURDATE() and PERSON_ID=" + this.person.getPersonId());
+
         p1.setVisible(false);
         p2.setVisible(true);
         p3.setVisible(false);

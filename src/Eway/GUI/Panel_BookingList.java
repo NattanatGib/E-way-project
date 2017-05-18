@@ -518,7 +518,9 @@ public class Panel_BookingList extends javax.swing.JPanel {
     private void logoRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoRefreshMouseClicked
         pn_editDetail.setVisible(false);
         System.out.println("Mouse is Clicked");
+
         callList("Select * from BOOKING WHERE BOOKING_DATE= Current_Date() AND Person_id = " + person.getPersonId());
+
     }//GEN-LAST:event_logoRefreshMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

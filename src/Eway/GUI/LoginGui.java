@@ -45,13 +45,13 @@ public class LoginGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        wallpaperLeft = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         welcome = new javax.swing.JLabel();
         logoRoad = new javax.swing.JLabel();
         safeNight = new javax.swing.JLabel();
         logoBus = new javax.swing.JLabel();
         eway = new javax.swing.JLabel();
-        wallpaperLeft = new javax.swing.JLabel();
         wallpaperRight = new javax.swing.JPanel();
         login = new javax.swing.JLabel();
         password = new javax.swing.JLabel();
@@ -82,25 +82,18 @@ public class LoginGui extends javax.swing.JFrame {
         welcome.setForeground(new java.awt.Color(204, 204, 204));
         welcome.setText("Welcome!");
         jPanel1.add(welcome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, -1));
-
-        logoRoad.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\road (1).png")); // NOI18N
         jPanel1.add(logoRoad, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
 
         safeNight.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 24)); // NOI18N
         safeNight.setForeground(new java.awt.Color(204, 255, 255));
         safeNight.setText("Safe Ride Night Care");
         jPanel1.add(safeNight, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
-
-        logoBus.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\bus128px.png")); // NOI18N
         jPanel1.add(logoBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
 
         eway.setFont(new java.awt.Font("Trajan Pro", 1, 16)); // NOI18N
         eway.setForeground(new java.awt.Color(204, 255, 255));
         eway.setText("E-way");
         jPanel1.add(eway, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
-
-        wallpaperLeft.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\wallpaper.png")); // NOI18N
-        jPanel1.add(wallpaperLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(-320, 0, 760, 530));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, 500));
 
@@ -156,32 +149,15 @@ public class LoginGui extends javax.swing.JFrame {
         username.setForeground(new java.awt.Color(240, 240, 240));
         username.setText("Username");
         wallpaperRight.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
-
-        logoPassword.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\lock.png")); // NOI18N
         wallpaperRight.add(logoPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
-
-        logoUsername.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\user (1).png")); // NOI18N
         wallpaperRight.add(logoUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
-
-        tree1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\growing-plant.png")); // NOI18N
         wallpaperRight.add(tree1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, -1, -1));
-
-        tree2.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\growing-plant2.png")); // NOI18N
         wallpaperRight.add(tree2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 440, -1, -1));
-
-        tree3.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\growing-plant.png")); // NOI18N
         wallpaperRight.add(tree3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 470, -1, -1));
-
-        tree4.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\growing-plant2.png")); // NOI18N
         wallpaperRight.add(tree4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
-
-        tree5.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\growing-plant.png")); // NOI18N
         wallpaperRight.add(tree5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, -1, -1));
-
-        tree6.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\growing-plant2.png")); // NOI18N
         wallpaperRight.add(tree6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 440, -1, -1));
 
-        btn_exit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\exit.png")); // NOI18N
         btn_exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_exitActionPerformed(evt);
@@ -230,13 +206,7 @@ public class LoginGui extends javax.swing.JFrame {
             System.out.println(se);
         }
         
-        //------check that user enter all information--------
-        if((txt_username.getText()).equals("")){//กรณีที่userไม่กรอกusernameให้show dialog Please enter your username
-            JOptionPane.showMessageDialog(null,"Please enter your username");
-        }
-        else if((txt_password.getText()).equals("")){//กรณีที่userไม่กรอกpassword
-            JOptionPane.showMessageDialog(null,"Please enter your password");
-        }
+       
         
         
         
