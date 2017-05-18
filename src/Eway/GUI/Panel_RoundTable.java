@@ -228,6 +228,7 @@ public class Panel_RoundTable extends java.awt.Panel {
             PreparedStatement st=con.prepareStatement(sql); 
             st.setInt(1,person.getPersonId());
             rs=st.executeQuery();
+            con.close();
         }catch(SQLException e){
             System.out.println(e);
         }   
