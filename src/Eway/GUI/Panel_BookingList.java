@@ -195,7 +195,6 @@ public class Panel_BookingList extends javax.swing.JPanel {
         bookingList.setText("Booking List");
         panel_top.add(bookingList, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 220, 50));
 
-        logoRefresh.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\refresh-page-arrow-button.png")); // NOI18N
         logoRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoRefreshMouseClicked(evt);
@@ -233,28 +232,20 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         pn_editDetail.setBackground(new java.awt.Color(0, 153, 153));
 
-        logoTime.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\clock.png")); // NOI18N
-
         time.setBackground(new java.awt.Color(255, 255, 255));
         time.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
         time.setForeground(new java.awt.Color(240, 240, 240));
         time.setText("Time");
-
-        logoPickup.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\busstop_pointer.png")); // NOI18N
 
         pickupPlace.setBackground(new java.awt.Color(255, 255, 255));
         pickupPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
         pickupPlace.setForeground(new java.awt.Color(240, 240, 240));
         pickupPlace.setText("Pickup Place");
 
-        logoSend.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\sent-mail.png")); // NOI18N
-
         sendPlace.setBackground(new java.awt.Color(255, 255, 255));
         sendPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
         sendPlace.setForeground(new java.awt.Color(240, 240, 240));
         sendPlace.setText("Send Place");
-
-        logoPhone.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\telephone.png")); // NOI18N
 
         phoneNum.setBackground(new java.awt.Color(255, 255, 255));
         phoneNum.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
@@ -318,6 +309,11 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 etcTimeFocusGained(evt);
             }
         });
+        etcTime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                etcTimeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn_editDetailLayout = new javax.swing.GroupLayout(pn_editDetail);
         pn_editDetail.setLayout(pn_editDetailLayout);
@@ -356,7 +352,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                                 .addComponent(phoneNum)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(17, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pn_editDetailLayout.createSequentialGroup()
                         .addComponent(lb_edit1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -430,7 +426,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         panel_center.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 530, 60));
 
-        logoEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\edit.png")); // NOI18N
+        logoEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\edit.png")); // NOI18N
         logoEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoEditMouseClicked(evt);
@@ -443,6 +439,11 @@ public class Panel_BookingList extends javax.swing.JPanel {
         lb_edit.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
         lb_edit.setForeground(new java.awt.Color(255, 255, 255));
         lb_edit.setText("Edit");
+        lb_edit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_editMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn_editLayout = new javax.swing.GroupLayout(pn_edit);
         pn_edit.setLayout(pn_editLayout);
@@ -460,7 +461,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         panel_center.add(pn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
 
-        logoBin.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\icon\\rubbish-bin.png")); // NOI18N
+        logoBin.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\rubbish-bin.png")); // NOI18N
         logoBin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoBinMouseClicked(evt);
@@ -489,52 +490,121 @@ public class Panel_BookingList extends javax.swing.JPanel {
             if(timeBox.getSelectedIndex()==3) { //กรณีเลือกetc
                 if((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals("")){//ถ้าไม่กรอกเวลาลงช่องetc
                     JOptionPane.showMessageDialog(null,"Pleased check your time.");//แสดงdialog 
+                }else{//ถูก
+                    //------เช็คการกรอกเบอร์โทร------
+                    if(txt_phone.getText().equals("")||txt_phone.getText().contains(notAllowChar)||txt_phone.getText().length()!=10){
+                        tel=person.getTel();//ให้telเป็นเบอร์เดิม
+                        JOptionPane.showMessageDialog(null,"Pleased check your phone number.");
+                    }else{
+                        tel=txt_phone.getText();//ให้telเป็นเบอร์ใหม่ที่กรอกเข้าไป
+                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
+                        Connection con = ConnectionBuilder.getConnection();
+                        PreparedStatement st=con.prepareStatement(sql);
+                        String timeEdit = timeBox.getSelectedItem().toString();
+                        String timer = "23:00:00";
+                        if(timeEdit.equals("00.00")){
+                            timer = "00:00:00";
+                        }
+                        else if(timeEdit.equals("01.00")){
+                            timer = "01:00:00";
+                        }
+                        else{
+                            String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
+                            if(etc.length()==5){
+                                String showHr = etc.substring(0,2);//ตัดชั่วโมง
+                                String showMin = etc.substring(3);//ตัดนาที
+                                timer = showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+                            }
+                        }
+                        st.setString(1,timer);
+                        st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
+                        st.setInt(3,cbbox_send.getSelectedIndex()+18);
+                        st.setString(4,tel);
+                        st.executeUpdate();
+                        JOptionPane.showMessageDialog(null,"save already");
+                    }
                 }
             }
             else if(timeBox.getSelectedIndex()!=3) { //กรณีเลือกเวลา
                 if(!((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals(""))){//ถ้ากรอกเวลาลงช่องetc
                     JOptionPane.showMessageDialog(null,"Pleased check your time.");//แสดงdialog 
+                }else{//ถูก
+                    //------เช็คการกรอกเบอร์โทร------
+                    if(txt_phone.getText().equals("")||txt_phone.getText().contains(notAllowChar)||txt_phone.getText().length()!=10){
+                        tel=person.getTel();//ให้telเป็นเบอร์เดิม
+                        JOptionPane.showMessageDialog(null,"Pleased check your phone number.");
+                    }else{
+                        tel=txt_phone.getText();//ให้telเป็นเบอร์ใหม่ที่กรอกเข้าไป
+                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
+                        Connection con = ConnectionBuilder.getConnection();
+                        PreparedStatement st=con.prepareStatement(sql);
+                        String timeEdit = timeBox.getSelectedItem().toString();
+                        String timer = "23:00:00";
+                        if(timeEdit.equals("00.00")){
+                            timer = "00:00:00";
+                        }
+                        else if(timeEdit.equals("01.00")){
+                            timer = "01:00:00";
+                        }
+                        else{
+                            String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
+                            if(etc.length()==5){
+                                String showHr = etc.substring(0,2);//ตัดชั่วโมง
+                                String showMin = etc.substring(3);//ตัดนาที
+                                timer = showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+                            }
+                        }
+                        st.setString(1,timer);
+                        st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
+                        st.setInt(3,cbbox_send.getSelectedIndex()+11);
+                        st.setString(4,tel);
+                        st.executeUpdate();
+                        JOptionPane.showMessageDialog(null,"save already");
+                    }
                 }
             }
             else{ 
                 if(!((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals(""))){//เช็คกรณีกรอกเวลาเอง
                     String etc = etcTime.getText();
                     int hour = Integer.parseInt(etc.substring(0,2));
-                    int min = Integer.parseInt(etc.substring(3,5));
+                    int min = Integer.parseInt(etc.substring(3));
                     String dot = etc.substring(2,3);
-                    if(hour>=24&&hour<=0&&min>59&&!(dot.equals("."))){//เช็คว่ากรอกเวลาถูกหรือไม่
+                    if(hour>24&hour<0&&min>59&&!(dot.equals("."))){//เช็คว่ากรอกเวลาถูกหรือไม่
                         JOptionPane.showMessageDialog(null, "Check your enter time."); //ไม่ถูก
                     }
-                }
-                else{//ถูก
+                }else{//ถูก
                     //------เช็คการกรอกเบอร์โทร------
                     if(txt_phone.getText().equals("")||txt_phone.getText().contains(notAllowChar)||txt_phone.getText().length()!=10){
-                        tel=person.getTel();
-                    }else
-                        tel=txt_phone.getText();
-                    String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
-                    Connection con = ConnectionBuilder.getConnection();
-                    PreparedStatement st=con.prepareStatement(sql);
-                    String timeEdit = timeBox.getSelectedItem().toString();
-                    String timer = "23:00:00";
-                    if(timeEdit.equals("00.00")){
-                        timer = "00:00:00";
+                        tel=person.getTel();//ให้telเป็นเบอร์เดิม
+                        JOptionPane.showMessageDialog(null,"Pleased check your phone number.");
+                    }else{
+                        tel=txt_phone.getText();//ให้telเป็นเบอร์ใหม่ที่กรอกเข้าไป
+                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
+                        Connection con = ConnectionBuilder.getConnection();
+                        PreparedStatement st=con.prepareStatement(sql);
+                        String timeEdit = timeBox.getSelectedItem().toString();
+                        String timer = "23:00:00";
+                        if(timeEdit.equals("00.00")){
+                            timer = "00:00:00";
+                        }
+                        else if(timeEdit.equals("01.00")){
+                            timer = "01:00:00";
+                        }
+                        else{
+                            String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
+                            if(etc.length()==5){
+                                String showHr = etc.substring(0,2);//ตัดชั่วโมง
+                                String showMin = etc.substring(3);//ตัดนาที
+                                timer = showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+                            }
+                        }
+                        st.setString(1,timer);
+                        st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
+                        st.setInt(3,cbbox_send.getSelectedIndex()+11);
+                        st.setString(4,tel);
+                        st.executeUpdate();
+                        JOptionPane.showMessageDialog(null,"save already");
                     }
-                    else if(timeEdit.equals("01.00")){
-                        timer = "01:00:00";
-                    }
-                    else{
-                        String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
-                        String showHr = etc.substring(0,2);//ตัดชั่วโมง
-                        String showMin = etc.substring(3,5);//ตัดนาที
-                        timer = showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
-                    }
-                    st.setString(1,timer);
-                    st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
-                    st.setInt(3,cbbox_send.getSelectedIndex()+11);
-                    st.setString(4,tel);
-                    st.executeUpdate();
-                    JOptionPane.showMessageDialog(null,"save already");
                 }
             }
 
@@ -543,6 +613,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
         }
         dialog_save.pack();
         dialog_save.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
+        
+        callList("Select * from BOOKING WHERE BOOKING_DATE= Current_Date() AND Person_id = " + person.getPersonId());
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void logoRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoRefreshMouseClicked
@@ -571,6 +643,13 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
     private void logoEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoEditMouseClicked
         pn_editDetail.setVisible(true);
+        if(timeBox.getSelectedIndex()==3){
+            //etcTime.setVisible(true);
+            etcTime.setEditable(true);
+        }else{
+            //etcTime.setVisible(false);
+            etcTime.setEditable(false);
+        }
     }//GEN-LAST:event_logoEditMouseClicked
 
     private void logoBinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoBinMouseClicked
@@ -598,6 +677,10 @@ public class Panel_BookingList extends javax.swing.JPanel {
        
         dialog_del.pack();
         dialog_del.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
+        pn_editDetail.setVisible(false);
+        System.out.println("Mouse is Clicked");
+
+        callList("Select * from BOOKING WHERE BOOKING_DATE= Current_Date() AND Person_id = " + person.getPersonId());
     }//GEN-LAST:event_logoBinMouseClicked
 
     private void BookingListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookingListMouseClicked
@@ -642,13 +725,26 @@ public class Panel_BookingList extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_exitActionPerformed
 
     private void timeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeBoxActionPerformed
-        // TODO add your handling code here:
+        System.out.println(timeBox.getSelectedIndex());
+   
+        if(timeBox.getSelectedIndex()==3){
+            //etcTime.setVisible(true);
+            etcTime.setEditable(true);
+        }
     }//GEN-LAST:event_timeBoxActionPerformed
 
     private void etcTimeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_etcTimeFocusGained
         etcTime.setText("");
         etcTime.setForeground(Color.black);
     }//GEN-LAST:event_etcTimeFocusGained
+
+    private void etcTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etcTimeActionPerformed
+      
+    }//GEN-LAST:event_etcTimeActionPerformed
+
+    private void lb_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_editMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_editMouseClicked
 
      public void callList(String sqlCommand){
         //clear table

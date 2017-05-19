@@ -179,13 +179,23 @@ public class Panel_EditProfile extends javax.swing.JPanel {
         String editPassword = txt_password.getText();
         String editPhone = txt_phone.getText();
         if(editName.equals("") || editFaculty.equals("") || editBranchOf.equals("") ||
-           editEmail.equals("") || editPassword.equals("") || editPhone.equals("")){
-            JOptionPane.showMessageDialog(null,"plese check agian");
+           editPassword.equals("") || editPhone.equals("")){
+           JOptionPane.showMessageDialog(null,"please check again1");
         }
-        else{
-            person.editProfile(editName, editPassword, editFaculty, editBranchOf, editPhone, editEmail, this.person);
-            JOptionPane.showMessageDialog(null,"update success");
-        }
+        else if(!editEmail.equals("")){
+               System.out.println(editEmail);
+               CharSequence allowChar= "@";
+              
+               if(editEmail.contains(allowChar)){
+                    person.editProfile(editName, editPassword, editFaculty, editBranchOf, editPhone, editEmail, this.person);
+                       JOptionPane.showMessageDialog(null,"update success");
+                
+               }else{
+                     JOptionPane.showMessageDialog(null,"please check again2");
+               }
+                   
+           }
+        
     }//GEN-LAST:event_btn_saveActionPerformed
 
     private void txt_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nameActionPerformed

@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Admin extends javax.swing.JFrame {
     Person admins;
-    
+    int i=0; 
     public Admin(Person ad) {
         initComponents();
         btn_logout.setBackground(new Color(255,255,255,0));
@@ -128,7 +128,7 @@ public class Admin extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, -1, -1));
 
-        jButton2.setText("Refresh");
+        jButton2.setText("Today");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -163,7 +163,15 @@ public class Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+       if(i==0){ 
         callList("select * from BOOKING order by  Booking_Date desc ");
+        i++;    
+       }else{
+         i=0;
+         callList("select * from BOOKING order by Booking_Date asc");
+       }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

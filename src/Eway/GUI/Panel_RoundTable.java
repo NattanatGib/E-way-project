@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
  */
 
 public class Panel_RoundTable extends java.awt.Panel {
+    
     Person person;
     /**
      * Creates new form BookingHomepage
@@ -187,6 +188,7 @@ public class Panel_RoundTable extends java.awt.Panel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingActionPerformed
+        txt_etctime.setEditable(false);
         System.out.println(person);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         Date dt = new Date();
@@ -228,7 +230,7 @@ public class Panel_RoundTable extends java.awt.Panel {
             PreparedStatement st=con.prepareStatement(sql); 
             st.setInt(1,person.getPersonId());
             rs=st.executeQuery();
-            con.close();
+            //con.close();
         }catch(SQLException e){
             System.out.println(e);
         }   
@@ -238,24 +240,30 @@ public class Panel_RoundTable extends java.awt.Panel {
         CharSequence notAllowChar= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
         try {
             if(!rs.next()){
-                if((txt_phone.getText().length()==0||(txt_phone.getText()).length()==10)&&!txt_phone.getText().contains(notAllowChar)){
+                if((txt_phone.getText().length()==0||(txt_phone.getText()).length()==10)){//&&(!txt_phone.getText().contains(notAllowChar))){
+                    if(!txt_phone.getText().contains(notAllowChar)){
+                        
+                    
                     if(cbbox_time.getSelectedIndex()==3){
-                        if((txt_etctime.getText()).equals("")){
+                        if((txt_etctime.getText()).equals("etc.")||(txt_etctime.getText()).equals("")){
                             JOptionPane.showMessageDialog(this,"Please enter time booking");
                             txt_etctime.requestFocus();
                         }else
                             new Booking(time, date, std, receiveId, sendId,std.getTel());
-                    }
-                    else if(cbbox_time.getSelectedIndex()!=3 &&!(txt_etctime.getText()).equals("etc.")){
-                        JOptionPane.showMessageDialog(this,"Choose time again!");
-                        txt_etctime.setText("etc.");
-                    }
-                    else{
-                        if(txt_phone.getText().equals("")){
-                            Booking book = new Booking(time, date, std, receiveId, sendId,std.getTel());
-                        }else{
-                            Booking book = new Booking(time, date, std, receiveId, sendId,txt_phone.getText());
-                            JOptionPane.showMessageDialog(this,"You can see your booking in Booking List");
+                            JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List1");
+                        }
+                        else if(cbbox_time.getSelectedIndex()!=3 &&!(txt_etctime.getText()).equals("etc.")){
+                            JOptionPane.showMessageDialog(this,"Choose time again!");
+                            txt_etctime.setText("etc.");
+                        }
+                        else{
+                            if(txt_phone.getText().equals("")){
+                                Booking book = new Booking(time, date, std, receiveId, sendId,std.getTel());
+                                JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List2");
+                            }else{
+                                Booking book = new Booking(time, date, std, receiveId, sendId,txt_phone.getText());
+                                JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List3");
+                            }
                         }
                     }
                 }else{
@@ -280,7 +288,10 @@ public class Panel_RoundTable extends java.awt.Panel {
     }//GEN-LAST:event_txt_etctimeActionPerformed
 
     private void cbbox_timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_timeActionPerformed
-        // TODO add your handling code here:
+        if(cbbox_time.getSelectedIndex()==3)
+            txt_etctime.setEditable(true);
+        else
+            txt_etctime.setEditable(false);
     }//GEN-LAST:event_cbbox_timeActionPerformed
 
     private void txt_phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_phoneActionPerformed

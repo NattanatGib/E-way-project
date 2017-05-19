@@ -163,7 +163,7 @@ public class Person {
         this.tel=editPhone;
         this.eMail=editEmail;
         
-        String sqlInsert = "update PERSON set PERSON_NAME=?,FACULTY=?,BRANCHOF=?,EMAIL=?,PERSON_PASSWORD=?,PERSON_TELEPHONE=? where PERSON_ID=?";
+        String sqlInsert = "update PERSON set PERSON_NAME=?,FACULTYOF=?,BRANCHOF=?,PERSON_EMAIL=?,PERSON_PASSWORD=?,PERSON_TELEPHONE=? where PERSON_ID=?";
        
         try {
             Connection con = ConnectionBuilder.getConnection();
