@@ -338,14 +338,17 @@ public class BookingHome extends javax.swing.JFrame {
             String sql = ds;
 
             ResultSet rec = st.executeQuery(sql);
+           
             int row = 0;
             while ((rec != null) && rec.next()) {
                 model.addRow(new Object[0]);
                 model.setValueAt(rec.getInt("Booking_Id"), row, 0);
                 model.setValueAt(rec.getString("Booking_Date"), row, 1);
                 model.setValueAt(rec.getString("Booking_Round"), row, 2);
-                model.setValueAt(rec.getString("ROUTE_LOCATION_RECIEVE"), row, 3);
-                model.setValueAt(rec.getString("ROUTE_LOCATION_DESTINATION"), row, 4);
+                String point= queryJoin("Select  r.ROUTE_LOCATION from BOOKING  b join ROUTE r  on b.ROUTE_LOCATION_RECIEVE = r.ROUTE_ID  where b.BOOKING_ID=" + rec.getInt("Booking_Id"));
+                String destination = queryJoin("Select  r.ROUTE_LOCATION from BOOKING  b join ROUTE r on b.ROUTE_LOCATION_DESTINATION = r.ROUTE_ID where b.BOOKING_ID=" + rec.getInt("Booking_ID"));
+                model.setValueAt(point, row, 3);
+                model.setValueAt(destination, row, 4);
                 model.setValueAt(rec.getString("Booking_Telephone"),row,5);
                 row++;
             }
@@ -353,6 +356,21 @@ public class BookingHome extends javax.swing.JFrame {
             System.out.println(e);
         }
 
+    }
+    public String queryJoin(String sql){
+        String result="";
+        try{
+            Connection con = ConnectionBuilder.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            rs.next();
+            result=rs.getString(1);
+            
+            
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        return result;
     }
 
     /**

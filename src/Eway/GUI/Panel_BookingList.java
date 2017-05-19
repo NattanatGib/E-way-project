@@ -24,10 +24,14 @@ import javax.swing.table.DefaultTableModel;
  * @author hp
  */
 public class Panel_BookingList extends javax.swing.JPanel {
+    ResultSet rec;
     private Person person;
     /**
      * Creates new form Panel_BookingList
      */
+    public void setRs(ResultSet rs){
+        this.rec=rs;
+    }
     public void setPerson(Person person){
        this.person=person;
     }
@@ -533,7 +537,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null,"save already");
                 }
             }
-            
+
         }catch(SQLException e){
             System.out.println(e);
         }
@@ -586,6 +590,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 System.out.println("You have not booked yet");
                 JOptionPane.showMessageDialog(null,"You have not booked yet");
             }
+            con.close();
         }catch(SQLException e){
             System.out.println(e);
         }
@@ -598,6 +603,9 @@ public class Panel_BookingList extends javax.swing.JPanel {
     private void BookingListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BookingListMouseClicked
         int row = BookingList.getSelectedRow();
         String time = BookingList.getValueAt(row, 2).toString();
+        ResultSet rs;
+        int recieve = 0;
+        int send = 0;
         switch(time){
             case "23:00:00":
                 timeBox.setSelectedIndex(0);
@@ -612,8 +620,20 @@ public class Panel_BookingList extends javax.swing.JPanel {
                 timeBox.setSelectedIndex(3);
                 break;
         }
-        cbbox_pickup.setSelectedIndex(Integer.parseInt(BookingList.getValueAt(row,3).toString())-1);
-        cbbox_send.setSelectedIndex(Integer.parseInt(BookingList.getValueAt(row,4).toString())-11);
+        
+        try{
+            Connection con = ConnectionBuilder.getConnection();
+            Statement st = con.createStatement();
+            rs=st.executeQuery("Select * From BOOKING WHERE BOOKING_ID=" + BookingList.getValueAt(row,0));
+            rs.next();
+            recieve=rs.getInt("ROUTE_LOCATION_RECIEVE");
+            send=rs.getInt("ROUTE_LOCATION_DESTINATION");
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        cbbox_pickup.setSelectedIndex(recieve-1);
+        cbbox_send.setSelectedIndex(send-11);
+        
         txt_phone.setText(BookingList.getValueAt(row,5).toString());
     }//GEN-LAST:event_BookingListMouseClicked
 
@@ -630,7 +650,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
         etcTime.setForeground(Color.black);
     }//GEN-LAST:event_etcTimeFocusGained
 
-     public void callList(String ds){
+     public void callList(String sqlCommand){
         //clear table
         BookingList.setModel(new DefaultTableModel());
         
@@ -653,17 +673,19 @@ public class Panel_BookingList extends javax.swing.JPanel {
             
             
             //"select * from Booking order by  Booking_Date desc"
-            String sql=ds;
+            String sql=sqlCommand;
+            rec=st.executeQuery(sql);
             
-            ResultSet rec=st.executeQuery(sql);
             int row=0;
             while((rec!=null)&&rec.next()){
                 model.addRow(new Object[0]);
                 model.setValueAt(rec.getInt("BOOKING_ID"),row,0);
                 model.setValueAt(rec.getString("BOOKING_DATE"),row,1);
                 model.setValueAt(rec.getString("BOOKING_ROUND"),row,2);
-                model.setValueAt(rec.getString("ROUTE_LOCATION_RECIEVE"),row,3);
-                model.setValueAt(rec.getString("ROUTE_LOCATION_DESTINATION"),row,4);
+                String point= queryJoin("Select  r.ROUTE_LOCATION from BOOKING  b join ROUTE r  on b.ROUTE_LOCATION_RECIEVE = r.ROUTE_ID  where b.BOOKING_ID=" + rec.getInt("Booking_Id"));
+                String destination = queryJoin("Select  r.ROUTE_LOCATION from BOOKING  b join ROUTE r on b.ROUTE_LOCATION_DESTINATION = r.ROUTE_ID where b.BOOKING_ID=" + rec.getInt("Booking_ID"));
+                model.setValueAt(point,row,3);
+                model.setValueAt(destination,row,4);
                 model.setValueAt(rec.getString("BOOKING_TELEPHONE"),row,5);
                 row++;
             }
@@ -672,7 +694,21 @@ public class Panel_BookingList extends javax.swing.JPanel {
         }
         
     }
-
+     public String queryJoin(String sql){
+        String result="";
+        try{
+            Connection con = ConnectionBuilder.getConnection();
+            Statement st = con.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            rs.next();
+            result=rs.getString(1);
+            
+            
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        return result;
+    }
     public JTable getBookingList() {
         return BookingList;
     }

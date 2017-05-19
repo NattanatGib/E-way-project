@@ -7,6 +7,7 @@ package Eway.GUI;
 
 import Eway.model.ConnectionBuilder;
 import Eway.model.Person;
+import com.sun.glass.events.KeyEvent;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -73,6 +74,13 @@ public class LoginGui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Safe Night Ride Care");
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 166, 158));
@@ -121,6 +129,11 @@ public class LoginGui extends javax.swing.JFrame {
                 txt_usernameActionPerformed(evt);
             }
         });
+        txt_username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_usernameKeyPressed(evt);
+            }
+        });
         wallpaperRight.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 310, 30));
 
         txt_password.setBackground(new java.awt.Color(0, 58, 72));
@@ -130,6 +143,11 @@ public class LoginGui extends javax.swing.JFrame {
         txt_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_passwordActionPerformed(evt);
+            }
+        });
+        txt_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txt_passwordKeyPressed(evt);
             }
         });
         wallpaperRight.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 300, 30));
@@ -219,6 +237,57 @@ public class LoginGui extends javax.swing.JFrame {
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btn_exitActionPerformed
+
+    private void txt_usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usernameKeyPressed
+       int key=evt.getKeyCode();
+       if(key==KeyEvent.VK_ENTER)
+            txt_password.requestFocus();
+    }//GEN-LAST:event_txt_usernameKeyPressed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        
+            txt_username.requestFocus();
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void txt_passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_passwordKeyPressed
+      if(evt.getKeyCode()==evt.VK_ENTER){  
+            int i=0;
+            while(i<1){
+                this.person=Person.login(txt_username.getText(),txt_password.getText());
+                i++;
+            }
+            String sql = "SELECT * FROM PERSON WHERE Person_ID =?";
+            String temp;
+
+            try{
+                Connection con=ConnectionBuilder.getConnection();
+                PreparedStatement pst=con.prepareStatement(sql);
+                pst.setString(1,""+person.getPersonId());
+                ResultSet rs=pst.executeQuery();
+                if (rs.next()) {
+                    temp = rs.getString("Person_TYPE");
+                    this.setVisible(false);
+                    if(temp.equalsIgnoreCase("student")){
+                        home = new BookingHome(person);
+                        home.setVisible(true);
+                        System.out.println(person);
+                    }
+                    else if(temp.equalsIgnoreCase("admin")){
+                        adHome = new Admin(this.person);
+                        adHome.setVisible(true);
+                        System.out.println(person);
+                    }
+                }
+                con.close();
+            }catch(SQLException se){
+                System.out.println(se);
+            }
+        
+      }
+        
+        
+
+    }//GEN-LAST:event_txt_passwordKeyPressed
 
     /**
      * @param args the command line arguments
