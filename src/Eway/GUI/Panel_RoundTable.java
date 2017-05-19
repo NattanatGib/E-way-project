@@ -132,7 +132,7 @@ public class Panel_RoundTable extends java.awt.Panel {
 
         cbbox_time.setBackground(new java.awt.Color(103, 197, 233));
         cbbox_time.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
-        cbbox_time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "23.00 pm.", "24.00 pm.", "01.00 am.", "Etc." }));
+        cbbox_time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "23.00 pm.", "00.00 pm.", "01.00 am.", "Etc." }));
         cbbox_time.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbbox_timeActionPerformed(evt);

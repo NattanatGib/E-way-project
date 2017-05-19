@@ -477,37 +477,63 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
         int row=BookingList.getSelectedRow();
+        
         CharSequence notAllowChar= ".abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
         String tel="";
-        if(txt_phone.getText().equals("")||txt_phone.getText().contains(notAllowChar)||txt_phone.getText().length()!=10){
-            tel=person.getTel();
-        }else
-            tel=txt_phone.getText();
-        
         try{
-            String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
-            Connection con = ConnectionBuilder.getConnection();
-            PreparedStatement st=con.prepareStatement(sql);
-            String timeEdit = timeBox.getSelectedItem().toString();
-            String timer = "23:00:00";
-            if(timeEdit.equals("00.00")){
-                timer = "00:00:00";
+            //------เช็คการเลือกเวลา------
+            if(timeBox.getSelectedIndex()==3) { //กรณีเลือกetc
+                if((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals("")){//ถ้าไม่กรอกเวลาลงช่องetc
+                    JOptionPane.showMessageDialog(null,"Pleased check your time.");//แสดงdialog 
+                }
             }
-            else if(timeEdit.equals("01.00")){
-                timer = "01:00:00";
+            else if(timeBox.getSelectedIndex()!=3) { //กรณีเลือกเวลา
+                if(!((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals(""))){//ถ้ากรอกเวลาลงช่องetc
+                    JOptionPane.showMessageDialog(null,"Pleased check your time.");//แสดงdialog 
+                }
             }
-            else{
-                String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
-                String showHr = etc.substring(0,2);//ตัดชั่วโมง
-                String showMin = etc.substring(3,5);//ตัดนาที
-                timer = showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+            else{ 
+                if(!((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals(""))){//เช็คกรณีกรอกเวลาเอง
+                    String etc = etcTime.getText();
+                    int hour = Integer.parseInt(etc.substring(0,2));
+                    int min = Integer.parseInt(etc.substring(3,5));
+                    String dot = etc.substring(2,3);
+                    if(hour>=24&&hour<=0&&min>59&&!(dot.equals("."))){//เช็คว่ากรอกเวลาถูกหรือไม่
+                        JOptionPane.showMessageDialog(null, "Check your enter time."); //ไม่ถูก
+                    }
+                }
+                else{//ถูก
+                    //------เช็คการกรอกเบอร์โทร------
+                    if(txt_phone.getText().equals("")||txt_phone.getText().contains(notAllowChar)||txt_phone.getText().length()!=10){
+                        tel=person.getTel();
+                    }else
+                        tel=txt_phone.getText();
+                    String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
+                    Connection con = ConnectionBuilder.getConnection();
+                    PreparedStatement st=con.prepareStatement(sql);
+                    String timeEdit = timeBox.getSelectedItem().toString();
+                    String timer = "23:00:00";
+                    if(timeEdit.equals("00.00")){
+                        timer = "00:00:00";
+                    }
+                    else if(timeEdit.equals("01.00")){
+                        timer = "01:00:00";
+                    }
+                    else{
+                        String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
+                        String showHr = etc.substring(0,2);//ตัดชั่วโมง
+                        String showMin = etc.substring(3,5);//ตัดนาที
+                        timer = showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+                    }
+                    st.setString(1,timer);
+                    st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
+                    st.setInt(3,cbbox_send.getSelectedIndex()+11);
+                    st.setString(4,tel);
+                    st.executeUpdate();
+                    JOptionPane.showMessageDialog(null,"save already");
+                }
             }
-            st.setString(1,timer);
-            st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
-            st.setInt(3,cbbox_send.getSelectedIndex()+11);
-            st.setString(4,tel);
-            st.executeUpdate();
-            JOptionPane.showMessageDialog(null,"save already");
+            
         }catch(SQLException e){
             System.out.println(e);
         }
