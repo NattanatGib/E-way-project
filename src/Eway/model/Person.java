@@ -64,57 +64,56 @@ public class Person {
         return stuName;
     }
 
+    public void setStuName(String StuName) {
+        this.stuName = StuName;
+    }
+    
     public String getFaculty() {
         return faculty;
+    }
+    
+    public void setFaculty(String Faculty) {
+        this.faculty = Faculty;
     }
 
     public String getBranchOf() {
         return branchOf;
+    }
+    
+    public void setBranchOf(String BranchOf) {
+        this.branchOf = BranchOf;
     }
 
     public String getEMAIL() {
         return eMail;
     }
 
+    public void setEMAIL(String EMAIL) {
+        this.eMail = EMAIL;
+    }
+        
     public String getPassword() {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+        
     public String getTel() {
         return tel;
     }
 
-    public void setPersonId(int personId) {
-        this.personId = personId;
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public int getPersonId() {
         return personId;
     }
-
-    public void setStuName(String StuName) {
-        this.stuName = StuName;
-    }
-
-    public void setFaculty(String Faculty) {
-        this.faculty = Faculty;
-    }
-
-    public void setBranchOf(String BranchOf) {
-        this.branchOf = BranchOf;
-    }
-
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setEMAIL(String EMAIL) {
-        this.eMail = EMAIL;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
+    
+    public void setPersonId(int personId) {
+        this.personId = personId;
     }
 
     @Override

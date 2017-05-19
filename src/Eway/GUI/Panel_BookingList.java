@@ -254,7 +254,12 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         cbbox_pickup.setBackground(new java.awt.Color(103, 197, 233));
         cbbox_pickup.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysic", "หน้าตึกอธิการ", "LNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "ตึกอธิการ", "Learning Space" }));
+        cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysic", "LNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "Learning Space" }));
+        cbbox_pickup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbox_pickupActionPerformed(evt);
+            }
+        });
 
         cbbox_send.setBackground(new java.awt.Color(103, 197, 233));
         cbbox_send.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
@@ -535,7 +540,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null,"Pleased check your phone number.");
                     }else{
                         tel=txt_phone.getText();//ให้telเป็นเบอร์ใหม่ที่กรอกเข้าไป
-                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
+                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,BOOKING_TELEPHONE=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
                         Connection con = ConnectionBuilder.getConnection();
                         PreparedStatement st=con.prepareStatement(sql);
                         String timeEdit = timeBox.getSelectedItem().toString();
@@ -556,7 +561,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                         }
                         st.setString(1,timer);
                         st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
-                        st.setInt(3,cbbox_send.getSelectedIndex()+11);
+                        st.setInt(3,cbbox_send.getSelectedIndex()+16);
                         st.setString(4,tel);
                         st.executeUpdate();
                         JOptionPane.showMessageDialog(null,"save already");
@@ -600,7 +605,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                         }
                         st.setString(1,timer);
                         st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
-                        st.setInt(3,cbbox_send.getSelectedIndex()+11);
+                        st.setInt(3,cbbox_send.getSelectedIndex()+16);
                         st.setString(4,tel);
                         st.executeUpdate();
                         JOptionPane.showMessageDialog(null,"save already");
@@ -715,7 +720,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
             System.out.println(e);
         }
         cbbox_pickup.setSelectedIndex(recieve-1);
-        cbbox_send.setSelectedIndex(send-11);
+        cbbox_send.setSelectedIndex(send-16);
         
         txt_phone.setText(BookingList.getValueAt(row,5).toString());
     }//GEN-LAST:event_BookingListMouseClicked
@@ -745,6 +750,10 @@ public class Panel_BookingList extends javax.swing.JPanel {
     private void lb_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_editMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_lb_editMouseClicked
+
+    private void cbbox_pickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_pickupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbox_pickupActionPerformed
 
      public void callList(String sqlCommand){
         //clear table

@@ -51,21 +51,21 @@ public class Booking {
         return student;
     }
 
+    public void setStudent(Person student) {
+        this.student = student;
+    }
+    
     public int getRecieveId() {
         return recieveId;
     }
 
+    public void setRecieveId(int recieveId) {
+        this.recieveId = recieveId;
+    }
+    
     public int getSendId() {
         return sendId;
 
-    }
-
-    public void setStudent(Person student) {
-        this.student = student;
-    }
-
-    public void setRecieveId(int recieveId) {
-        this.recieveId = recieveId;
     }
 
     public void setSendId(int sendId) {
