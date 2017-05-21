@@ -6,6 +6,7 @@
 package Eway.GUI;
 
 import Eway.model.Person;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,6 +32,13 @@ public class Panel_EditProfile extends javax.swing.JPanel {
     }
     public Panel_EditProfile(Person person) {
         initComponents();
+        txt_name.setBackground(new Color(255, 255, 255, 0));
+        txt_password.setBackground(new Color(255, 255, 255, 0));
+        txt_phone.setBackground(new Color(255, 255, 255, 0));
+        txt_email.setBackground(new Color(255, 255, 255, 0));
+        txt_faculty.setBackground(new Color(255, 255, 255, 0));
+        txt_branchOf.setBackground(new Color(255, 255, 255, 0));
+        btn_save.setBackground(new Color(255, 255, 255, 0));
         this.person=person;
         txt_branchOf.setText(person.getBranchOf());
         txt_name.setText(person.getStuName());
@@ -49,126 +57,86 @@ public class Panel_EditProfile extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_top = new javax.swing.JPanel();
-        editProfile = new javax.swing.JLabel();
         t = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        name = new javax.swing.JLabel();
-        faculty = new javax.swing.JLabel();
-        branchOf = new javax.swing.JLabel();
-        email = new javax.swing.JLabel();
         btn_save = new javax.swing.JButton();
         txt_name = new javax.swing.JTextField();
         txt_faculty = new javax.swing.JTextField();
         txt_branchOf = new javax.swing.JTextField();
         txt_email = new javax.swing.JTextField();
-        password = new javax.swing.JLabel();
-        phoneNumber = new javax.swing.JLabel();
         txt_password = new javax.swing.JTextField();
         txt_phone = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel_top.setBackground(new java.awt.Color(0, 58, 72));
-        panel_top.setForeground(new java.awt.Color(51, 0, 51));
-        panel_top.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        editProfile.setFont(new java.awt.Font("OCR A Std", 0, 24)); // NOI18N
-        editProfile.setForeground(new java.awt.Color(204, 204, 204));
-        editProfile.setText("Edit your profile");
-        panel_top.add(editProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 310, 50));
-
-        add(panel_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 70));
-
         t.setBackground(new java.awt.Color(0, 58, 72));
         t.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        t.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 528, 10));
-
-        name.setBackground(new java.awt.Color(255, 255, 255));
-        name.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        name.setForeground(new java.awt.Color(240, 240, 240));
-        name.setText("Name : ");
-        t.add(name, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 80, 50));
-
-        faculty.setBackground(new java.awt.Color(255, 255, 255));
-        faculty.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        faculty.setForeground(new java.awt.Color(240, 240, 240));
-        faculty.setText("Faculty : ");
-        t.add(faculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 140, 50));
-
-        branchOf.setBackground(new java.awt.Color(255, 255, 255));
-        branchOf.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        branchOf.setForeground(new java.awt.Color(240, 240, 240));
-        branchOf.setText("Branch of : ");
-        t.add(branchOf, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 140, 50));
-
-        email.setBackground(new java.awt.Color(255, 255, 255));
-        email.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        email.setForeground(new java.awt.Color(240, 240, 240));
-        email.setText("E-mail : ");
-        t.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 140, 50));
 
         btn_save.setBackground(new java.awt.Color(103, 197, 233));
         btn_save.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
-        btn_save.setForeground(new java.awt.Color(255, 255, 255));
+        btn_save.setForeground(new java.awt.Color(34, 38, 75));
         btn_save.setText("SAVE");
+        btn_save.setBorder(null);
         btn_save.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_saveActionPerformed(evt);
             }
         });
-        t.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 110, 40));
+        t.add(btn_save, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 140, 30));
 
         txt_name.setBackground(new java.awt.Color(204, 204, 204));
+        txt_name.setForeground(new java.awt.Color(251, 227, 227));
         txt_name.setText("");
+        txt_name.setBorder(null);
         txt_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_nameActionPerformed(evt);
             }
         });
-        t.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 130, 30));
+        t.add(txt_name, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, 170, 30));
 
         txt_faculty.setBackground(new java.awt.Color(204, 204, 204));
+        txt_faculty.setForeground(new java.awt.Color(251, 227, 227));
         txt_faculty.setText("");
+        txt_faculty.setBorder(null);
         txt_faculty.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_facultyActionPerformed(evt);
             }
         });
-        t.add(txt_faculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 200, 30));
+        t.add(txt_faculty, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 170, 30));
 
         txt_branchOf.setBackground(new java.awt.Color(204, 204, 204));
+        txt_branchOf.setForeground(new java.awt.Color(251, 227, 227));
         txt_branchOf.setText("");
-        t.add(txt_branchOf, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 200, 30));
+        txt_branchOf.setBorder(null);
+        t.add(txt_branchOf, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 170, 30));
 
         txt_email.setBackground(new java.awt.Color(204, 204, 204));
+        txt_email.setForeground(new java.awt.Color(251, 227, 227));
         txt_email.setText("");
-        t.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 200, 30));
-
-        password.setBackground(new java.awt.Color(255, 255, 255));
-        password.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        password.setForeground(new java.awt.Color(240, 240, 240));
-        password.setText("Password : ");
-        t.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 100, 50));
-
-        phoneNumber.setBackground(new java.awt.Color(255, 255, 255));
-        phoneNumber.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        phoneNumber.setForeground(new java.awt.Color(240, 240, 240));
-        phoneNumber.setText("Phone number : ");
-        t.add(phoneNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 170, 50));
+        txt_email.setBorder(null);
+        t.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 170, 30));
 
         txt_password.setBackground(new java.awt.Color(204, 204, 204));
+        txt_password.setForeground(new java.awt.Color(251, 227, 227));
+        txt_password.setBorder(null);
         txt_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_passwordActionPerformed(evt);
             }
         });
-        t.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 130, 30));
+        t.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 170, 30));
 
         txt_phone.setBackground(new java.awt.Color(204, 204, 204));
-        t.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 200, 30));
+        txt_phone.setForeground(new java.awt.Color(251, 227, 227));
+        txt_phone.setBorder(null);
+        t.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, 170, 30));
 
-        add(t, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 570, 380));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\editprofile.png")); // NOI18N
+        t.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        add(t, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 440));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_saveActionPerformed
@@ -212,16 +180,8 @@ public class Panel_EditProfile extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel branchOf;
     private javax.swing.JButton btn_save;
-    private javax.swing.JLabel editProfile;
-    private javax.swing.JLabel email;
-    private javax.swing.JLabel faculty;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel name;
-    private javax.swing.JPanel panel_top;
-    private javax.swing.JLabel password;
-    private javax.swing.JLabel phoneNumber;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel t;
     private javax.swing.JTextField txt_branchOf;
     private javax.swing.JTextField txt_email;

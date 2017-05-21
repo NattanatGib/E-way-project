@@ -37,8 +37,10 @@ public class Panel_BookingList extends javax.swing.JPanel {
     }
     public Panel_BookingList() {
         initComponents();
-        
+        panel_center.setBackground(new Color(255,255,255,0));
+        btn_exit.setBackground(new Color(255,255,255,0));
         pn_editDetail.setVisible(false);
+        
     }
 
     /**
@@ -66,36 +68,25 @@ public class Panel_BookingList extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        panel_top = new javax.swing.JPanel();
-        bookingList = new javax.swing.JLabel();
-        logoRefresh = new javax.swing.JLabel();
         panel_center = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        pn_del = new javax.swing.JPanel();
-        lb_del = new javax.swing.JLabel();
         pn_editDetail = new javax.swing.JPanel();
         logoTime = new javax.swing.JLabel();
-        time = new javax.swing.JLabel();
         logoPickup = new javax.swing.JLabel();
-        pickupPlace = new javax.swing.JLabel();
         logoSend = new javax.swing.JLabel();
-        sendPlace = new javax.swing.JLabel();
         logoPhone = new javax.swing.JLabel();
-        phoneNum = new javax.swing.JLabel();
         cbbox_pickup = new javax.swing.JComboBox<>();
         cbbox_send = new javax.swing.JComboBox<>();
         txt_phone = new javax.swing.JTextField();
-        lb_edit1 = new javax.swing.JLabel();
         btn_save = new javax.swing.JButton();
         timeBox = new javax.swing.JComboBox<>();
         btn_exit = new javax.swing.JButton();
         etcTime = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         BookingList = new javax.swing.JTable();
         logoEdit = new javax.swing.JLabel();
-        pn_edit = new javax.swing.JPanel();
-        lb_edit = new javax.swing.JLabel();
         logoBin = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(247, 247, 247));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -184,76 +175,16 @@ public class Panel_BookingList extends javax.swing.JPanel {
         );
 
         setMinimumSize(new java.awt.Dimension(567, 441));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        panel_top.setBackground(new java.awt.Color(0, 58, 72));
-        panel_top.setForeground(new java.awt.Color(51, 0, 51));
-        panel_top.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        bookingList.setFont(new java.awt.Font("OCR A Std", 0, 24)); // NOI18N
-        bookingList.setForeground(new java.awt.Color(204, 204, 204));
-        bookingList.setText("Booking List");
-        panel_top.add(bookingList, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 220, 50));
-
-        logoRefresh.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                logoRefreshMouseClicked(evt);
-            }
-        });
-        panel_top.add(logoRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
-
-        add(panel_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 70));
+        setLayout(new java.awt.BorderLayout());
 
         panel_center.setBackground(new java.awt.Color(0, 58, 72));
         panel_center.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        panel_center.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 528, 10));
 
-        pn_del.setBackground(new java.awt.Color(204, 204, 204));
-
-        lb_del.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
-        lb_del.setForeground(new java.awt.Color(255, 255, 255));
-        lb_del.setText("Delete");
-
-        javax.swing.GroupLayout pn_delLayout = new javax.swing.GroupLayout(pn_del);
-        pn_del.setLayout(pn_delLayout);
-        pn_delLayout.setHorizontalGroup(
-            pn_delLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_delLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lb_del)
-                .addContainerGap())
-        );
-        pn_delLayout.setVerticalGroup(
-            pn_delLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_del, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
-        );
-
-        panel_center.add(pn_del, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, -1, 20));
-
-        pn_editDetail.setBackground(new java.awt.Color(0, 153, 153));
-
-        time.setBackground(new java.awt.Color(255, 255, 255));
-        time.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
-        time.setForeground(new java.awt.Color(240, 240, 240));
-        time.setText("Time");
-
-        pickupPlace.setBackground(new java.awt.Color(255, 255, 255));
-        pickupPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
-        pickupPlace.setForeground(new java.awt.Color(240, 240, 240));
-        pickupPlace.setText("Pickup Place");
-
-        sendPlace.setBackground(new java.awt.Color(255, 255, 255));
-        sendPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
-        sendPlace.setForeground(new java.awt.Color(240, 240, 240));
-        sendPlace.setText("Send Place");
-
-        phoneNum.setBackground(new java.awt.Color(255, 255, 255));
-        phoneNum.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
-        phoneNum.setForeground(new java.awt.Color(240, 240, 240));
-        phoneNum.setText("Phone Number");
+        pn_editDetail.setBackground(new java.awt.Color(232, 210, 147));
 
         cbbox_pickup.setBackground(new java.awt.Color(103, 197, 233));
         cbbox_pickup.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        cbbox_pickup.setForeground(new java.awt.Color(34, 38, 75));
         cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysic", "LNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "Learning Space" }));
         cbbox_pickup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -263,7 +194,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         cbbox_send.setBackground(new java.awt.Color(103, 197, 233));
         cbbox_send.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
-        cbbox_send.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์", "Residence", "หอพักรัชสิทธิ์", "TN modern place", "Library houze", "สวนธนปาร์ค" }));
+        cbbox_send.setForeground(new java.awt.Color(34, 38, 75));
+        cbbox_send.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์", "Residence", "หอพักรัชสิทธิ์", "TN modern place", "Library houze" }));
         cbbox_send.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbbox_sendActionPerformed(evt);
@@ -272,17 +204,14 @@ public class Panel_BookingList extends javax.swing.JPanel {
 
         txt_phone.setBackground(new java.awt.Color(240, 240, 240));
         txt_phone.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
+        txt_phone.setForeground(new java.awt.Color(34, 38, 75));
         txt_phone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_phoneActionPerformed(evt);
             }
         });
 
-        lb_edit1.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        lb_edit1.setForeground(new java.awt.Color(255, 255, 255));
-        lb_edit1.setText("Edit");
-
-        btn_save.setBackground(new java.awt.Color(0, 58, 72));
+        btn_save.setBackground(new java.awt.Color(34, 38, 75));
         btn_save.setFont(new java.awt.Font("TH Sarabun New", 1, 20)); // NOI18N
         btn_save.setForeground(new java.awt.Color(255, 255, 255));
         btn_save.setText("SAVE");
@@ -292,6 +221,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
             }
         });
 
+        timeBox.setForeground(new java.awt.Color(34, 38, 75));
         timeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "23.00", "00.00", "01.00", "etc." }));
         timeBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,7 +229,9 @@ public class Panel_BookingList extends javax.swing.JPanel {
             }
         });
 
-        btn_exit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\edit16.png")); // NOI18N
+        btn_exit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btn_exit.setForeground(new java.awt.Color(34, 38, 75));
+        btn_exit.setText("X");
         btn_exit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_exitActionPerformed(evt);
@@ -307,7 +239,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
         });
 
         etcTime.setBackground(new java.awt.Color(240, 240, 240));
-        etcTime.setForeground(new java.awt.Color(153, 153, 153));
+        etcTime.setForeground(new java.awt.Color(34, 38, 75));
         etcTime.setText("etc.");
         etcTime.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -320,6 +252,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
             }
         });
 
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\editBookingDetail.png")); // NOI18N
+
         javax.swing.GroupLayout pn_editDetailLayout = new javax.swing.GroupLayout(pn_editDetail);
         pn_editDetail.setLayout(pn_editDetailLayout);
         pn_editDetailLayout.setHorizontalGroup(
@@ -327,84 +261,68 @@ public class Panel_BookingList extends javax.swing.JPanel {
             .addGroup(pn_editDetailLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoPhone)
+                    .addComponent(logoSend)
+                    .addComponent(logoPickup)
+                    .addComponent(logoTime))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_editDetailLayout.createSequentialGroup()
+                        .addGap(0, 113, Short.MAX_VALUE)
+                        .addComponent(btn_exit))
+                    .addGroup(pn_editDetailLayout.createSequentialGroup()
+                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(pn_editDetailLayout.createSequentialGroup()
                         .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbbox_send, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pn_editDetailLayout.createSequentialGroup()
-                                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pn_editDetailLayout.createSequentialGroup()
-                                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(logoTime)
-                                            .addComponent(logoSend))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(sendPlace)
-                                            .addComponent(time)))
-                                    .addGroup(pn_editDetailLayout.createSequentialGroup()
-                                        .addComponent(logoPickup)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(pickupPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(26, 26, 26)
-                                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbbox_send, 0, 1, Short.MAX_VALUE)
-                                    .addComponent(cbbox_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pn_editDetailLayout.createSequentialGroup()
-                                        .addComponent(timeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(etcTime, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(pn_editDetailLayout.createSequentialGroup()
-                                .addComponent(logoPhone)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(phoneNum)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pn_editDetailLayout.createSequentialGroup()
-                        .addComponent(lb_edit1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
-            .addGroup(pn_editDetailLayout.createSequentialGroup()
-                .addGap(121, 121, 121)
-                .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(timeBox, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(etcTime, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbbox_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())))
         );
         pn_editDetailLayout.setVerticalGroup(
             pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pn_editDetailLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_editDetailLayout.createSequentialGroup()
+                .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pn_editDetailLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(lb_edit1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(time, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(logoTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(timeBox)
-                    .addComponent(etcTime))
-                .addGap(11, 11, 11)
-                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoPickup)
-                    .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(logoTime, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(logoPickup)
+                        .addGap(34, 34, 34)
+                        .addComponent(logoSend)
+                        .addGap(1, 1, 1))
+                    .addGroup(pn_editDetailLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(timeBox)
+                            .addComponent(etcTime))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cbbox_pickup, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(pickupPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(12, 12, 12)))
+                .addComponent(cbbox_send, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(sendPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbbox_send, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(logoSend))
-                .addGap(11, 11, 11)
                 .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pn_editDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(phoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_phone, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(logoPhone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_editDetailLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        panel_center.add(pn_editDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 320, 220));
+        panel_center.add(pn_editDetail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 350, -1));
 
         BookingList.setFont(new java.awt.Font("TH Sarabun New", 0, 18)); // NOI18N
         BookingList.setModel(new javax.swing.table.DefaultTableModel(
@@ -429,52 +347,26 @@ public class Panel_BookingList extends javax.swing.JPanel {
             BookingList.getColumnModel().getColumn(0).setMaxWidth(20);
         }
 
-        panel_center.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 530, 60));
+        panel_center.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 570, 50));
 
-        logoEdit.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\edit.png")); // NOI18N
         logoEdit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoEditMouseClicked(evt);
             }
         });
-        panel_center.add(logoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        panel_center.add(logoEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 30, 60));
 
-        pn_edit.setBackground(new java.awt.Color(204, 204, 204));
-
-        lb_edit.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
-        lb_edit.setForeground(new java.awt.Color(255, 255, 255));
-        lb_edit.setText("Edit");
-        lb_edit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_editMouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout pn_editLayout = new javax.swing.GroupLayout(pn_edit);
-        pn_edit.setLayout(pn_editLayout);
-        pn_editLayout.setHorizontalGroup(
-            pn_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_editLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lb_edit)
-                .addContainerGap())
-        );
-        pn_editLayout.setVerticalGroup(
-            pn_editLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lb_edit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, Short.MAX_VALUE)
-        );
-
-        panel_center.add(pn_edit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, 20));
-
-        logoBin.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\rubbish-bin.png")); // NOI18N
         logoBin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 logoBinMouseClicked(evt);
             }
         });
-        panel_center.add(logoBin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        panel_center.add(logoBin, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 160, 20, 60));
 
-        add(panel_center, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 570, 380));
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\bookinglist.png")); // NOI18N
+        panel_center.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        add(panel_center, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbbox_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_sendActionPerformed
@@ -493,45 +385,8 @@ public class Panel_BookingList extends javax.swing.JPanel {
         try{
             //------เช็คการเลือกเวลา------
             if(timeBox.getSelectedIndex()==3) { //กรณีเลือกetc
-                if((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals("")){//ถ้าไม่กรอกเวลาลงช่องetc
-                    JOptionPane.showMessageDialog(null,"Pleased check your time.");//แสดงdialog 
-                }else{//ถูก
-                    //------เช็คการกรอกเบอร์โทร------
-                    if(txt_phone.getText().equals("")||txt_phone.getText().contains(notAllowChar)||txt_phone.getText().length()!=10){
-                        tel=person.getTel();//ให้telเป็นเบอร์เดิม
-                        JOptionPane.showMessageDialog(null,"Pleased check your phone number.");
-                    }else{
-                        tel=txt_phone.getText();//ให้telเป็นเบอร์ใหม่ที่กรอกเข้าไป
-                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
-                        Connection con = ConnectionBuilder.getConnection();
-                        PreparedStatement st=con.prepareStatement(sql);
-                        String timeEdit = timeBox.getSelectedItem().toString();
-                        String timer = "23:00:00";
-                        if(timeEdit.equals("00.00")){
-                            timer = "00:00:00";
-                        }
-                        else if(timeEdit.equals("01.00")){
-                            timer = "01:00:00";
-                        }
-                        else{
-                            String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
-                            if(etc.length()==5){
-                                String showHr = etc.substring(0,2);//ตัดชั่วโมง
-                                String showMin = etc.substring(3);//ตัดนาที
-                                timer = showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
-                            }
-                        }
-                        st.setString(1,timer);
-                        st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
-                        st.setInt(3,cbbox_send.getSelectedIndex()+18);
-                        st.setString(4,tel);
-                        st.executeUpdate();
-                        JOptionPane.showMessageDialog(null,"save already");
-                    }
-                }
-            }
-            else if(timeBox.getSelectedIndex()!=3) { //กรณีเลือกเวลา
-                if(!((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals(""))){//ถ้ากรอกเวลาลงช่องetc
+                String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
+                if((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals("")||etc.length()!=5){//ถ้าไม่กรอกเวลาลงช่องetc
                     JOptionPane.showMessageDialog(null,"Pleased check your time.");//แสดงdialog 
                 }else{//ถูก
                     //------เช็คการกรอกเบอร์โทร------
@@ -552,7 +407,44 @@ public class Panel_BookingList extends javax.swing.JPanel {
                             timer = "01:00:00";
                         }
                         else{
-                            String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
+                            if(etc.length()==5){
+                                String showHr = etc.substring(0,2);//ตัดชั่วโมง
+                                String showMin = etc.substring(3);//ตัดนาที
+                                timer = showHr+":"+showMin+":"+"00";//เก็บเวลาลงtimestamp
+                            }
+                        }
+                        st.setString(1,timer);
+                        st.setInt(2,cbbox_pickup.getSelectedIndex()+1);
+                        st.setInt(3,cbbox_send.getSelectedIndex()+18);
+                        st.setString(4,tel);
+                        st.executeUpdate();
+                        JOptionPane.showMessageDialog(null,"save already");
+                    }
+                }
+            }
+            else if(timeBox.getSelectedIndex()!=3) { //กรณีเลือกเวลา
+                String etc = etcTime.getText();//ดึงข้อมูลมาจากช่องกรอกเวลา
+                if(!((etcTime.getText()).equals("etc.")||(etcTime.getText()).equals(""))){//ถ้ากรอกเวลาลงช่องetc
+                    JOptionPane.showMessageDialog(null,"Pleased check your time2.");//แสดงdialog 
+                }else{//ถูก
+                    //------เช็คการกรอกเบอร์โทร------
+                    if(txt_phone.getText().equals("")||txt_phone.getText().contains(notAllowChar)||txt_phone.getText().length()!=10){
+                        tel=person.getTel();//ให้telเป็นเบอร์เดิม
+                        JOptionPane.showMessageDialog(null,"Pleased check your phone number.");
+                    }else{
+                        tel=txt_phone.getText();//ให้telเป็นเบอร์ใหม่ที่กรอกเข้าไป
+                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,BOOKING_TELEPHONE=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
+                        Connection con = ConnectionBuilder.getConnection();
+                        PreparedStatement st=con.prepareStatement(sql);
+                        String timeEdit = timeBox.getSelectedItem().toString();
+                        String timer = "23:00:00";
+                        if(timeEdit.equals("00.00")){
+                            timer = "00:00:00";
+                        }
+                        else if(timeEdit.equals("01.00")){
+                            timer = "01:00:00";
+                        }
+                        else{
                             if(etc.length()==5){
                                 String showHr = etc.substring(0,2);//ตัดชั่วโมง
                                 String showMin = etc.substring(3);//ตัดนาที
@@ -584,7 +476,7 @@ public class Panel_BookingList extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(null,"Pleased check your phone number.");
                     }else{
                         tel=txt_phone.getText();//ให้telเป็นเบอร์ใหม่ที่กรอกเข้าไป
-                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,Booking_Telephone=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
+                        String sql="Update BOOKING SET BOOKING_ROUND=?,ROUTE_LOCATION_RECIEVE=?,ROUTE_LOCATION_DESTINATION=?,BOOKING_TELEPHONE=? WHERE BOOKING_ID="+BookingList.getValueAt(row,0);
                         Connection con = ConnectionBuilder.getConnection();
                         PreparedStatement st=con.prepareStatement(sql);
                         String timeEdit = timeBox.getSelectedItem().toString();
@@ -621,14 +513,6 @@ public class Panel_BookingList extends javax.swing.JPanel {
         
         callList("Select * from BOOKING WHERE BOOKING_DATE= Current_Date() AND Person_id = " + person.getPersonId());
     }//GEN-LAST:event_btn_saveActionPerformed
-
-    private void logoRefreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoRefreshMouseClicked
-        pn_editDetail.setVisible(false);
-        System.out.println("Mouse is Clicked");
-
-        callList("Select * from BOOKING WHERE BOOKING_DATE= Current_Date() AND Person_id = " + person.getPersonId());
-
-    }//GEN-LAST:event_logoRefreshMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dialog_save.setVisible(false);
@@ -725,10 +609,6 @@ public class Panel_BookingList extends javax.swing.JPanel {
         txt_phone.setText(BookingList.getValueAt(row,5).toString());
     }//GEN-LAST:event_BookingListMouseClicked
 
-    private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
-         pn_editDetail.setVisible(false);
-    }//GEN-LAST:event_btn_exitActionPerformed
-
     private void timeBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timeBoxActionPerformed
         System.out.println(timeBox.getSelectedIndex());
    
@@ -747,13 +627,13 @@ public class Panel_BookingList extends javax.swing.JPanel {
       
     }//GEN-LAST:event_etcTimeActionPerformed
 
-    private void lb_editMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_editMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lb_editMouseClicked
-
     private void cbbox_pickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_pickupActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbox_pickupActionPerformed
+
+    private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
+        pn_editDetail.setVisible(false);
+    }//GEN-LAST:event_btn_exitActionPerformed
 
      public void callList(String sqlCommand){
         //clear table
@@ -822,7 +702,6 @@ public class Panel_BookingList extends javax.swing.JPanel {
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable BookingList;
-    private javax.swing.JLabel bookingList;
     private javax.swing.JButton btn_exit;
     private javax.swing.JButton btn_save;
     private javax.swing.JComboBox<String> cbbox_pickup;
@@ -835,36 +714,26 @@ public class Panel_BookingList extends javax.swing.JPanel {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JLabel lb_del;
-    private javax.swing.JLabel lb_edit;
-    private javax.swing.JLabel lb_edit1;
     private javax.swing.JLabel logoBin;
     private javax.swing.JLabel logoEdit;
     private javax.swing.JLabel logoPhone;
     private javax.swing.JLabel logoPickup;
-    private javax.swing.JLabel logoRefresh;
     private javax.swing.JLabel logoSend;
     private javax.swing.JLabel logoTime;
     private javax.swing.JPanel panel_center;
-    private javax.swing.JPanel panel_top;
-    private javax.swing.JLabel phoneNum;
-    private javax.swing.JLabel pickupPlace;
-    private javax.swing.JPanel pn_del;
-    private javax.swing.JPanel pn_edit;
     private javax.swing.JPanel pn_editDetail;
-    private javax.swing.JLabel sendPlace;
-    private javax.swing.JLabel time;
     private javax.swing.JComboBox<String> timeBox;
     private javax.swing.JTextField txt_phone;
     // End of variables declaration//GEN-END:variables

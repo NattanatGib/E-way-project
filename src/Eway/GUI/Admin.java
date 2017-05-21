@@ -23,6 +23,7 @@ public class Admin extends javax.swing.JFrame {
         btn_logout.setBackground(new Color(255,255,255,0));
         this.admins=ad;
         showName.setText(admins.getStuName());
+        this.setLocationRelativeTo(null);//setให้GUIแสดงตรงกลางจอคอม
     }
 
    
@@ -65,15 +66,15 @@ public class Admin extends javax.swing.JFrame {
 
         showName.setBackground(new java.awt.Color(204, 204, 204));
         showName.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
-        showName.setForeground(new java.awt.Color(153, 153, 153));
+        showName.setForeground(new java.awt.Color(240, 240, 240));
         showName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         showName.setText("name surname");
-        panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 190, 20));
+        panel_top.add(showName, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, 190, 20));
         panel_top.add(logoUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
 
         btn_logout.setBackground(new java.awt.Color(255, 255, 255));
         btn_logout.setFont(new java.awt.Font("TH Sarabun New", 0, 20)); // NOI18N
-        btn_logout.setForeground(new java.awt.Color(153, 153, 153));
+        btn_logout.setForeground(new java.awt.Color(240, 240, 240));
         btn_logout.setText("logout");
         btn_logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {

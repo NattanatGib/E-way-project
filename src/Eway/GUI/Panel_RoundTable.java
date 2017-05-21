@@ -14,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,8 +34,9 @@ public class Panel_RoundTable extends java.awt.Panel {
     }
     public Panel_RoundTable() {
         initComponents();
-        //panel_top.setBackground(new Color(51,58,72));
-        //panel_center.setBackground(new Color(25,95,25,10));
+        btn_booking.setBackground(new Color(255,255,255,0));
+        txt_etctime.setBackground(new Color(255,255,255,0));
+        txt_phone.setBackground(new Color(255,255,255,0));
     }
 
     /**
@@ -44,78 +47,39 @@ public class Panel_RoundTable extends java.awt.Panel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel_top = new javax.swing.JPanel();
-        roundTable = new javax.swing.JLabel();
-        panel_center = new javax.swing.JPanel();
-        btn_booking = new javax.swing.JButton();
-        cbbox_send = new javax.swing.JComboBox<>();
-        cbbox_pickup = new javax.swing.JComboBox<>();
-        txt_etctime = new javax.swing.JTextField();
-        logoPickup = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         cbbox_time = new javax.swing.JComboBox<>();
-        logoPhone = new javax.swing.JLabel();
+        txt_etctime = new javax.swing.JTextField();
+        cbbox_pickup = new javax.swing.JComboBox<>();
+        cbbox_send = new javax.swing.JComboBox<>();
         txt_phone = new javax.swing.JTextField();
-        logoTime = new javax.swing.JLabel();
-        logoSend = new javax.swing.JLabel();
-        time = new javax.swing.JLabel();
-        pickupPlace = new javax.swing.JLabel();
-        sendPlace = new javax.swing.JLabel();
-        phoneNum = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
+        btn_booking = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(576, 441));
         setPreferredSize(new java.awt.Dimension(576, 441));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panel_top.setBackground(new java.awt.Color(0, 58, 72));
-        panel_top.setForeground(new java.awt.Color(51, 0, 51));
-        panel_top.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        roundTable.setFont(new java.awt.Font("OCR A Std", 0, 24)); // NOI18N
-        roundTable.setForeground(new java.awt.Color(204, 204, 204));
-        roundTable.setText("Round Table");
-        panel_top.add(roundTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 190, 50));
-
-        add(panel_top, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 570, 70));
-
-        panel_center.setBackground(new java.awt.Color(0, 58, 72));
-        panel_center.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        btn_booking.setBackground(new java.awt.Color(103, 197, 233));
-        btn_booking.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
-        btn_booking.setForeground(new java.awt.Color(255, 255, 255));
-        btn_booking.setText("BOOKING");
-        btn_booking.addActionListener(new java.awt.event.ActionListener() {
+        cbbox_time.setBackground(new java.awt.Color(251, 227, 227));
+        cbbox_time.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
+        cbbox_time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "23.00", "00.00", "01.00", "Etc." }));
+        cbbox_time.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_bookingActionPerformed(evt);
+                cbbox_timeActionPerformed(evt);
             }
         });
-        panel_center.add(btn_booking, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 110, 40));
-
-        cbbox_send.setBackground(new java.awt.Color(103, 197, 233));
-        cbbox_send.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
-        cbbox_send.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์", "Residence", "หอพักรัชสิทธิ์", "TN modern place", "Library houze", "สวนธนปาร์ค" }));
-        cbbox_send.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbox_sendActionPerformed(evt);
-            }
-        });
-        panel_center.add(cbbox_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 170, 30));
-
-        cbbox_pickup.setBackground(new java.awt.Color(103, 197, 233));
-        cbbox_pickup.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
-        cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysic", "LNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "Learning Space" }));
-        cbbox_pickup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbox_pickupActionPerformed(evt);
-            }
-        });
-        panel_center.add(cbbox_pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 170, 30));
+        jPanel2.add(cbbox_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 80, 30));
 
         txt_etctime.setBackground(new java.awt.Color(204, 204, 204));
         txt_etctime.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
-        txt_etctime.setForeground(new java.awt.Color(153, 153, 153));
+        txt_etctime.setForeground(new java.awt.Color(251, 227, 227));
         txt_etctime.setText("etc.");
+        txt_etctime.setToolTipText("");
+        txt_etctime.setBorder(null);
+        txt_etctime.setCaretColor(new java.awt.Color(251, 227, 227));
+        txt_etctime.setDisabledTextColor(new java.awt.Color(251, 227, 227));
         txt_etctime.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txt_etctimeFocusGained(evt);
@@ -126,57 +90,54 @@ public class Panel_RoundTable extends java.awt.Panel {
                 txt_etctimeActionPerformed(evt);
             }
         });
-        panel_center.add(txt_etctime, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 170, 30));
-        panel_center.add(logoPickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, -1, -1));
+        jPanel2.add(txt_etctime, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 80, 30));
 
-        cbbox_time.setBackground(new java.awt.Color(103, 197, 233));
-        cbbox_time.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
-        cbbox_time.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "23.00 pm.", "00.00 pm.", "01.00 am.", "Etc." }));
-        cbbox_time.addActionListener(new java.awt.event.ActionListener() {
+        cbbox_pickup.setBackground(new java.awt.Color(251, 227, 227));
+        cbbox_pickup.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
+        cbbox_pickup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SIT", "ตึกอธิการ", "ตึก14ชั้น", "หอหญิง", "หน้า7-11วิศวะ", "ตึกแดง", "หน้าKFC", "FIBO", "หน้าตึกphysic", "LNG", "หน้าตึกวิศวะเคมี", "CB3", "CB4", "CB5(GMI)", "Learning Space" }));
+        cbbox_pickup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbox_timeActionPerformed(evt);
+                cbbox_pickupActionPerformed(evt);
             }
         });
-        panel_center.add(cbbox_time, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 170, 30));
-        panel_center.add(logoPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
+        jPanel2.add(cbbox_pickup, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 180, 30));
+
+        cbbox_send.setBackground(new java.awt.Color(251, 227, 227));
+        cbbox_send.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
+        cbbox_send.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "หอพัก myplace", "หอพัก myplace2", "คอนโดบ้านสวนธน", "หอพักธนบุญ", "the parque", "คอสโม เรสซิเดนซ์", "Residence", "หอพักรัชสิทธิ์", "TN modern place", "Library houze" }));
+        cbbox_send.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbox_sendActionPerformed(evt);
+            }
+        });
+        jPanel2.add(cbbox_send, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 180, 30));
 
         txt_phone.setBackground(new java.awt.Color(204, 204, 204));
         txt_phone.setFont(new java.awt.Font("TH Sarabun New", 0, 22)); // NOI18N
+        txt_phone.setForeground(new java.awt.Color(251, 227, 227));
+        txt_phone.setBorder(null);
         txt_phone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_phoneActionPerformed(evt);
             }
         });
-        panel_center.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 170, 30));
-        panel_center.add(logoTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, -1, -1));
-        panel_center.add(logoSend, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
+        jPanel2.add(txt_phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 170, 30));
 
-        time.setBackground(new java.awt.Color(255, 255, 255));
-        time.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        time.setForeground(new java.awt.Color(240, 240, 240));
-        time.setText("Time");
-        panel_center.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 140, 50));
+        btn_booking.setBackground(new java.awt.Color(103, 197, 233));
+        btn_booking.setFont(new java.awt.Font("TH Sarabun New", 1, 24)); // NOI18N
+        btn_booking.setForeground(new java.awt.Color(34, 38, 75));
+        btn_booking.setText("BOOKING");
+        btn_booking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_bookingActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btn_booking, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 190, 50));
 
-        pickupPlace.setBackground(new java.awt.Color(255, 255, 255));
-        pickupPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        pickupPlace.setForeground(new java.awt.Color(240, 240, 240));
-        pickupPlace.setText("Pickup Place");
-        panel_center.add(pickupPlace, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 200, 50));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\hp\\Desktop\\gib\\IT\\ปี1 เทอม2\\INT105 java\\Project\\E-way-project\\src\\icon\\roundtable.png")); // NOI18N
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
-        sendPlace.setBackground(new java.awt.Color(255, 255, 255));
-        sendPlace.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        sendPlace.setForeground(new java.awt.Color(240, 240, 240));
-        sendPlace.setText("Send Place");
-        panel_center.add(sendPlace, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 210, 50));
-
-        phoneNum.setBackground(new java.awt.Color(255, 255, 255));
-        phoneNum.setFont(new java.awt.Font("TH Sarabun New", 1, 28)); // NOI18N
-        phoneNum.setForeground(new java.awt.Color(240, 240, 240));
-        phoneNum.setText("Phone Number");
-        panel_center.add(phoneNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, 230, 50));
-        panel_center.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 528, 10));
-
-        add(panel_center, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 570, 380));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 440));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_bookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_bookingActionPerformed
@@ -207,97 +168,98 @@ public class Panel_RoundTable extends java.awt.Panel {
             }else{
                 JOptionPane.showMessageDialog(null,"Enter Again please ");
                 txt_etctime.requestFocus();
-            }    
+            }
         }
         //----------------------------------------------------------------//
         Person std = this.person;
         int receiveId = cbbox_pickup.getSelectedIndex()+1;
         int sendId = cbbox_send.getSelectedIndex()+16;
         //เก็บข้อมูลลงdb BOOKING
-        
+
         ResultSet rs=null;
         try{
             String sql ="Select * From BOOKING Where Booking_DATE = CURDATE() AND Person_Id = ? ";
-            Connection con = ConnectionBuilder.getConnection(); 
-            PreparedStatement st=con.prepareStatement(sql); 
+            Connection con = ConnectionBuilder.getConnection();
+            PreparedStatement st=con.prepareStatement(sql);
             st.setInt(1,person.getPersonId());
             rs=st.executeQuery();
             //con.close();
         }catch(SQLException e){
             System.out.println(e);
-        }   
-        
+        }
+
         //------check that user enter all information--------
-     
-        CharSequence notAllowChar= "abcdefghijlmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-/";
+        String tel = txt_phone.getText();
+        Pattern pattern = Pattern.compile("\\d{10}");
+        Matcher matcher = pattern.matcher(tel);
+        if(matcher.matches()){
+            System.out.println("Phone number valid");
+        }
         try {
             if(!rs.next()){
-                if((txt_phone.getText().length()==0||(txt_phone.getText()).length()==10)){//&&(!txt_phone.getText().contains(notAllowChar))){
-                    if(!txt_phone.getText().contains(notAllowChar)){
-                        
-                    
+                if(tel.length()==0||(tel.length()==10)&&matcher.matches()){
                     if(cbbox_time.getSelectedIndex()==3){
                         if((txt_etctime.getText()).equals("etc.")||(txt_etctime.getText()).equals("")){
                             JOptionPane.showMessageDialog(this,"Please enter time booking");
                             txt_etctime.requestFocus();
                         }else
-                            new Booking(time, date, std, receiveId, sendId,std.getTel());
-                            JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List1");
-                        }
-                        else if(cbbox_time.getSelectedIndex()!=3 &&!(txt_etctime.getText()).equals("etc.")){
-                            JOptionPane.showMessageDialog(this,"Choose time again!");
-                            txt_etctime.setText("etc.");
-                        }
-                        else{
-                            if(txt_phone.getText().equals("")){
-                                Booking book = new Booking(time, date, std, receiveId, sendId,std.getTel());
-                                JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List2");
-                            }else{
-                                Booking book = new Booking(time, date, std, receiveId, sendId,txt_phone.getText());
-                                JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List3");
-                            }
+                        new Booking(time, date, std, receiveId, sendId,std.getTel());
+                        JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List.");
+                    }
+                    else if(cbbox_time.getSelectedIndex()!=3 &&!(txt_etctime.getText()).equals("etc.")){
+                        JOptionPane.showMessageDialog(this,"Choose time again!");
+                        txt_etctime.setText("etc.");
+                    }
+                    else{
+                        if(txt_phone.getText().equals("")){
+                            Booking book = new Booking(time, date, std, receiveId, sendId,std.getTel());
+                            JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List.");
+                        }else{
+                            Booking book = new Booking(time, date, std, receiveId, sendId,txt_phone.getText());
+                            JOptionPane.showMessageDialog(this,"Successed, You can see your booking in Booking List.");
                         }
                     }
+
                 }else{
                     JOptionPane.showMessageDialog(this,"Please check your phone number again");
                     txt_phone.requestFocus();
                 }
             }else
-                JOptionPane.showMessageDialog(this,"You've book already kub");
-            
+            JOptionPane.showMessageDialog(this,"You've book already kub");
+
         } catch (SQLException ex) {
             System.out.println(ex);;
         }
-        
+
     }//GEN-LAST:event_btn_bookingActionPerformed
+
+    private void txt_phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_phoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_phoneActionPerformed
 
     private void cbbox_sendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_sendActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbox_sendActionPerformed
 
+    private void cbbox_pickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_pickupActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbox_pickupActionPerformed
+
     private void txt_etctimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_etctimeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_etctimeActionPerformed
-
-    private void cbbox_timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_timeActionPerformed
-        if(cbbox_time.getSelectedIndex()==3)
-            txt_etctime.setEditable(true);
-        else
-            txt_etctime.setEditable(false);
-    }//GEN-LAST:event_cbbox_timeActionPerformed
-
-    private void txt_phoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_phoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_phoneActionPerformed
 
     private void txt_etctimeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txt_etctimeFocusGained
         txt_etctime.setText("");
         txt_etctime.setForeground(Color.black);
     }//GEN-LAST:event_txt_etctimeFocusGained
 
-    private void cbbox_pickupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_pickupActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbox_pickupActionPerformed
+    private void cbbox_timeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbox_timeActionPerformed
+        if(cbbox_time.getSelectedIndex()==3)
+        txt_etctime.setEditable(true);
+        else
+        txt_etctime.setEditable(false);
+    }//GEN-LAST:event_cbbox_timeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -305,18 +267,8 @@ public class Panel_RoundTable extends java.awt.Panel {
     private javax.swing.JComboBox<String> cbbox_pickup;
     private javax.swing.JComboBox<String> cbbox_send;
     private javax.swing.JComboBox<String> cbbox_time;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel logoPhone;
-    private javax.swing.JLabel logoPickup;
-    private javax.swing.JLabel logoSend;
-    private javax.swing.JLabel logoTime;
-    private javax.swing.JPanel panel_center;
-    private javax.swing.JPanel panel_top;
-    private javax.swing.JLabel phoneNum;
-    private javax.swing.JLabel pickupPlace;
-    private javax.swing.JLabel roundTable;
-    private javax.swing.JLabel sendPlace;
-    private javax.swing.JLabel time;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txt_etctime;
     private javax.swing.JTextField txt_phone;
     // End of variables declaration//GEN-END:variables
